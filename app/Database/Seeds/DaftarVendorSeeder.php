@@ -4,7 +4,7 @@ namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
 
-class MDataDocumentsStockOutSeeder extends Seeder
+class DaftarVendorSeeder extends Seeder
 {
 	public function run()
 	{

@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class MNotessStockInModel extends Model
+class NotaMasukModel extends Model
 {
 	protected $DBGroup              = 'default';
-	protected $table                = 'mnotessstockins';
+	protected $table                = 'notamasuks';
 	protected $primaryKey           = 'id';
 	protected $useAutoIncrement     = true;
 	protected $insertID             = 0;

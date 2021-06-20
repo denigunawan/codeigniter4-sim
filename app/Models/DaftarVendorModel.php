@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class MNotessStockOutModel extends Model
+class DaftarVendorModel extends Model
 {
 	protected $DBGroup              = 'default';
-	protected $table                = 'mnotessstockouts';
+	protected $table                = 'daftarvendors';
 	protected $primaryKey           = 'id';
 	protected $useAutoIncrement     = true;
 	protected $insertID             = 0;

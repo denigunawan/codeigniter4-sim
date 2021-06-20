@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class MRacksModel extends Model
+class DaftarRakModel extends Model
 {
 	protected $DBGroup              = 'default';
-	protected $table                = 'mracks';
+	protected $table                = 'daftarraks';
 	protected $primaryKey           = 'id';
 	protected $useAutoIncrement     = true;
 	protected $insertID             = 0;

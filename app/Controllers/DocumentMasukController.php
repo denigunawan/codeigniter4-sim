@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 
-class MNotesStockOutController extends BaseController
+class DocumentMasukController extends BaseController
 {
 	public function index()
 	{

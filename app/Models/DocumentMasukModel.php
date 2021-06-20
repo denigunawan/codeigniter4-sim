@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class MDocumentsStockInModel extends Model
+class DocumentMasukModel extends Model
 {
 	protected $DBGroup              = 'default';
-	protected $table                = 'mdocumentsstockins';
+	protected $table                = 'documentmasuks';
 	protected $primaryKey           = 'id';
 	protected $useAutoIncrement     = true;
 	protected $insertID             = 0;

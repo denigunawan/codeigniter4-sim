@@ -4,7 +4,7 @@ namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
 
-class MDataRacksSeeder extends Seeder
+class DocumentMasukSeeder extends Seeder
 {
 	public function run()
 	{

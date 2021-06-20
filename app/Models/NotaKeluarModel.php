@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class MVendorsModel extends Model
+class NotaKeluarModel extends Model
 {
 	protected $DBGroup              = 'default';
-	protected $table                = 'mvendors';
+	protected $table                = 'notakeluars';
 	protected $primaryKey           = 'id';
 	protected $useAutoIncrement     = true;
 	protected $insertID             = 0;
