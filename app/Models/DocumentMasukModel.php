@@ -7,19 +7,29 @@ use CodeIgniter\Model;
 class DocumentMasukModel extends Model
 {
 
-	protected $table = 'documentkeluar';
+	protected $table = 'documentmasuk';
 
 	public function getData($id = false)
 	{
 		if ($id === false) {
-			return $this->table('documentkeluar')
-				->join('user', 'user.user_id = documentkeluar.user_id')
+			return $this->table('documentmasuk')
+				->join('user', 'user.user_id = documentmasuk.user_id')
+				->join('vendor', 'vendor.vendor_id = documentmasuk.vendor_id')
+				->join('drawingtype', 'drawingtype.drawingtype_id = documentmasuk.drawingtype_id')
+				->join('drawingkode', 'drawingkode.drawingkode_id = documentmasuk.drawingkode_id')
+				->join('rak', 'rak.rak_id = documentmasuk.rak_id')
+				->join('bahasa', 'bahasa.bahasa_id = documentmasuk.bahasa_id')
 				->get()
 				->getResultArray();
 		} else {
-			return $this->table('documentkeluar')
-				->join('user', 'user.user_id = documentkeluar.user_id')
-				->where('documentkeluar.documentkeluar_id', $id)
+			return $this->table('documentmasuk')
+				->join('user', 'user.user_id = documentmasuk.user_id')
+				->join('vendor', 'vendor.vendor_id = documentmasuk.vendor_id')
+				->join('drawingtype', 'drawingtype.drawingtype_id = documentmasuk.drawingtype_id')
+				->join('drawingkode', 'drawingkode.drawingkode_id = documentmasuk.drawingkode_id')
+				->join('rak', 'rak.rak_id = documentmasuk.rak_id')
+				->join('bahasa', 'bahasa.bahasa_id = documentmasuk.bahasa_id')
+				->where('documentmasuk.documentmasuk_id', $id)
 				->get()
 				->getRowArray();
 		}
@@ -31,10 +41,10 @@ class DocumentMasukModel extends Model
 
 	public function updateData($data, $id)
 	{
-		return $this->db->table($this->table)->update($data, ['documentkeluar_id' => $id]);
+		return $this->db->table($this->table)->update($data, ['documentmasuk_id' => $id]);
 	}
 	public function deleteData($id)
 	{
-		return $this->db->table($this->table)->delete(['documentkeluar_id' => $id]);
+		return $this->db->table($this->table)->delete(['documentmasuk_id' => $id]);
 	}
 }

@@ -41,7 +41,7 @@ class DaftarDocumentMasukSchema extends Migration
 				'unsigned'			=> TRUE,
 				'null'				=> TRUE
 			],
-			'vendor_id'		=> [
+			'vendor_id'				=> [
 				'type'				=> 'INT',
 				'constraint'		=> 36,
 				'unsigned'			=> TRUE,

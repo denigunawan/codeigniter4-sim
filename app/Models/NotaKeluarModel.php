@@ -13,11 +13,13 @@ class NotaKeluarModel extends Model
 		if ($id === false) {
 			return $this->table('notakeluar')
 				->join('user', 'user.user_id = notakeluar.user_id')
+				->join('vendor', 'vendor.vendor_id = notakeluar.vendor_id')
 				->get()
 				->getResultArray();
 		} else {
 			return $this->table('notakeluar')
 				->join('user', 'user.user_id = notakeluar.user_id')
+				->join('vendor', 'vendor.vendor_id = notakeluar.vendor_id')
 				->where('notakeluar.notakeluar_id', $id)
 				->get()
 				->getRowArray();

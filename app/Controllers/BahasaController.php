@@ -5,9 +5,8 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\DaftarBahasaModel;
 use App\Models\DaftarUsersModel;
-use App\Models\usersModel;
 
-class BahasController extends BaseController
+class BahasaController extends BaseController
 {
 
 	public function __construct()
