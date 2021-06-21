@@ -43,7 +43,7 @@ class Validation
 
 
 
-	// validasi untuk  Daftar Imam 
+	// validasi untuk  setiap field yang ada di Database 
 	public $bahasa = [
 		'user_id'				=> 'required',
 		'bahasa_document'     	=> 'required',
@@ -78,131 +78,133 @@ class Validation
 
 
 
-	// validasi untuk  Daftar Imam 
+	// validasi untuk  setiap field yang ada di Database 
 	public $rak = [
-		'idpengurus'		=> 'required',
-		'foto'				=> 'uploaded[foto]|mime_in[foto,image/jpg,image/jpeg,image/gif,image/png]|max_size[foto,1000]',
-		'nama'     			=> 'required',
-		'alamat'     		=> 'required',
-		'status'   			=> 'required',
-		'handphone'   		=> 'required',
-		'tahun'   			=> 'required',
+		'user_id'			=> 'required',
+		'nama_rak'     		=> 'required',
+		'kode_rak'     		=> 'required',
+		'tanggal_masuk'   	=> 'required',
+		'created_at'   		=> 'required',
+		'updated_at'   		=> 'required',
 	];
 
 	public $rak_errors = [
 
-		'idpengurus'     	=> [
-			'required'		=> 'Pengurus Wajib Di isi'
+		'user_id'     	=> [
+			'required'		=> 'Staff Penanggung Jawab Wajib Diisi'
 		],
 
-		'foto'     			=> [
-			'mime_in'   => 'Gambar imam hanya boleh diisi dengan jpg, jpeg, png atau gif.',
-			'max_size'  => 'Gambar imam maksimal 2mb',
-			'uploaded'  => 'Gambar imam wajib diisi'
+		'nama_rak'   => [
+			'required'		=> 'Nama Rak Wajib Di isi'
 		],
-
-		'nama'     			=> [
-			'required'		=> 'Data nama Wajib Di isi'
+		'kode_rak'   => [
+			'required'		=> 'Kode Rak Wajib Di isi'
 		],
-		'alamat'   		=> [
-			'required'		=> 'Data Alamat Wajib Di isi'
+		'tanggal_masuk'   	=> [
+			'required'		=> 'Tanggal Terdata  Wajib Di isi'
 		],
-		'status'   			=>  [
-			'required'		=> ' Data Status Wajib Di isi'
+		'created_at'   		=>  [
+			'required'		=> 'Created at Wajib Di isi'
 		],
-		'handphone'   		=>  [
-			'required'		=> 'Data Handphone  Wajib Di isi'
-		],
-		'tahun'   		=>  [
-			'required'		=> 'Data Tahun Wajib Di isi'
+		'updated_at'   		=>  [
+			'required'		=> 'updated_at Wajib Di isi'
 		]
-
 	];
 
 
 
 
-	// validasi untuk  Daftar Imam 
+	// validasi untuk  setiap field yang ada di Database 
 	public $vendor = [
-		'idpengurus'		=> 'required',
-		'foto'				=> 'uploaded[foto]|mime_in[foto,image/jpg,image/jpeg,image/gif,image/png]|max_size[foto,1000]',
-		'nama'     			=> 'required',
-		'alamat'     		=> 'required',
-		'status'   			=> 'required',
-		'handphone'   		=> 'required',
-		'tahun'   			=> 'required',
+		'user_id'			=> 'required',
+		'nama_vendor'     	=> 'required',
+		'jenis_vendor'     	=> 'required',
+		'tanggal_masuk'   	=> 'required',
+		'created_at'   		=> 'required',
+		'updated_at'   		=> 'required',
 	];
 
 	public $vendor_errors = [
 
-		'idpengurus'     	=> [
-			'required'		=> 'Pengurus Wajib Di isi'
+		'user_id'     	=> [
+			'required'		=> 'Staff Penanggung Jawab Wajib Diisi'
 		],
 
-		'foto'     			=> [
-			'mime_in'   => 'Gambar imam hanya boleh diisi dengan jpg, jpeg, png atau gif.',
-			'max_size'  => 'Gambar imam maksimal 2mb',
-			'uploaded'  => 'Gambar imam wajib diisi'
+		'nama_vendor'   => [
+			'required'		=> 'Nama Vendor Wajib Di isi'
 		],
-
-		'nama'     			=> [
-			'required'		=> 'Data nama Wajib Di isi'
+		'jenis_vendor'   => [
+			'required'		=> 'Jenis Vendor Wajib Di isi'
 		],
-		'alamat'   		=> [
-			'required'		=> 'Data Alamat Wajib Di isi'
+		'tanggal_masuk'   	=> [
+			'required'		=> 'Tanggal Terdata Dokumen Wajib Di isi'
 		],
-		'status'   			=>  [
-			'required'		=> ' Data Status Wajib Di isi'
+		'created_at'   		=>  [
+			'required'		=> 'Created at Wajib Di isi'
 		],
-		'handphone'   		=>  [
-			'required'		=> 'Data Handphone  Wajib Di isi'
-		],
-		'tahun'   		=>  [
-			'required'		=> 'Data Tahun Wajib Di isi'
+		'updated_at'   		=>  [
+			'required'		=> 'updated_at Wajib Di isi'
 		]
-
 	];
 
 
 
 
-	// validasi untuk  Daftar Imam 
+	// validasi untuk  setiap field yang ada di Database 
 	public $documentkeluar = [
-		'idpengurus'		=> 'required',
-		'foto'				=> 'uploaded[foto]|mime_in[foto,image/jpg,image/jpeg,image/gif,image/png]|max_size[foto,1000]',
-		'nama'     			=> 'required',
-		'alamat'     		=> 'required',
-		'status'   			=> 'required',
-		'handphone'   		=> 'required',
-		'tahun'   			=> 'required',
+		'kode_dokumen'     			=> 'required',
+		'drawingtype_id'     		=> 'required',
+		'drawingkode_id'   			=> 'required',
+		'nomer_box'   				=> 'required',
+		'isi_box'   				=> 'required',
+		'vendor_id'   				=> 'required',
+		'bahasa_id'   				=> 'required',
+		'tanggal_keluar'   			=> 'required',
+		'status'   					=> 'required',
+		'user_id'   				=> 'required',
+		'created_at'   				=> 'required',
+		'updated_at'   				=> 'required',
+
+
+
 	];
 
 	public $documentkeluar_errors = [
 
-		'idpengurus'     	=> [
-			'required'		=> 'Pengurus Wajib Di isi'
+		'kode_dokumen'     	=> [
+			'required'		=> 'Kode Dokumen Wajib Di isi'
 		],
 
-		'foto'     			=> [
-			'mime_in'   => 'Gambar imam hanya boleh diisi dengan jpg, jpeg, png atau gif.',
-			'max_size'  => 'Gambar imam maksimal 2mb',
-			'uploaded'  => 'Gambar imam wajib diisi'
+		'drawingtype_id'    => [
+			'required'		=> 'Data Drawing Type Wajib Di isi'
 		],
 
-		'nama'     			=> [
-			'required'		=> 'Data nama Wajib Di isi'
+		'drawingkode_id'   	=> [
+			'required'		=> 'Data Drawing Kode Wajib Di isi'
 		],
-		'alamat'   		=> [
-			'required'		=> 'Data Alamat Wajib Di isi'
+		'nomer_box'   		=>  [
+			'required'		=> 'Data Nomer Box Wajib Di isi'
 		],
-		'status'   			=>  [
-			'required'		=> ' Data Status Wajib Di isi'
+		'vendor_id'   		=>  [
+			'required'		=> 'Data Vendor Wajib Di isi'
 		],
-		'handphone'   		=>  [
-			'required'		=> 'Data Handphone  Wajib Di isi'
+		'bahasa_id'   		=>  [
+			'required'		=> 'Data Bahasa Wajib Di isi'
 		],
-		'tahun'   		=>  [
-			'required'		=> 'Data Tahun Wajib Di isi'
+		'tanggal_keluar'   	=>  [
+			'required'		=> 'Data Tanggal Keluar Document Wajib Di isi'
+		],
+		'status'   	=>  [
+			'required'		=> 'Data Status  Document Wajib Di isi'
+		],
+		'user_id'   	=>  [
+			'required'		=> 'Data Penanggung Jawab Document Wajib Di isi'
+		],
+		'created_at'   		=>  [
+			'required'		=> 'Data Tanggal Pembuatan Document Wajib Di isi'
+		],
+		'updated_at'   		=>  [
+			'required'		=> 'Data Update Wajib Di isi'
 		]
 
 	];
@@ -211,43 +213,61 @@ class Validation
 
 
 
-	// validasi untuk  Daftar Imam 
+	// validasi untuk  setiap field yang ada di Database 
 	public $documentmasuk = [
-		'idpengurus'		=> 'required',
-		'foto'				=> 'uploaded[foto]|mime_in[foto,image/jpg,image/jpeg,image/gif,image/png]|max_size[foto,1000]',
-		'nama'     			=> 'required',
-		'alamat'     		=> 'required',
-		'status'   			=> 'required',
-		'handphone'   		=> 'required',
-		'tahun'   			=> 'required',
+		'kode_dokumen'     			=> 'required',
+		'drawingtype_id'     		=> 'required',
+		'drawingkode_id'   			=> 'required',
+		'judul_dokumen'   			=> 'required',
+		'rak_id'   					=> 'required',
+		'vendor_id'   				=> 'required',
+		'bahasa_id'   				=> 'required',
+		'tanggal_masuk'   			=> 'required',
+		'status'   					=> 'required',
+		'user_id'   				=> 'required',
+		'created_at'   				=> 'required',
+		'updated_at'   				=> 'required',
 	];
 
 	public $documentmasuk_errors = [
 
-		'idpengurus'     	=> [
-			'required'		=> 'Pengurus Wajib Di isi'
+		'kode_dokumen'     	=> [
+			'required'		=> 'Kode Dokumen Wajib Di isi'
 		],
 
-		'foto'     			=> [
-			'mime_in'   => 'Gambar imam hanya boleh diisi dengan jpg, jpeg, png atau gif.',
-			'max_size'  => 'Gambar imam maksimal 2mb',
-			'uploaded'  => 'Gambar imam wajib diisi'
+		'drawingtype_id'    => [
+			'required'		=> 'Data Drawing Type Wajib Di isi'
 		],
 
-		'nama'     			=> [
-			'required'		=> 'Data nama Wajib Di isi'
+		'drawingkode_id'   	=> [
+			'required'		=> 'Data Drawing Kode Wajib Di isi'
 		],
-		'alamat'   		=> [
-			'required'		=> 'Data Alamat Wajib Di isi'
+		'judul_dokumen'   	=>  [
+			'required'		=> 'Data Judul Dokumen Wajib Di isi'
 		],
-		'status'   			=>  [
-			'required'		=> ' Data Status Wajib Di isi'
+		'rak_id'   			=>  [
+			'required'		=> 'Data Rak Tempat Dokumen Wajib Di isi'
 		],
-		'handphone'   		=>  [
-			'required'		=> 'Data Handphone  Wajib Di isi'
+		'vendor_id'   		=>  [
+			'required'		=> 'Data Vendor Wajib Di isi'
 		],
-		'tahun'   		=>  [
-			'required'		=> 'Data Tahun Wajib Di isi'
+		'bahasa_id'   		=>  [
+			'required'		=> 'Data Bahasa Wajib Di isi'
+		],
+		'tanggal_masuk'   	=>  [
+			'required'		=> 'Data Tanggal Masuk Document Wajib Di isi'
+		],
+		'status'   	=>  [
+			'required'		=> 'Data Status  Document Wajib Di isi'
+		],
+		'user_id'   	=>  [
+			'required'		=> 'Data Penanggung Jawab Document Wajib Di isi'
+		],
+		'created_at'   		=>  [
+			'required'		=> 'Data Tanggal Pembuatan Document Wajib Di isi'
+		],
+		'updated_at'   		=>  [
+			'required'		=> 'Data Update Wajib Di isi'
 		]
 
 	];
@@ -256,7 +276,7 @@ class Validation
 
 
 
-	// validasi untuk  Daftar Imam 
+	// validasi untuk  setiap field yang ada di Database 
 	public $drawingkode = [
 		'idpengurus'		=> 'required',
 		'foto'				=> 'uploaded[foto]|mime_in[foto,image/jpg,image/jpeg,image/gif,image/png]|max_size[foto,1000]',
@@ -301,43 +321,32 @@ class Validation
 
 
 
-	// validasi untuk  Daftar Imam 
+	// validasi untuk  setiap field yang ada di Database 
 	public $drawingtype = [
-		'idpengurus'		=> 'required',
-		'foto'				=> 'uploaded[foto]|mime_in[foto,image/jpg,image/jpeg,image/gif,image/png]|max_size[foto,1000]',
-		'nama'     			=> 'required',
-		'alamat'     		=> 'required',
-		'status'   			=> 'required',
-		'handphone'   		=> 'required',
-		'tahun'   			=> 'required',
+		'user_id'			=> 'required',
+		'drawing_type'      => 'required',
+		'tanggal_masuk'     => 'required',
+		'created_at'   		=> 'required',
+		'updated_at'   		=> 'required',
 	];
 
 	public $drawingtype_errors = [
 
-		'idpengurus'     	=> [
-			'required'		=> 'Pengurus Wajib Di isi'
+		'drawing_type'     	=> [
+			'required'		=> 'Drawing Type  Wajib Di isi'
 		],
 
-		'foto'     			=> [
-			'mime_in'   => 'Gambar imam hanya boleh diisi dengan jpg, jpeg, png atau gif.',
-			'max_size'  => 'Gambar imam maksimal 2mb',
-			'uploaded'  => 'Gambar imam wajib diisi'
+		'tanggal_masuk'   	=>  [
+			'required'		=> 'Data Tanggal Masuk  Wajib Di isi'
 		],
-
-		'nama'     			=> [
-			'required'		=> 'Data nama Wajib Di isi'
+		'user_id'   	=>  [
+			'required'		=> 'Data Penanggung Jawab Wajib Di isi'
 		],
-		'alamat'   		=> [
-			'required'		=> 'Data Alamat Wajib Di isi'
+		'created_at'   		=>  [
+			'required'		=> 'Data Tanggal Pembuatan Data Wajib Di isi'
 		],
-		'status'   			=>  [
-			'required'		=> ' Data Status Wajib Di isi'
-		],
-		'handphone'   		=>  [
-			'required'		=> 'Data Handphone  Wajib Di isi'
-		],
-		'tahun'   		=>  [
-			'required'		=> 'Data Tahun Wajib Di isi'
+		'updated_at'   		=>  [
+			'required'		=> 'Data Tanggal Update Data Wajib Di isi'
 		]
 
 	];
@@ -346,44 +355,38 @@ class Validation
 
 
 
-	// validasi untuk  Daftar Imam 
+	// validasi untuk  setiap field yang ada di Database 
 	public $jabatan = [
-		'idpengurus'		=> 'required',
-		'foto'				=> 'uploaded[foto]|mime_in[foto,image/jpg,image/jpeg,image/gif,image/png]|max_size[foto,1000]',
-		'nama'     			=> 'required',
-		'alamat'     		=> 'required',
-		'status'   			=> 'required',
-		'handphone'   		=> 'required',
-		'tahun'   			=> 'required',
+		'user_id'			=> 'required',
+		'nama_jabatan'     	=> 'required',
+		'jenis_jabatan'     => 'required',
+		'tanggal_masuk'   	=> 'required',
+		'created_at'   		=> 'required',
+		'updated_at'   		=> 'required',
 	];
 
 	public $jabatan_errors = [
 
-		'idpengurus'     	=> [
-			'required'		=> 'Pengurus Wajib Di isi'
+		'nama_jabatan'     	=> [
+			'required'		=> 'Jabatan  Wajib Di isi'
+		],
+		'jenis_jabatan'   	=>  [
+			'required'		=> 'Jenis Jabatan Wajib Di isi'
 		],
 
-		'foto'     			=> [
-			'mime_in'   => 'Gambar imam hanya boleh diisi dengan jpg, jpeg, png atau gif.',
-			'max_size'  => 'Gambar imam maksimal 2mb',
-			'uploaded'  => 'Gambar imam wajib diisi'
+		'tanggal_masuk'   	=>  [
+			'required'		=> 'Data Tanggal Masuk Document Wajib Di isi'
 		],
-
-		'nama'     			=> [
-			'required'		=> 'Data nama Wajib Di isi'
+		'user_id'   	=>  [
+			'required'		=> 'Data Penanggung Jawab Wajib Di isi'
 		],
-		'alamat'   		=> [
-			'required'		=> 'Data Alamat Wajib Di isi'
+		'created_at'   		=>  [
+			'required'		=> 'Data Tanggal Pembuatan Document Wajib Di isi'
 		],
-		'status'   			=>  [
-			'required'		=> ' Data Status Wajib Di isi'
-		],
-		'handphone'   		=>  [
-			'required'		=> 'Data Handphone  Wajib Di isi'
-		],
-		'tahun'   		=>  [
-			'required'		=> 'Data Tahun Wajib Di isi'
+		'updated_at'   		=>  [
+			'required'		=> 'Data Update Wajib Di isi'
 		]
+
 
 	];
 
@@ -391,86 +394,99 @@ class Validation
 
 
 
-	// validasi untuk  Daftar Imam 
+	// validasi untuk  setiap field yang ada di Database 
 	public $notamasuk = [
-		'idpengurus'		=> 'required',
-		'foto'				=> 'uploaded[foto]|mime_in[foto,image/jpg,image/jpeg,image/gif,image/png]|max_size[foto,1000]',
-		'nama'     			=> 'required',
-		'alamat'     		=> 'required',
+		'user_id'			=> 'required',
+		'vendor_id'     	=> 'required',
+		'kode_nota'     	=> 'required',
+		'nama_barang'   	=> 'required',
+		'jumlah_barang'   	=> 'required',
 		'status'   			=> 'required',
-		'handphone'   		=> 'required',
-		'tahun'   			=> 'required',
+		'tanggal_masuk'   	=> 'required',
+		'created_at'   		=> 'required',
+		'updated_at'   		=> 'required',
 	];
 
 	public $notamasuk_errors = [
 
-		'idpengurus'     	=> [
-			'required'		=> 'Pengurus Wajib Di isi'
+		'kode_nota'     	=> [
+			'required'		=> 'Kode Nota Wajib Di isi'
 		],
 
-		'foto'     			=> [
-			'mime_in'   => 'Gambar imam hanya boleh diisi dengan jpg, jpeg, png atau gif.',
-			'max_size'  => 'Gambar imam maksimal 2mb',
-			'uploaded'  => 'Gambar imam wajib diisi'
+		'nama_barang'    => [
+			'required'		=> 'Nama Barang Wajib Di isi'
 		],
 
-		'nama'     			=> [
-			'required'		=> 'Data nama Wajib Di isi'
+		'jumlah_barang'   	=> [
+			'required'		=> 'Jumlah Barang Wajib Di isi'
 		],
-		'alamat'   		=> [
-			'required'		=> 'Data Alamat Wajib Di isi'
+		'vendor_id'   		=>  [
+			'required'		=> 'Data Vendor Wajib Di isi'
 		],
-		'status'   			=>  [
-			'required'		=> ' Data Status Wajib Di isi'
+		'tanggal_masuk'   	=>  [
+			'required'		=> 'Data Tanggal Masuk nota Wajib Di isi'
 		],
-		'handphone'   		=>  [
-			'required'		=> 'Data Handphone  Wajib Di isi'
+		'status'   	=>  [
+			'required'		=> 'Data Status nota Wajib Di isi'
 		],
-		'tahun'   		=>  [
-			'required'		=> 'Data Tahun Wajib Di isi'
+		'user_id'   	=>  [
+			'required'		=> 'Data Penanggung Jawab nota Wajib Di isi'
+		],
+		'created_at'   		=>  [
+			'required'		=> 'Data Tanggal Pembuatan nota Wajib Di isi'
+		],
+		'updated_at'   		=>  [
+			'required'		=> 'Data Update Wajib Di isi'
 		]
 
 	];
 
 
 
-	// validasi untuk  Daftar Imam 
+	// validasi untuk  setiap field yang ada di Database 
 	public $notakeluar = [
-		'idpengurus'		=> 'required',
-		'foto'				=> 'uploaded[foto]|mime_in[foto,image/jpg,image/jpeg,image/gif,image/png]|max_size[foto,1000]',
-		'nama'     			=> 'required',
-		'alamat'     		=> 'required',
+		'user_id'			=> 'required',
+		'vendor_id'     	=> 'required',
+		'kode_nota'     	=> 'required',
+		'nama_barang'   	=> 'required',
+		'jumlah_barang'   	=> 'required',
 		'status'   			=> 'required',
-		'handphone'   		=> 'required',
-		'tahun'   			=> 'required',
+		'tanggal_keluar'   	=> 'required',
+		'created_at'   		=> 'required',
+		'updated_at'   		=> 'required',
+
 	];
 
 	public $notakeluar_errors = [
 
-		'idpengurus'     	=> [
-			'required'		=> 'Pengurus Wajib Di isi'
+		'kode_nota'     	=> [
+			'required'		=> 'Kode Nota Wajib Di isi'
 		],
 
-		'foto'     			=> [
-			'mime_in'   => 'Gambar imam hanya boleh diisi dengan jpg, jpeg, png atau gif.',
-			'max_size'  => 'Gambar imam maksimal 2mb',
-			'uploaded'  => 'Gambar imam wajib diisi'
+		'nama_barang'    => [
+			'required'		=> 'Nama Barang Wajib Di isi'
 		],
 
-		'nama'     			=> [
-			'required'		=> 'Data nama Wajib Di isi'
+		'jumlah_barang'   	=> [
+			'required'		=> 'Jumlah Barang Wajib Di isi'
 		],
-		'alamat'   		=> [
-			'required'		=> 'Data Alamat Wajib Di isi'
+		'vendor_id'   		=>  [
+			'required'		=> 'Data Vendor Wajib Di isi'
 		],
-		'status'   			=>  [
-			'required'		=> ' Data Status Wajib Di isi'
+		'tanggal_keluar'   	=>  [
+			'required'		=> 'Data Tanggal keluar nota Wajib Di isi'
 		],
-		'handphone'   		=>  [
-			'required'		=> 'Data Handphone  Wajib Di isi'
+		'status'   	=>  [
+			'required'		=> 'Data Status nota Wajib Di isi'
 		],
-		'tahun'   		=>  [
-			'required'		=> 'Data Tahun Wajib Di isi'
+		'user_id'   	=>  [
+			'required'		=> 'Data Penanggung Jawab nota Wajib Di isi'
+		],
+		'created_at'   		=>  [
+			'required'		=> 'Data Tanggal Pembuatan nota Wajib Di isi'
+		],
+		'updated_at'   		=>  [
+			'required'		=> 'Data Update Wajib Di isi'
 		]
 
 	];
@@ -479,43 +495,36 @@ class Validation
 
 
 
-	// validasi untuk  Daftar Imam 
+	// validasi untuk  setiap field yang ada di Database 
 	public $user = [
-		'idpengurus'		=> 'required',
-		'foto'				=> 'uploaded[foto]|mime_in[foto,image/jpg,image/jpeg,image/gif,image/png]|max_size[foto,1000]',
-		'nama'     			=> 'required',
-		'alamat'     		=> 'required',
-		'status'   			=> 'required',
-		'handphone'   		=> 'required',
-		'tahun'   			=> 'required',
+		'nama_user'			=> 'required',
+		'username'     		=> 'required',
+		'password'     		=> 'required',
+		'level'   			=> 'required',
+		'created_at'   		=> 'required',
+		'updated_at'   		=> 'required',
 	];
 
 	public $user_errors = [
 
-		'idpengurus'     	=> [
-			'required'		=> 'Pengurus Wajib Di isi'
+		'nama_user'     	=> [
+			'required'		=> 'Nama Users Wajib Di isi'
 		],
 
-		'foto'     			=> [
-			'mime_in'   => 'Gambar imam hanya boleh diisi dengan jpg, jpeg, png atau gif.',
-			'max_size'  => 'Gambar imam maksimal 2mb',
-			'uploaded'  => 'Gambar imam wajib diisi'
+		'username'     			=> [
+			'required'		=> 'Username Wajib Di isi'
 		],
-
-		'nama'     			=> [
-			'required'		=> 'Data nama Wajib Di isi'
+		'password'   		=> [
+			'required'		=> 'Password Wajib Di isi'
 		],
-		'alamat'   		=> [
-			'required'		=> 'Data Alamat Wajib Di isi'
+		'level'   			=>  [
+			'required'		=> ' Level Status Wajib Di isi'
 		],
-		'status'   			=>  [
-			'required'		=> ' Data Status Wajib Di isi'
+		'created_at'   		=>  [
+			'required'		=> 'Data Tanggal Pembuatan Wajib Di isi'
 		],
-		'handphone'   		=>  [
-			'required'		=> 'Data Handphone  Wajib Di isi'
-		],
-		'tahun'   		=>  [
-			'required'		=> 'Data Tahun Wajib Di isi'
+		'updated_at'   		=>  [
+			'required'		=> 'Data Update Wajib Di isi'
 		]
 
 	];

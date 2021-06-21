@@ -9,7 +9,7 @@ class DaftarDocumentKeluarSchema extends Migration
 	public function up()
 	{
 		$this->forge->addField([
-			'document_keluar_id'		=> [
+			'document_keluar_id'	=> [
 				'type'				=> 'INT',
 				'constraint'		=> 36,
 				'unsigned'			=> TRUE,
@@ -19,19 +19,19 @@ class DaftarDocumentKeluarSchema extends Migration
 				'type'				=> 'VARCHAR',
 				'constraint'		=> '255'
 			],
-			'drawingtype_id'			=> [
+			'drawingtype_id'		=> [
 				'type'				=> 'INT',
 				'constraint'		=> 36,
 				'unsigned'			=> TRUE,
 				'null'				=> TRUE
 			],
-			'drawingkode_id'			=> [
+			'drawingkode_id'		=> [
 				'type'				=> 'INT',
 				'constraint'		=> 36,
 				'unsigned'			=> TRUE,
 				'null'				=> TRUE
 			],
-			'nomer_box'			=> [
+			'nomer_box'				=> [
 				'type'				=> 'VARCHAR',
 				'constraint'		=> '255'
 			],
