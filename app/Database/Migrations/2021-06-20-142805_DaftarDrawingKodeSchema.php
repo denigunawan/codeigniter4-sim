@@ -9,7 +9,7 @@ class DaftarDrawingKodeSchema extends Migration
 	public function up()
 	{
 		$this->forge->addField([
-			'drawing_kode_id'		=> [
+			'drawingkode_id'		=> [
 				'type'				=> 'INT',
 				'constraint'		=> 36,
 				'unsigned'			=> TRUE,
@@ -23,21 +23,29 @@ class DaftarDrawingKodeSchema extends Migration
 				'type'				=> 'DATE',
 			],
 
-			'userid'			    => [
+			'user_id'			    => [
 				'type'				=> 'INT',
 				'constraint'		=> 36,
 				'unsigned'			=> TRUE,
 				'null'				=> TRUE
 			],
+			'created_at' => [
+				'type'           => 'DATETIME',
+				'null'           => true,
+			],
+			'updated_at' => [
+				'type'           => 'DATETIME',
+				'null'           => true,
+			]
 		]);
 
-		$this->forge->addKey('drawing_kode_id', true);
-		$this->forge->addForeignKey('userid', 'users', 'userid', 'cascade', 'cascade');
-		$this->forge->createTable('drawing_kode', true);
+		$this->forge->addKey('drawingkode_id', true);
+		$this->forge->addForeignKey('user_id', 'user', 'user_id', 'cascade', 'cascade');
+		$this->forge->createTable('drawingkode', true);
 	}
 
 	public function down()
 	{
-		$this->forge->dropTable('drawing_kode', true);
+		$this->forge->dropTable('drawingkode', true);
 	}
 }

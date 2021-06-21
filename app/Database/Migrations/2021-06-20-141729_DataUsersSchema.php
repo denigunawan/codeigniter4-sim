@@ -11,7 +11,7 @@ class DataUsersSchema extends Migration
 
 		//list field
 		$this->forge->addField([
-			'userid'          => [
+			'user_id'          => [
 				'type'           => 'INT',
 				'constraint'     => 11,
 				'unsigned'       => TRUE,
@@ -33,16 +33,24 @@ class DataUsersSchema extends Migration
 			'level'                 => [
 				'type'          => 'INT',
 				'constraint'    => 11
+			],
+			'created_at' => [
+				'type'           => 'DATETIME',
+				'null'           => true,
+			],
+			'updated_at' => [
+				'type'           => 'DATETIME',
+				'null'           => true,
 			]
 		]);
 		//primary key
-		$this->forge->addKey('userid', TRUE);
+		$this->forge->addKey('user_id', TRUE);
 		//nama tabel
-		$this->forge->createTable('users', TRUE);
+		$this->forge->createTable('user', TRUE);
 	}
 
 	public function down()
 	{
-		$this->forge->dropTable('users', true);
+		$this->forge->dropTable('user', true);
 	}
 }

@@ -9,7 +9,7 @@ class DaftarDocumentMasukSchema extends Migration
 	public function up()
 	{
 		$this->forge->addField([
-			'document_masuk_id'		=> [
+			'documentmasuk_id'		=> [
 				'type'				=> 'INT',
 				'constraint'		=> 36,
 				'unsigned'			=> TRUE,
@@ -19,13 +19,13 @@ class DaftarDocumentMasukSchema extends Migration
 				'type'				=> 'VARCHAR',
 				'constraint'		=> '255'
 			],
-			'drawing_type_id'			=> [
+			'drawingtype_id'			=> [
 				'type'				=> 'INT',
 				'constraint'		=> 36,
 				'unsigned'			=> TRUE,
 				'null'				=> TRUE
 			],
-			'drawing_kode_id'			=> [
+			'drawingkode_id'			=> [
 				'type'				=> 'INT',
 				'constraint'		=> 36,
 				'unsigned'			=> TRUE,
@@ -41,7 +41,7 @@ class DaftarDocumentMasukSchema extends Migration
 				'unsigned'			=> TRUE,
 				'null'				=> TRUE
 			],
-			'vendor_id'			    => [
+			'vendor_id'		=> [
 				'type'				=> 'INT',
 				'constraint'		=> 36,
 				'unsigned'			=> TRUE,
@@ -61,27 +61,35 @@ class DaftarDocumentMasukSchema extends Migration
 				'constraint'		=> "'Masuk','Proses','Keluar'",
 				'default'			=> 'Masuk'
 			],
-			'userid'			    => [
+			'user_id'			    => [
 				'type'				=> 'INT',
 				'constraint'		=> 36,
 				'unsigned'			=> TRUE,
 				'null'				=> TRUE
 			],
+			'created_at' => [
+				'type'           => 'DATETIME',
+				'null'           => true,
+			],
+			'updated_at' => [
+				'type'           => 'DATETIME',
+				'null'           => true,
+			]
 		]);
 
 
-		$this->forge->addKey('document_masuk_id', true);
-		$this->forge->addForeignKey('userid', 'users', 'userid', 'cascade', 'cascade');
-		$this->forge->addForeignKey('vendor_id', 'daftar_vendor', 'vendor_id', 'cascade', 'cascade');
-		$this->forge->addForeignKey('drawing_type_id', 'drawing_type', 'drawing_type_id', 'cascade', 'cascade');
-		$this->forge->addForeignKey('drawing_kode_id', 'drawing_kode', 'drawing_kode_id', 'cascade', 'cascade');
-		$this->forge->addForeignKey('rak_id', 'daftar_rak', 'rak_id', 'cascade', 'cascade');
-		$this->forge->addForeignKey('bahasa_id', 'daftar_bahasa', 'bahasa_id', 'cascade', 'cascade');
-		$this->forge->createTable('document_masuk', true);
+		$this->forge->addKey('documentmasuk_id', true);
+		$this->forge->addForeignKey('user_id', 'user', 'user_id', 'cascade', 'cascade');
+		$this->forge->addForeignKey('vendor_id', 'vendor', 'vendor_id', 'cascade', 'cascade');
+		$this->forge->addForeignKey('drawingtype_id', 'drawingtype', 'drawingtype_id', 'cascade', 'cascade');
+		$this->forge->addForeignKey('drawingkode_id', 'drawingkode', 'drawingkode_id', 'cascade', 'cascade');
+		$this->forge->addForeignKey('rak_id', 'rak', 'rak_id', 'cascade', 'cascade');
+		$this->forge->addForeignKey('bahasa_id', 'bahasa', 'bahasa_id', 'cascade', 'cascade');
+		$this->forge->createTable('documentmasuk', true);
 	}
 
 	public function down()
 	{
-		$this->forge->dropTable('document_masuk', true);
+		$this->forge->dropTable('documentmasuk', true);
 	}
 }

@@ -9,7 +9,7 @@ class DaftarJabatanSchema extends Migration
 	public function up()
 	{
 		$this->forge->addField([
-			'daftar_jabatan_id'		=> [
+			'jabatan_id'		=> [
 				'type'				=> 'INT',
 				'constraint'		=> 36,
 				'unsigned'			=> TRUE,
@@ -26,22 +26,30 @@ class DaftarJabatanSchema extends Migration
 			'tanggal_masuk'			=> [
 				'type'				=> 'DATE',
 			],
-			'userid'			    => [
+			'user_id'			    => [
 				'type'				=> 'INT',
 				'constraint'		=> 36,
 				'unsigned'			=> TRUE,
 				'null'				=> TRUE
 			],
+			'created_at' => [
+				'type'           => 'DATETIME',
+				'null'           => true,
+			],
+			'updated_at' => [
+				'type'           => 'DATETIME',
+				'null'           => true,
+			]
 
 		]);
 
-		$this->forge->addKey('daftar_jabatan_id', true);
-		$this->forge->addForeignKey('userid', 'users', 'userid', 'cascade', 'cascade');
-		$this->forge->createTable('daftar_jabatan', true);
+		$this->forge->addKey('jabatan_id', true);
+		$this->forge->addForeignKey('user_id', 'user', 'user_id', 'cascade', 'cascade');
+		$this->forge->createTable('jabatan', true);
 	}
 
 	public function down()
 	{
-		$this->forge->dropTable('daftar_jabatan', true);
+		$this->forge->dropTable('jabatan', true);
 	}
 }

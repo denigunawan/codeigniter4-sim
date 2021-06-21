@@ -6,37 +6,34 @@ use CodeIgniter\Model;
 
 class DaftarRakModel extends Model
 {
-	protected $DBGroup              = 'default';
-	protected $table                = 'daftarraks';
-	protected $primaryKey           = 'id';
-	protected $useAutoIncrement     = true;
-	protected $insertID             = 0;
-	protected $returnType           = 'array';
-	protected $useSoftDeletes       = false;
-	protected $protectFields        = true;
-	protected $allowedFields        = [];
+	protected $table = 'rak';
 
-	// Dates
-	protected $useTimestamps        = false;
-	protected $dateFormat           = 'datetime';
-	protected $createdField         = 'created_at';
-	protected $updatedField         = 'updated_at';
-	protected $deletedField         = 'deleted_at';
+	public function getData($id = false)
+	{
+		if ($id === false) {
+			return $this->table('rak')
+				->join('user', 'user.user_id = rak.user_id')
+				->get()
+				->getResultArray();
+		} else {
+			return $this->table('rak')
+				->join('user', 'user.user_id = rak.user_id')
+				->where('rak.rak_id', $id)
+				->get()
+				->getRowArray();
+		}
+	}
+	public function insertData($data)
+	{
+		return $this->db->table($this->table)->insert($data);
+	}
 
-	// Validation
-	protected $validationRules      = [];
-	protected $validationMessages   = [];
-	protected $skipValidation       = false;
-	protected $cleanValidationRules = true;
-
-	// Callbacks
-	protected $allowCallbacks       = true;
-	protected $beforeInsert         = [];
-	protected $afterInsert          = [];
-	protected $beforeUpdate         = [];
-	protected $afterUpdate          = [];
-	protected $beforeFind           = [];
-	protected $afterFind            = [];
-	protected $beforeDelete         = [];
-	protected $afterDelete          = [];
+	public function updateData($data, $id)
+	{
+		return $this->db->table($this->table)->update($data, ['rak_id' => $id]);
+	}
+	public function deleteData($id)
+	{
+		return $this->db->table($this->table)->delete(['rak_id' => $id]);
+	}
 }

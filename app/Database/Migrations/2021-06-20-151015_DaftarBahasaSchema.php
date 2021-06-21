@@ -22,21 +22,29 @@ class DaftarBahasaSchema extends Migration
 			'tanggal_masuk'			=> [
 				'type'				=> 'DATE',
 			],
-			'userid'			    => [
+			'user_id'			    => [
 				'type'				=> 'INT',
 				'constraint'		=> 36,
 				'unsigned'			=> TRUE,
 				'null'				=> TRUE
 			],
+			'created_at' => [
+				'type'           => 'DATETIME',
+				'null'           => true,
+			],
+			'updated_at' => [
+				'type'           => 'DATETIME',
+				'null'           => true,
+			]
 		]);
 
 		$this->forge->addKey('bahasa_id', true);
-		$this->forge->addForeignKey('userid', 'users', 'userid', 'cascade', 'cascade');
-		$this->forge->createTable('daftar_bahasa', true);
+		$this->forge->addForeignKey('user_id', 'user', 'user_id', 'cascade', 'cascade');
+		$this->forge->createTable('bahasa', true);
 	}
 
 	public function down()
 	{
-		$this->forge->dropTable('daftar_bahasa', true);
+		$this->forge->dropTable('bahasa', true);
 	}
 }

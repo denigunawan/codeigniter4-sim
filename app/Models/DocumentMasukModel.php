@@ -6,37 +6,35 @@ use CodeIgniter\Model;
 
 class DocumentMasukModel extends Model
 {
-	protected $DBGroup              = 'default';
-	protected $table                = 'documentmasuks';
-	protected $primaryKey           = 'id';
-	protected $useAutoIncrement     = true;
-	protected $insertID             = 0;
-	protected $returnType           = 'array';
-	protected $useSoftDeletes       = false;
-	protected $protectFields        = true;
-	protected $allowedFields        = [];
 
-	// Dates
-	protected $useTimestamps        = false;
-	protected $dateFormat           = 'datetime';
-	protected $createdField         = 'created_at';
-	protected $updatedField         = 'updated_at';
-	protected $deletedField         = 'deleted_at';
+	protected $table = 'documentkeluar';
 
-	// Validation
-	protected $validationRules      = [];
-	protected $validationMessages   = [];
-	protected $skipValidation       = false;
-	protected $cleanValidationRules = true;
+	public function getData($id = false)
+	{
+		if ($id === false) {
+			return $this->table('documentkeluar')
+				->join('user', 'user.user_id = documentkeluar.user_id')
+				->get()
+				->getResultArray();
+		} else {
+			return $this->table('documentkeluar')
+				->join('user', 'user.user_id = documentkeluar.user_id')
+				->where('documentkeluar.documentkeluar_id', $id)
+				->get()
+				->getRowArray();
+		}
+	}
+	public function insertData($data)
+	{
+		return $this->db->table($this->table)->insert($data);
+	}
 
-	// Callbacks
-	protected $allowCallbacks       = true;
-	protected $beforeInsert         = [];
-	protected $afterInsert          = [];
-	protected $beforeUpdate         = [];
-	protected $afterUpdate          = [];
-	protected $beforeFind           = [];
-	protected $afterFind            = [];
-	protected $beforeDelete         = [];
-	protected $afterDelete          = [];
+	public function updateData($data, $id)
+	{
+		return $this->db->table($this->table)->update($data, ['documentkeluar_id' => $id]);
+	}
+	public function deleteData($id)
+	{
+		return $this->db->table($this->table)->delete(['documentkeluar_id' => $id]);
+	}
 }

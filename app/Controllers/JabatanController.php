@@ -3,17 +3,16 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\DaftarJabatanModel;
 use App\Models\DaftarUsersModel;
-use App\Models\DaftarVendorModel;
 
-class DaftarVendorController extends BaseController
+class JabatanController extends BaseController
 {
-
 	public function __construct()
 	{
 		helper(['form']);
 		$this->user_model = new DaftarUsersModel();
-		$this->vendor_model = new DaftarVendorModel();
+		$this->jabatan_model = new DaftarJabatanModel();
 	}
 
 	public function index()
@@ -24,14 +23,14 @@ class DaftarVendorController extends BaseController
 			return redirect()->to(base_url('login'));
 		}
 		// membuat halaman otomatis berubah ketika berpindah halaman 
-		$currentPage = $this->request->getVar('page_vendor') ? $this->request->getVar('page_vendor') : 1;
+		$currentPage = $this->request->getVar('page_jabatan') ? $this->request->getVar('page_jabatan') : 1;
 
 		// paginate
 		$paginate = 5;
-		$data['vendor']   = $this->vendor_model->join('user', 'user.user_id = vendor.user_id')->paginate($paginate, 'vendor');
-		$data['pager']        = $this->vendor_model->pager;
+		$data['jabatan']   = $this->jabatan_model->join('user', 'user.user_id = jabatan.user_id')->paginate($paginate, 'jabatan');
+		$data['pager']        = $this->jabatan_model->pager;
 		$data['currentPage']  = $currentPage;
-		echo view('vendor/index', $data);
+		echo view('jabatan/index', $data);
 	}
 
 
@@ -44,7 +43,7 @@ class DaftarVendorController extends BaseController
 		}
 		$user = $this->user_model->where('status', 'AKTIF')->findAll();
 		$data['user'] = ['' => 'user'] + array_column($user, 'nama_user', 'user_id');
-		return view('vendor/create', $data);
+		return view('jabatan/create', $data);
 	}
 
 	public function store()
@@ -56,27 +55,27 @@ class DaftarVendorController extends BaseController
 		}
 		$validation =  \Config\Services::validation();
 		$data = array(
-
 			'user_id'        		=> $this->request->getPost('user_id'),
-			'nama_vendor'       => $this->request->getPost('nama_vendor'),
-			'jenis_vendor'       => $this->request->getPost('jenis_vendor'),
+			'nama_jabatan'       	=> $this->request->getPost('nama_jabatan'),
+			'jenis_jabatan'       	=> $this->request->getPost('jenis_jabatan'),
 			'tanggal_masuk'         => $this->request->getPost('tanggal_masuk'),
 			'created_at'            => $this->request->getPost('created_at'),
 			'updated_at'            => $this->request->getPost('updated_at'),
 
 
+
 		);
 
-		if ($validation->run($data, 'vendor') == FALSE) {
+		if ($validation->run($data, 'jabatan') == FALSE) {
 			session()->setFlashdata('inputs', $this->request->getPost());
 			session()->setFlashdata('errors', $validation->getErrors());
-			return redirect()->to(base_url('vendor/create'));
+			return redirect()->to(base_url('jabatan/create'));
 		} else {
 			// insert
-			$simpan = $this->vendor_model->insertData($data);
+			$simpan = $this->jabatan_model->insertData($data);
 			if ($simpan) {
 				session()->setFlashdata('success', 'Created Daftar successfully');
-				return redirect()->to(base_url('vendor'));
+				return redirect()->to(base_url('jabatan'));
 			}
 		}
 	}
@@ -90,8 +89,8 @@ class DaftarVendorController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
-		$data['vendor'] = $this->vendor_model->getData($id);
-		echo view('vendor/show', $data);
+		$data['jabatan'] = $this->jabatan_model->getData($id);
+		echo view('jabatan/show', $data);
 	}
 
 	public function edit($id)
@@ -101,8 +100,8 @@ class DaftarVendorController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
-		$data['vendor'] = $this->vendor_model->getData($id);
-		echo view('vendor/edit', $data);
+		$data['jabatan'] = $this->jabatan_model->getData($id);
+		echo view('jabatan/edit', $data);
 	}
 
 	public function update()
@@ -112,28 +111,28 @@ class DaftarVendorController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
-		$id = $this->request->getPost('vendor_id');
+		$id = $this->request->getPost('jabatan_id');
 
 		$validation =  \Config\Services::validation();
 
 		$data = array(
 			'user_id'        		=> $this->request->getPost('user_id'),
-			'nama_vendor'       => $this->request->getPost('nama_vendor'),
-			'jenis_vendor'       => $this->request->getPost('jenis_vendor'),
+			'nama_jabatan'       	=> $this->request->getPost('nama_jabatan'),
+			'jenis_jabatan'       	=> $this->request->getPost('jenis_jabatan'),
 			'tanggal_masuk'         => $this->request->getPost('tanggal_masuk'),
 			'created_at'            => $this->request->getPost('created_at'),
 			'updated_at'            => $this->request->getPost('updated_at'),
 
 		);
-		if ($validation->run($data, 'vendor') == FALSE) {
+		if ($validation->run($data, 'jabatan') == FALSE) {
 			session()->setFlashdata('inputs', $this->request->getPost());
 			session()->setFlashdata('errors', $validation->getErrors());
-			return redirect()->to(base_url('vendor/edit/' . $id));
+			return redirect()->to(base_url('jabatan/edit/' . $id));
 		} else {
-			$ubah = $this->vendor_model->updateData($data, $id);
+			$ubah = $this->jabatan_model->updateData($data, $id);
 			if ($ubah) {
-				session()->setFlashdata('info', 'Updated Data vendor Berhasil');
-				return redirect()->to(base_url('vendor'));
+				session()->setFlashdata('info', 'Updated Data jabatan Berhasil');
+				return redirect()->to(base_url('jabatan'));
 			}
 		}
 	}
@@ -144,10 +143,10 @@ class DaftarVendorController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
-		$hapus = $this->vendor_model->deleteData($id);
+		$hapus = $this->jabatan_model->deleteData($id);
 		if ($hapus) {
-			session()->setFlashdata('warning', 'Delete Daftar vendor Berhasil');
-			return redirect()->to(base_url('vendor'));
+			session()->setFlashdata('warning', 'Delete Daftar jabatan Berhasil');
+			return redirect()->to(base_url('jabatan'));
 		}
 	}
 }

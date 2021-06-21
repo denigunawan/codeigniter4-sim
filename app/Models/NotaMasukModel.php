@@ -6,37 +6,34 @@ use CodeIgniter\Model;
 
 class NotaMasukModel extends Model
 {
-	protected $DBGroup              = 'default';
-	protected $table                = 'notamasuks';
-	protected $primaryKey           = 'id';
-	protected $useAutoIncrement     = true;
-	protected $insertID             = 0;
-	protected $returnType           = 'array';
-	protected $useSoftDeletes       = false;
-	protected $protectFields        = true;
-	protected $allowedFields        = [];
+	protected $table = 'notamasuk';
 
-	// Dates
-	protected $useTimestamps        = false;
-	protected $dateFormat           = 'datetime';
-	protected $createdField         = 'created_at';
-	protected $updatedField         = 'updated_at';
-	protected $deletedField         = 'deleted_at';
+	public function getData($id = false)
+	{
+		if ($id === false) {
+			return $this->table('notamasuk')
+				->join('user', 'user.user_id = notamasuk.user_id')
+				->get()
+				->getResultArray();
+		} else {
+			return $this->table('notamasuk')
+				->join('user', 'user.user_id = notamasuk.user_id')
+				->where('notamasuk.notamasuk_id', $id)
+				->get()
+				->getRowArray();
+		}
+	}
+	public function insertData($data)
+	{
+		return $this->db->table($this->table)->insert($data);
+	}
 
-	// Validation
-	protected $validationRules      = [];
-	protected $validationMessages   = [];
-	protected $skipValidation       = false;
-	protected $cleanValidationRules = true;
-
-	// Callbacks
-	protected $allowCallbacks       = true;
-	protected $beforeInsert         = [];
-	protected $afterInsert          = [];
-	protected $beforeUpdate         = [];
-	protected $afterUpdate          = [];
-	protected $beforeFind           = [];
-	protected $afterFind            = [];
-	protected $beforeDelete         = [];
-	protected $afterDelete          = [];
+	public function updateData($data, $id)
+	{
+		return $this->db->table($this->table)->update($data, ['notamasuk_id' => $id]);
+	}
+	public function deleteData($id)
+	{
+		return $this->db->table($this->table)->delete(['notamasuk_id' => $id]);
+	}
 }
