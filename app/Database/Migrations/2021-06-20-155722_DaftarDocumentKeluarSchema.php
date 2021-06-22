@@ -81,7 +81,7 @@ class DaftarDocumentKeluarSchema extends Migration
 		$this->forge->addForeignKey('vendor_id', 'vendor', 'vendor_id', 'cascade', 'cascade');
 		$this->forge->addForeignKey('drawingtype_id', 'drawingtype', 'drawingtype_id', 'cascade', 'cascade');
 		$this->forge->addForeignKey('drawingkode_id', 'drawingkode', 'drawingkode_id', 'cascade', 'cascade');
-		$this->forge->addForeignKey('bahasa_id', 'daftar_bahasa', 'bahasa_id', 'cascade', 'cascade');
+		$this->forge->addForeignKey('bahasa_id', 'bahasa', 'bahasa_id', 'cascade', 'cascade');
 		$this->forge->createTable('documentkeluar', true);
 	}
 

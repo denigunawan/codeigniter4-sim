@@ -11,9 +11,14 @@ class DaftarUsersModel extends Model
 	public function getData($id = false)
 	{
 		if ($id === false) {
-			return $this->findAll();
+			return $this->table('user')
+				->get()
+				->getResultArray();
 		} else {
-			return $this->getWhere(['user_id' => $id]);
+			return $this->table('user')
+				->where('user.user_id', $id)
+				->get()
+				->getRowArray();
 		}
 	}
 
