@@ -28,14 +28,6 @@ class DaftarDrawingKodeSchema extends Migration
 				'constraint'		=> 36,
 				'unsigned'			=> TRUE,
 				'null'				=> TRUE
-			],
-			'created_at' => [
-				'type'           => 'DATETIME',
-				'null'           => true,
-			],
-			'updated_at' => [
-				'type'           => 'DATETIME',
-				'null'           => true,
 			]
 		]);
 

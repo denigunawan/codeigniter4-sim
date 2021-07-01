@@ -24,7 +24,7 @@
             <div class="col-12">
                 <div class="card shadow-lg">
                     <div class="card-header shadow-sm">
-                        <a href="<?php echo base_url('daftarpengurus/create'); ?>" class="btn btn-outline-success float-right"><i class="nav-icon fas fa-folder-plus"></i> | Tambah Pendataan Pengurus</a>
+                        <a href="<?php echo base_url('documentkeluar/create'); ?>" class="btn btn-outline-success float-right"><i class="nav-icon fas fa-folder-plus"></i> | Tambah Pendataan Pengurus</a>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -52,36 +52,39 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama</th>
-                                        <th>Jenis Kelamin</th>
-                                        <th>Pekerjaan</th>
-                                        <th>Alamat</th>
-                                        <th>Telephone</th>
-                                        <th>Jabatan</th>
-                                        <th>Status</th>
-                                        <th>Tanggal Join</th>
-                                        <th>Action</th>
+                                        <th>Kode Dokumen</th>
+                                        <th>Drawing Type</th>
+                                        <th>Drawing Kode</th>
+                                        <th>Nomer Box</th>
+                                        <th>Isi Box</th>
+                                        <th>Vendor</th>
+                                        <th>Bahasa Dokumen</th>
+                                        <th>Tanggal Keluar</th>
+                                        <th>Status Dokumen</th>
+                                        <th>Staff</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($daftarpengurus as $key => $row) { ?>
+                                    <?php foreach ($documentkeluar as $key => $row) { ?>
                                         <tr>
                                             <td><?php echo $key + 1; ?></td>
-                                            <td><?php echo $row['namapengurus']; ?></td>
-                                            <td><?php echo $row['jk']; ?></td>
-                                            <td><?php echo $row['pekerjaan']; ?></td>
-                                            <td><?php echo $row['alamat']; ?></td>
-                                            <td><?php echo $row['telephone']; ?></td>
-                                            <td><?php echo $row['jabatan']; ?></td>
+                                            <td><?php echo $row['kode_dokumen']; ?></td>
+                                            <td><?php echo $row['drawingtype_id']; ?></td>
+                                            <td><?php echo $row['drawingkode_id']; ?></td>
+                                            <td><?php echo $row['nomer_box']; ?></td>
+                                            <td><?php echo $row['isi_box']; ?></td>
+                                            <td><?php echo $row['vendor_id']; ?></td>
+                                            <td><?php echo $row['bahasa_id']; ?></td>
+                                            <td><?php echo $row['tanggal_keluar']; ?></td>
                                             <td><?php echo $row['status']; ?></td>
-                                            <td><?php echo $row['tanggalmasuk']; ?></td>
-
+                                            <td><?php echo $row['user_id']; ?></td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="<?php echo base_url('daftarpengurus/edit/' . $row['idpengurus']); ?>" class="btn btn-sm btn-success">
+                                                    <a href="<?php echo base_url('documentkeluar/edit/' . $row['idpengurus']); ?>" class="btn btn-sm btn-success">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
-                                                    <a href="<?php echo base_url('daftarpengurus/delete/' . $row['idpengurus']); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus kategori ini?');">
+                                                    <a href="<?php echo base_url('documentkeluar/delete/' . $row['idpengurus']); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus kategori ini?');">
                                                         <i class="fa fa-trash-alt"></i>
                                                     </a>
                                                 </div>
@@ -92,15 +95,17 @@
                                 <tfoot>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama</th>
-                                        <th>Jenis Kelamin</th>
-                                        <th>Pekerjaan</th>
-                                        <th>Alamat</th>
-                                        <th>Telephone</th>
-                                        <th>Jabatan</th>
-                                        <th>Status</th>
-                                        <th>Tanggal Join</th>
-                                        <th>Action</th>
+                                        <th>Kode Dokumen</th>
+                                        <th>Drawing Type</th>
+                                        <th>Drawing Kode</th>
+                                        <th>Nomer Box</th>
+                                        <th>Isi Box</th>
+                                        <th>Vendor</th>
+                                        <th>Bahasa Dokumen</th>
+                                        <th>Tanggal Keluar</th>
+                                        <th>Status Dokumen</th>
+                                        <th>Staff</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </tfoot>
                             </table>

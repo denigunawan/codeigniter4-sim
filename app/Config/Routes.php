@@ -120,7 +120,6 @@ $routes->get('notamasuk/delete/(:alphanum)', 'NotaMasukController::delete/$1');
 
 
 
-
 // ROUTING DATA 
 
 $routes->get('notakeluar', 'NotaKeluarController::index');
@@ -135,12 +134,12 @@ $routes->get('notakeluar/delete/(:alphanum)', 'NotaKeluarController::delete/$1')
 
 // ROUTING DATA 
 
-$routes->get('user', 'UsersController::index');
-$routes->get('user/create', 'UsersController::create');
-$routes->post('user/store', 'UsersController::store');
-$routes->get('user/edit/(:alphanum)', 'UsersController::edit/$1');
-$routes->post('user/update', 'UsersController::update/$1');
-$routes->get('user/delete/(:alphanum)', 'UsersController::delete/$1');
+$routes->get('users', 'UsersController::index');
+$routes->get('users/create', 'UsersController::create');
+$routes->post('users/store', 'UsersController::store');
+$routes->get('users/edit/(:alphanum)', 'UsersController::edit/$1');
+$routes->post('users/update/(:alphanum)', 'UsersController::update/$1');
+$routes->get('users/delete/(:alphanum)', 'UsersController::delete/$1');
 
 
 

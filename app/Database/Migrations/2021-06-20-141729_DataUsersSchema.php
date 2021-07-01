@@ -4,7 +4,8 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class DataUsersSchema extends Migration
+class DatauserSchema extends Migration
+
 {
 	public function up()
 	{
@@ -33,14 +34,6 @@ class DataUsersSchema extends Migration
 			'level'                 => [
 				'type'          => 'INT',
 				'constraint'    => 11
-			],
-			'created_at' => [
-				'type'           => 'DATETIME',
-				'null'           => true,
-			],
-			'updated_at' => [
-				'type'           => 'DATETIME',
-				'null'           => true,
 			]
 		]);
 		//primary key
@@ -51,6 +44,6 @@ class DataUsersSchema extends Migration
 
 	public function down()
 	{
-		$this->forge->dropTable('user', true);
+		$this->forge->dropTable('user');
 	}
 }

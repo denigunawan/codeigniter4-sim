@@ -48,8 +48,6 @@ class Validation
 		'user_id'				=> 'required',
 		'bahasa_document'     	=> 'required',
 		'tanggal_masuk'     	=> 'required',
-		'created_at'   			=> 'required',
-		'updated_at'   			=> 'required',
 	];
 
 	public $bahasa_errors = [
@@ -67,12 +65,6 @@ class Validation
 		'status'   			=>  [
 			'required'		=> ' Status Data  Wajib Di isi'
 		],
-		'created_at'   		=>  [
-			'required'		=> 'Created at Wajib Di isi'
-		],
-		'updated_at'   		=>  [
-			'required'		=> 'updated_at Wajib Di isi'
-		]
 
 	];
 
@@ -84,8 +76,7 @@ class Validation
 		'nama_rak'     		=> 'required',
 		'kode_rak'     		=> 'required',
 		'tanggal_masuk'   	=> 'required',
-		'created_at'   		=> 'required',
-		'updated_at'   		=> 'required',
+
 	];
 
 	public $rak_errors = [
@@ -103,12 +94,7 @@ class Validation
 		'tanggal_masuk'   	=> [
 			'required'		=> 'Tanggal Terdata  Wajib Di isi'
 		],
-		'created_at'   		=>  [
-			'required'		=> 'Created at Wajib Di isi'
-		],
-		'updated_at'   		=>  [
-			'required'		=> 'updated_at Wajib Di isi'
-		]
+
 	];
 
 
@@ -120,8 +106,7 @@ class Validation
 		'nama_vendor'     	=> 'required',
 		'jenis_vendor'     	=> 'required',
 		'tanggal_masuk'   	=> 'required',
-		'created_at'   		=> 'required',
-		'updated_at'   		=> 'required',
+
 	];
 
 	public $vendor_errors = [
@@ -139,12 +124,7 @@ class Validation
 		'tanggal_masuk'   	=> [
 			'required'		=> 'Tanggal Terdata Dokumen Wajib Di isi'
 		],
-		'created_at'   		=>  [
-			'required'		=> 'Created at Wajib Di isi'
-		],
-		'updated_at'   		=>  [
-			'required'		=> 'updated_at Wajib Di isi'
-		]
+
 	];
 
 
@@ -162,8 +142,7 @@ class Validation
 		'tanggal_keluar'   			=> 'required',
 		'status'   					=> 'required',
 		'user_id'   				=> 'required',
-		'created_at'   				=> 'required',
-		'updated_at'   				=> 'required',
+
 
 
 
@@ -200,12 +179,7 @@ class Validation
 		'user_id'   	=>  [
 			'required'		=> 'Data Penanggung Jawab Document Wajib Di isi'
 		],
-		'created_at'   		=>  [
-			'required'		=> 'Data Tanggal Pembuatan Document Wajib Di isi'
-		],
-		'updated_at'   		=>  [
-			'required'		=> 'Data Update Wajib Di isi'
-		]
+
 
 	];
 
@@ -225,8 +199,7 @@ class Validation
 		'tanggal_masuk'   			=> 'required',
 		'status'   					=> 'required',
 		'user_id'   				=> 'required',
-		'created_at'   				=> 'required',
-		'updated_at'   				=> 'required',
+
 	];
 
 	public $documentmasuk_errors = [
@@ -263,12 +236,6 @@ class Validation
 		'user_id'   	=>  [
 			'required'		=> 'Data Penanggung Jawab Document Wajib Di isi'
 		],
-		'created_at'   		=>  [
-			'required'		=> 'Data Tanggal Pembuatan Document Wajib Di isi'
-		],
-		'updated_at'   		=>  [
-			'required'		=> 'Data Update Wajib Di isi'
-		]
 
 	];
 
@@ -326,8 +293,7 @@ class Validation
 		'user_id'			=> 'required',
 		'drawing_type'      => 'required',
 		'tanggal_masuk'     => 'required',
-		'created_at'   		=> 'required',
-		'updated_at'   		=> 'required',
+
 	];
 
 	public $drawingtype_errors = [
@@ -341,14 +307,7 @@ class Validation
 		],
 		'user_id'   	=>  [
 			'required'		=> 'Data Penanggung Jawab Wajib Di isi'
-		],
-		'created_at'   		=>  [
-			'required'		=> 'Data Tanggal Pembuatan Data Wajib Di isi'
-		],
-		'updated_at'   		=>  [
-			'required'		=> 'Data Tanggal Update Data Wajib Di isi'
 		]
-
 	];
 
 
@@ -361,8 +320,7 @@ class Validation
 		'nama_jabatan'     	=> 'required',
 		'jenis_jabatan'     => 'required',
 		'tanggal_masuk'   	=> 'required',
-		'created_at'   		=> 'required',
-		'updated_at'   		=> 'required',
+
 	];
 
 	public $jabatan_errors = [
@@ -380,13 +338,6 @@ class Validation
 		'user_id'   	=>  [
 			'required'		=> 'Data Penanggung Jawab Wajib Di isi'
 		],
-		'created_at'   		=>  [
-			'required'		=> 'Data Tanggal Pembuatan Document Wajib Di isi'
-		],
-		'updated_at'   		=>  [
-			'required'		=> 'Data Update Wajib Di isi'
-		]
-
 
 	];
 
@@ -403,8 +354,7 @@ class Validation
 		'jumlah_barang'   	=> 'required',
 		'status'   			=> 'required',
 		'tanggal_masuk'   	=> 'required',
-		'created_at'   		=> 'required',
-		'updated_at'   		=> 'required',
+
 	];
 
 	public $notamasuk_errors = [
@@ -431,14 +381,7 @@ class Validation
 		],
 		'user_id'   	=>  [
 			'required'		=> 'Data Penanggung Jawab nota Wajib Di isi'
-		],
-		'created_at'   		=>  [
-			'required'		=> 'Data Tanggal Pembuatan nota Wajib Di isi'
-		],
-		'updated_at'   		=>  [
-			'required'		=> 'Data Update Wajib Di isi'
 		]
-
 	];
 
 
@@ -452,8 +395,7 @@ class Validation
 		'jumlah_barang'   	=> 'required',
 		'status'   			=> 'required',
 		'tanggal_keluar'   	=> 'required',
-		'created_at'   		=> 'required',
-		'updated_at'   		=> 'required',
+
 
 	];
 
@@ -481,14 +423,7 @@ class Validation
 		],
 		'user_id'   	=>  [
 			'required'		=> 'Data Penanggung Jawab nota Wajib Di isi'
-		],
-		'created_at'   		=>  [
-			'required'		=> 'Data Tanggal Pembuatan nota Wajib Di isi'
-		],
-		'updated_at'   		=>  [
-			'required'		=> 'Data Update Wajib Di isi'
 		]
-
 	];
 
 
@@ -501,8 +436,7 @@ class Validation
 		'username'     		=> 'required',
 		'password'     		=> 'required',
 		'level'   			=> 'required',
-		'created_at'   		=> 'required',
-		'updated_at'   		=> 'required',
+
 	];
 
 	public $user_errors = [
@@ -519,13 +453,6 @@ class Validation
 		],
 		'level'   			=>  [
 			'required'		=> ' Level Status Wajib Di isi'
-		],
-		'created_at'   		=>  [
-			'required'		=> 'Data Tanggal Pembuatan Wajib Di isi'
-		],
-		'updated_at'   		=>  [
-			'required'		=> 'Data Update Wajib Di isi'
 		]
-
 	];
 }

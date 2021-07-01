@@ -3,17 +3,16 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\DaftaruserModel;
-use App\Models\DaftarUsersModel;
-use App\Models\userModel;
+use App\Models\UsersModels;
 
 class UsersController extends BaseController
 {
+	protected $helpers = [];
 
 	public function __construct()
 	{
 		helper(['form']);
-		$this->user_model = new DaftarUsersModel();
+		$this->user_model = new UsersModels();
 	}
 
 	public function index()
@@ -25,24 +24,17 @@ class UsersController extends BaseController
 		}
 		// membuat halaman otomatis berubah ketika berpindah halaman 
 		$currentPage = $this->request->getVar('page_user') ? $this->request->getVar('page_user') : 1;
-
 		// paginate
 		$paginate = 5;
-		$data['user'] = $this->user_model->paginate($paginate, 'user');
-		$data['pager']          = $this->user_model->pager;
-		$data['currentPage']    = $currentPage;
-
-
+		$data['user']   = $this->user_model->paginate($paginate, 'user');
+		$data['pager']        = $this->user_model->pager;
+		$data['currentPage']  = $currentPage;
 		echo view('user/index', $data);
 	}
 
+
 	public function create()
 	{
-		// proteksi halaman
-		if (session()->get('username') == '') {
-			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
-			return redirect()->to(base_url('login'));
-		}
 		return view('user/create');
 	}
 
@@ -55,13 +47,13 @@ class UsersController extends BaseController
 		}
 		$validation =  \Config\Services::validation();
 
+
+
 		$data = array(
-			'nama_user'     	=> $this->request->getPost('nama_user'),
-			'username'  		=> $this->request->getPost('username'),
-			'password'  		=> $this->request->getPost('password'),
-			'level'   			=> $this->request->getPost('level'),
-			'created_at'   		=> $this->request->getPost('created_at'),
-			'updated_at'   		=> $this->request->getPost('updated_at'),
+			'nama_user'             => $this->request->getPost('nama_user'),
+			'username'              => $this->request->getPost('username'),
+			'password'              => $this->request->getPost('password'),
+			'level'                 => $this->request->getPost('level'),
 
 		);
 
@@ -70,10 +62,10 @@ class UsersController extends BaseController
 			session()->setFlashdata('errors', $validation->getErrors());
 			return redirect()->to(base_url('user/create'));
 		} else {
-			$model = new DaftarUsersModel();
-			$simpan = $model->insertData($data);
+
+			$simpan = $this->user_model->insertData($data);
 			if ($simpan) {
-				session()->setFlashdata('success', 'Selamat Anda Berhasil Membuat Data user ');
+				session()->setFlashdata('success', 'Created Daftar successfully');
 				return redirect()->to(base_url('user'));
 			}
 		}
@@ -87,8 +79,7 @@ class UsersController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
-		$model = new DaftarUsersModel();
-		$data['user'] = $model->getData($id)->getRowArray();
+		$data['user'] = $this->user_model->getData($id);
 		echo view('user/edit', $data);
 	}
 
@@ -99,17 +90,17 @@ class UsersController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
-		$id = $this->request->getPost('idpengurus');
+		$id = $this->request->getPost('id');
 
 		$validation =  \Config\Services::validation();
 
+
 		$data = array(
-			'nama_user'     => $this->request->getPost('nama_user'),
-			'username'   => $this->request->getPost('username'),
-			'password'   => $this->request->getPost('password'),
-			'level'   => $this->request->getPost('level'),
-			'created_at'   => $this->request->getPost('created_at'),
-			'updated_at'   => $this->request->getPost('updated_at'),
+			'nama_user'             => $this->request->getPost('nama_user'),
+			'username'              => $this->request->getPost('username'),
+			'password'              => $this->request->getPost('password'),
+			'level'                 => $this->request->getPost('level'),
+
 		);
 
 		if ($validation->run($data, 'user') == FALSE) {
@@ -117,10 +108,10 @@ class UsersController extends BaseController
 			session()->setFlashdata('errors', $validation->getErrors());
 			return redirect()->to(base_url('user/edit/' . $id));
 		} else {
-			$model = new DaftarUsersModel();
-			$ubah = $model->updateData($data, $id);
+
+			$ubah = $this->user_model->updateData($data, $id);
 			if ($ubah) {
-				session()->setFlashdata('info', 'Updated user Berhasil');
+				session()->setFlashdata('info', 'Updated Data user Berhasil');
 				return redirect()->to(base_url('user'));
 			}
 		}
@@ -133,10 +124,9 @@ class UsersController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
-		$model = new DaftarUsersModel();
-		$hapus = $model->deleteData($id);
+		$hapus = $this->user_model->deleteData($id);
 		if ($hapus) {
-			session()->setFlashdata('warning', 'Deleted user successfully');
+			session()->setFlashdata('warning', 'Delete Daftar user Berhasil');
 			return redirect()->to(base_url('user'));
 		}
 	}

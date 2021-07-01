@@ -31,92 +31,82 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/calendar.html" class="nav-link">
+                    <a href="<?php echo base_url('documentmasuk'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-receipt"></i>
                         <p>
                             Data Document Masuk
-                            <span class="badge badge-info right"><?php echo $total_documentmasuk ?></span>
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/calendar.html" class="nav-link">
+                    <a href="<?php echo base_url('documentkeluar'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-receipt"></i>
                         <p>
                             Data Document Keluar
-                            <span class="badge badge-info right"><?php echo $total_documentkeluar ?></span>
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/calendar.html" class="nav-link">
+                    <a href="<?php echo base_url('notamasuk'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-clipboard-list"></i>
                         <p>
                             Data Nota Masuk
-                            <span class="badge badge-info right"><?php echo $total_notamasuk ?></span>
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/calendar.html" class="nav-link">
+                    <a href="<?php echo base_url('notakeluar'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-clipboard-list"></i>
                         <p>
                             Data Nota Keluar
-                            <span class=" badge badge-info right"><?php echo $total_notakeluar ?></span>
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/calendar.html" class="nav-link">
+                    <a href="<?php echo base_url('vendor'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-shipping-fast"></i>
                         <p>
                             Data Vendor
-                            <span class="badge badge-info right"><?php echo $total_vendor ?></span>
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/calendar.html" class="nav-link">
+                    <a href="<?php echo base_url('drawingtype'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-draw-polygon"></i>
                         <p>
                             Data Drawing Type
-                            <span class="badge badge-info right"><?php echo $total_drawingtype ?></span>
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/calendar.html" class="nav-link">
+                    <a href="<?php echo base_url('drawingkode'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-draw-polygon"></i>
                         <p>
                             Data Drawing Kode
-                            <span class="badge badge-info right"><?php echo $total_drawingkode ?></span>
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/calendar.html" class="nav-link">
+                    <a href="<?php echo base_url('jabatan'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-sitemap"></i>
                         <p>
                             Data Jabatan
-                            <span class="badge badge-info right"><?php echo $total_jabatan ?></span>
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/calendar.html" class="nav-link">
+                    <a href="<?php echo base_url('rak'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-file-contract"></i>
                         <p>
                             Data Rak
-                            <span class="badge badge-info right"><?php echo $total_rak ?></span>
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/calendar.html" class="nav-link">
+                    <a href="<?php echo base_url('bahasa'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-language"></i>
                         <p>
                             Data Bahasa
-                            <span class="badge badge-info right"><?php echo $total_bahasa ?></span>
                         </p>
                     </a>
                 </li>
@@ -133,10 +123,9 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="<?php echo base_url('/user'); ?>" class="nav-link">
+                                <a href="<?php echo base_url('user'); ?>" class="nav-link">
                                     <i class="fas fa-user-lock nav-icon"></i>
                                     <p>Users Management
-                                        <span class="badge badge-info right"><?php echo $total_user ?></span>
 
                                     </p>
                                 </a>
