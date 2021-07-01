@@ -2,12 +2,9 @@
   <div class="float-right d-none d-sm-inline">
     HSRCC Information Management System
   </div>
-  <div class="float-left d-none d-sm-inline">
-    HSRCC Information Management System
-  </div>
-  <strong>Copyright &copy; 2021 <script type="text/javascript">
+  <strong> Copyright &copy; 2021 <script type="text/javascript">
       new Date().getFullYear() > 2020 && document.write(" - " + new Date().getFullYear());
-    </script> <a href="<?php echo base_url('/'); ?>">PAYANGANDEV</a>.</strong> All rights reserved.
+    </script> <a href="<?php echo base_url('/'); ?>">Devision Engginer</a>.</strong> All rights reserved.
 </footer>
 </div>
 

@@ -30,6 +30,8 @@ class Home extends BaseController
 		$data['total_drawingkode']      = $this->dashboard_model->getCountDrawingKode();
 		$data['total_drawingtype']      = $this->dashboard_model->getCountDrawingType();
 		$data['total_jabatan']          = $this->dashboard_model->getCountJabatan();
+		$data['total_vendor']           = $this->dashboard_model->getCountVendor();
+
 
 
 		return view('dashboard',  $data);

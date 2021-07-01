@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="<?php echo base_url('/'); ?>" class="brand-link">
         <img src="<?php echo base_url('hsrcc.png'); ?>" alt="HSRCC Logo" class="brand-image img-circle elevation-3">
-        <span class="brand-text font-weight-light text-red"><b>HSRCC</b></span>
+        <span class="brand-text font-weight-light text-red"><b>Division Engginer</b></span>
     </a>
 
     <div class="sidebar">
@@ -26,97 +26,97 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
                     <a href="<?php echo base_url('/'); ?>" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-campground"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="pages/calendar.html" class="nav-link">
-                        <i class="nav-icon fas fa-calendar-alt"></i>
+                        <i class="nav-icon fas fa-receipt"></i>
                         <p>
-                            Calendar
-                            <span class="badge badge-info right"><?php echo $total_user ?></span>
+                            Data Document Masuk
+                            <span class="badge badge-info right"><?php echo $total_documentmasuk ?></span>
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="pages/calendar.html" class="nav-link">
-                        <i class="nav-icon fas fa-calendar-alt"></i>
+                        <i class="nav-icon fas fa-receipt"></i>
                         <p>
-                            Calendar
-                            <span class="badge badge-info right"><?php echo $total_user ?></span>
+                            Data Document Keluar
+                            <span class="badge badge-info right"><?php echo $total_documentkeluar ?></span>
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="pages/calendar.html" class="nav-link">
-                        <i class="nav-icon fas fa-calendar-alt"></i>
+                        <i class="nav-icon fas fa-clipboard-list"></i>
                         <p>
-                            Calendar
-                            <span class="badge badge-info right"><?php echo $total_user ?></span>
+                            Data Nota Masuk
+                            <span class="badge badge-info right"><?php echo $total_notamasuk ?></span>
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="pages/calendar.html" class="nav-link">
-                        <i class="nav-icon fas fa-calendar-alt"></i>
+                        <i class="nav-icon fas fa-clipboard-list"></i>
                         <p>
-                            Calendar
-                            <span class="badge badge-info right"><?php echo $total_user ?></span>
+                            Data Nota Keluar
+                            <span class=" badge badge-info right"><?php echo $total_notakeluar ?></span>
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="pages/calendar.html" class="nav-link">
-                        <i class="nav-icon fas fa-calendar-alt"></i>
+                        <i class="nav-icon fas fa-shipping-fast"></i>
                         <p>
-                            Calendar
-                            <span class="badge badge-info right"><?php echo $total_user ?></span>
+                            Data Vendor
+                            <span class="badge badge-info right"><?php echo $total_vendor ?></span>
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="pages/calendar.html" class="nav-link">
-                        <i class="nav-icon fas fa-calendar-alt"></i>
+                        <i class="nav-icon fas fa-draw-polygon"></i>
                         <p>
-                            Calendar
-                            <span class="badge badge-info right"><?php echo $total_user ?></span>
+                            Data Drawing Type
+                            <span class="badge badge-info right"><?php echo $total_drawingtype ?></span>
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="pages/calendar.html" class="nav-link">
-                        <i class="nav-icon fas fa-calendar-alt"></i>
+                        <i class="nav-icon fas fa-draw-polygon"></i>
                         <p>
-                            Calendar
-                            <span class="badge badge-info right"><?php echo $total_user ?></span>
+                            Data Drawing Kode
+                            <span class="badge badge-info right"><?php echo $total_drawingkode ?></span>
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="pages/calendar.html" class="nav-link">
-                        <i class="nav-icon fas fa-calendar-alt"></i>
+                        <i class="nav-icon fas fa-sitemap"></i>
                         <p>
-                            Calendar
-                            <span class="badge badge-info right"><?php echo $total_user ?></span>
+                            Data Jabatan
+                            <span class="badge badge-info right"><?php echo $total_jabatan ?></span>
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="pages/calendar.html" class="nav-link">
-                        <i class="nav-icon fas fa-calendar-alt"></i>
+                        <i class="nav-icon fas fa-file-contract"></i>
                         <p>
-                            Calendar
-                            <span class="badge badge-info right"><?php echo $total_user ?></span>
+                            Data Rak
+                            <span class="badge badge-info right"><?php echo $total_rak ?></span>
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="pages/calendar.html" class="nav-link">
-                        <i class="nav-icon fas fa-calendar-alt"></i>
+                        <i class="nav-icon fas fa-language"></i>
                         <p>
-                            Calendar
-                            <span class="badge badge-info right"><?php echo $total_user ?></span>
+                            Data Bahasa
+                            <span class="badge badge-info right"><?php echo $total_bahasa ?></span>
                         </p>
                     </a>
                 </li>
@@ -127,15 +127,18 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-user-shield"></i>
                             <p>
-                                Developer
+                                Manager Area
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="<?php echo base_url('/users'); ?>" class="nav-link">
+                                <a href="<?php echo base_url('/user'); ?>" class="nav-link">
                                     <i class="fas fa-user-lock nav-icon"></i>
-                                    <p>Tambah Admin</p>
+                                    <p>Users Management
+                                        <span class="badge badge-info right"><?php echo $total_user ?></span>
+
+                                    </p>
                                 </a>
                             </li>
                         </ul>

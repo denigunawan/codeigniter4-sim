@@ -56,12 +56,12 @@ class UsersController extends BaseController
 		$validation =  \Config\Services::validation();
 
 		$data = array(
-			'nama_user'     => $this->request->getPost('nama_user'),
-			'username'   => $this->request->getPost('username'),
-			'password'   => $this->request->getPost('password'),
-			'level'   => $this->request->getPost('level'),
-			'created_at'   => $this->request->getPost('created_at'),
-			'updated_at'   => $this->request->getPost('updated_at'),
+			'nama_user'     	=> $this->request->getPost('nama_user'),
+			'username'  		=> $this->request->getPost('username'),
+			'password'  		=> $this->request->getPost('password'),
+			'level'   			=> $this->request->getPost('level'),
+			'created_at'   		=> $this->request->getPost('created_at'),
+			'updated_at'   		=> $this->request->getPost('updated_at'),
 
 		);
 
