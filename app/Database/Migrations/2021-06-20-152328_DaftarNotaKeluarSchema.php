@@ -41,7 +41,7 @@ class DaftarNotaKeluarSchema extends Migration
 			'tanggal_keluar'		=> [
 				'type'				=> 'DATE',
 			],
-			'user_id'			    => [
+			'karyawan_id'			    => [
 				'type'				=> 'INT',
 				'constraint'		=> 36,
 				'unsigned'			=> TRUE,
@@ -51,7 +51,7 @@ class DaftarNotaKeluarSchema extends Migration
 		]);
 
 		$this->forge->addKey('notakeluar_id', true);
-		$this->forge->addForeignKey('user_id', 'user', 'user_id', 'cascade', 'cascade');
+		$this->forge->addForeignKey('karyawan_id', 'karyawan', 'karyawan_id', 'cascade', 'cascade');
 		$this->forge->addForeignKey('vendor_id', 'vendor', 'vendor_id', 'cascade', 'cascade');
 		$this->forge->createTable('notakeluar', true);
 	}

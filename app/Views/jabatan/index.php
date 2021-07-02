@@ -4,16 +4,14 @@
 <div class="content-wrapper">
     <div class="content-header">
         <div class="container-fluid  text-center">
-            <marquee style="color: red;">
-                <p class="mb-2"><b>Untuk menjaga Keamanan data, Lakukan Pencadangan Data Secara Mandiri</b></p>
-            </marquee>
-
-            <h1 class="h3 mb-2 text-gray-800"> Data Pengurus Masjid Al-Hikmah Kp. payangan</h1>
-            <p class="mb-4">Data Pengurus yang dimasukan adalah data yang sudah valid dan sesuai dengan data internal masjid</p>
+            <h3 class="h3 mb-2 text-gray-800"> Data Jabatan Teregistrasi <em></em>
+                <p style="color:red;"> PT HSRCC </p> Division Engginer
+            </h3>
+            <p class="mb-4">Data Jabatan Hanya Bisa Dimasukan Oleh Developer atau Manager</p>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="<?php echo base_url('/dashboard') ?>"> <i class="nav-icon fas fa-mosque"></i>Dashboard</a></li>
-                    <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas fa-users"></i> Data Pengurus</li>
+                    <li class="breadcrumb-item"><a href="<?php echo base_url('/dashboard') ?>"> <i class="nav-icon fas  fa-campground"></i> Dashboard</a></li>
+                    <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas fa-sitemap"></i> Data jabatan</li>
                 </ol>
             </nav>
         </div>
@@ -24,7 +22,7 @@
             <div class="col-12">
                 <div class="card shadow-lg">
                     <div class="card-header shadow-sm">
-                        <a href="<?php echo base_url('jabatan/create'); ?>" class="btn btn-outline-success float-right"><i class="nav-icon fas fa-folder-plus"></i> | Tambah Pendataan Pengurus</a>
+                        <a href="<?php echo base_url('jabatan/create'); ?>" class="btn btn-outline-success float-right"><i class="nav-icon fas fa-folder-plus"></i> | Tambah Pendataan jabatan</a>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -55,7 +53,6 @@
                                         <th>Nama Jabatan</th>
                                         <th>Jenis Jabatan</th>
                                         <th>Tanggal Masuk</th>
-                                        <th>Staff Verified</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -66,7 +63,6 @@
                                             <td><?php echo $row['nama_jabatan']; ?></td>
                                             <td><?php echo $row['jenis_jabatan']; ?></td>
                                             <td><?php echo $row['tanggal_masuk']; ?></td>
-                                            <td><?php echo $row['user_id']; ?></td>
 
                                             <td>
                                                 <div class="btn-group">
@@ -87,7 +83,6 @@
                                         <th>Nama Jabatan</th>
                                         <th>Jenis Jabatan</th>
                                         <th>Tanggal Masuk</th>
-                                        <th>Staff Verified</th>
                                         <th>Action</th>
                                     </tr>
                                 </tfoot>

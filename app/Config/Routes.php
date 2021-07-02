@@ -109,6 +109,17 @@ $routes->post('jabatan/update', 'JabatanController::update/$1');
 $routes->get('jabatan/delete/(:alphanum)', 'JabatanController::delete/$1');
 
 
+
+// ROUTING DATA
+$routes->get('karyawan', 'KaryawanController::index');
+$routes->get('karyawan/create', 'KaryawanController::create');
+$routes->post('karyawan/store', 'KaryawanController::store');
+$routes->get('karyawan/edit/(:alphanum)', 'KaryawanController::edit/$1');
+$routes->post('karyawan/update', 'KaryawanController::update/$1');
+$routes->get('karyawan/delete/(:alphanum)', 'KaryawanController::delete/$1');
+
+
+
 // ROUTING DATA 
 
 $routes->get('notamasuk', 'NotaMasukController::index');
@@ -134,12 +145,12 @@ $routes->get('notakeluar/delete/(:alphanum)', 'NotaKeluarController::delete/$1')
 
 // ROUTING DATA 
 
-$routes->get('users', 'UsersController::index');
-$routes->get('users/create', 'UsersController::create');
-$routes->post('users/store', 'UsersController::store');
-$routes->get('users/edit/(:alphanum)', 'UsersController::edit/$1');
-$routes->post('users/update/(:alphanum)', 'UsersController::update/$1');
-$routes->get('users/delete/(:alphanum)', 'UsersController::delete/$1');
+$routes->get('user', 'UsersController::index');
+$routes->get('user/create', 'UsersController::create');
+$routes->post('user/store', 'UsersController::store');
+$routes->get('user/edit/(:alphanum)', 'UsersController::edit/$1');
+$routes->post('user/update/(:alphanum)', 'UsersController::update/$1');
+$routes->get('user/delete/(:alphanum)', 'UsersController::delete/$1');
 
 
 

@@ -23,7 +23,7 @@ class DaftarDrawingKodeSchema extends Migration
 				'type'				=> 'DATE',
 			],
 
-			'user_id'			    => [
+			'karyawan_id'			    => [
 				'type'				=> 'INT',
 				'constraint'		=> 36,
 				'unsigned'			=> TRUE,
@@ -32,7 +32,7 @@ class DaftarDrawingKodeSchema extends Migration
 		]);
 
 		$this->forge->addKey('drawingkode_id', true);
-		$this->forge->addForeignKey('user_id', 'user', 'user_id', 'cascade', 'cascade');
+		$this->forge->addForeignKey('karyawan_id', 'karyawan', 'karyawan_id', 'cascade', 'cascade');
 		$this->forge->createTable('drawingkode', true);
 	}
 

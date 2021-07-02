@@ -13,7 +13,7 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>">Dashboard</a></li>
-          <li class="breadcrumb-item"><a href="<?php echo base_url('/daftarpengurus') ?>">Data Pengurus</a></li>
+          <li class="breadcrumb-item"><a href="<?php echo base_url('/bahasa') ?>">Data Pengurus</a></li>
           <li class="breadcrumb-item" aria-current="page">Tambah Pengurus</li>
         </ol>
       </nav>
@@ -36,114 +36,58 @@
               </ul>
             </div>
           <?php } ?>
-          <?php echo form_open_multipart('daftarpengurus/store'); ?>
+          <?php echo form_open_multipart('bahasa/store'); ?>
           <div class="card">
             <div class="card-body">
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
                     <?php
-                    echo form_label('Nama Imam');
+                    echo form_label('Bahasa Documents');
                     $nama = [
                       'type'  => 'text',
-                      'name'  => 'namapengurus',
-                      'id'    => 'namapengurus',
-                      'value' => $inputs['namapengurus'],
+                      'name'  => 'bahasa_document',
+                      'id'    => 'bahasa_document',
+                      'value' => $inputs['bahasa_document'],
                       'class' => 'form-control',
-                      'placeholder' => 'Masukan Nama imam'
+                      'placeholder' => 'Input bahasa'
                     ];
                     echo form_input($nama);
                     ?>
                   </div>
                   <div class="form-group">
                     <?php
-                    echo form_label('Jenis Kelamin', 'jk');
-                    echo form_dropdown('jk', ['' => 'Pilih', 'PRIA' => 'PRIA', 'WANITA' => 'WANITA'], $inputs['jk'], ['class' => 'form-control']);
-                    ?>
-                  </div>
-                  <div class="form-group">
-                    <?php
-                    echo form_label('Pekerjaan');
-                    $pekerjaan = [
-                      'type'  => 'text',
-                      'name'  => 'pekerjaan',
-                      'id'    => 'pekerjaan',
-                      'value' => $inputs['pekerjaan'],
-                      'class' => 'form-control',
-                      'placeholder' => 'Masukan Pekerjaan...'
-                    ];
-                    echo form_input($pekerjaan);
-                    ?>
-                  </div>
-                  <div class="form-group">
-                    <?php
-                    echo form_label('Alamat Rumah Imam');
-                    $alamat = [
-                      'type'  => 'text',
-                      'name'  => 'alamat',
-                      'id'    => 'alamat',
-                      'value' => $inputs['alamat'],
-                      'class' => 'form-control',
-                      'placeholder' => 'Masukan alamat imam'
-                    ];
-                    echo form_input($alamat);
-                    ?>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <?php
-                    echo form_label('Kontak Pengurus');
-                    $handphone = [
-                      'type'  => 'number',
-                      'name'  => 'telephone',
-                      'id'    => 'telephone',
-                      'value' => $inputs['telephone'],
-                      'class' => 'form-control',
-                      'placeholder' => 'Masukan Nomer telephone'
-                    ];
-                    echo form_input($handphone);
-                    ?>
-                  </div>
-                  <div class="form-group">
-                    <?php
-                    echo form_label('Jabatan Pengurus', 'jabatan');
-                    echo form_dropdown('jabatan', ['' => 'Pilih', 'PENASEHAT' => 'PENASEHAT', 'KETUA' => 'KETUA', 'WAKIL KETUA' => 'WAKIL KETUA', 'SEKERTARIS' => 'SEKERTARIS', 'SEKSI PERLENGKAPAN' => 'SEKSI PERLENGKAPAN', 'SEKSI HUMAS' => 'SEKSI HUMAS', 'SEKSI BENDAHARA' => 'SEKSI BENDAHARA', 'SEKSI BENDAHARA' => 'SEKSI BENDAHARA', 'SEKSI PBHI' => 'SEKSI PBHI', 'SEKSI TEKNISI' => 'SEKSI TEKNISI'], $inputs['jabatan'], ['class' => 'form-control']);
-                    ?>
-                  </div>
-                  <div class="form-group">
-                    <?php
-                    echo form_label('Status Keaktifan Imam', 'Status');
-                    echo form_dropdown('status', ['' => 'Pilih', 'AKTIF' => 'AKTIF', 'OFF' => 'OFF'], $inputs['status'], ['class' => 'form-control']);
-                    ?>
-                  </div>
-                  <div class="form-group">
-                    <?php
-                    echo form_label('Tanggal  Terdata');
-                    $tanggalmasuk = [
+                    echo form_label('Tanggal Masuk');
+                    $tanggal_masuk = [
                       'type'  => 'date',
-                      'name'  => 'tanggalmasuk',
-                      'id'    => 'tanggalmasuk',
-                      'value' => $inputs['tanggalmasuk'],
+                      'name'  => 'tanggal_masuk',
+                      'id'    => 'tanggal_masuk',
+                      'value' => $inputs['tanggal_masuk'],
                       'class' => 'form-control',
-                      'placeholder' => 'tanggalmasuk'
+                      'placeholder' => 'Masukan tanggal masuk'
                     ];
-                    echo form_input($tanggalmasuk);
+                    echo form_input($tanggal_masuk);
                     ?>
                   </div>
-
+                  <div class="form-group">
+                    <?php
+                    echo form_label('Penanggung Jawab Data', 'daftarstaff');
+                    echo form_dropdown('user_id', $user, $inputs['user_id'], ['class' => 'form-control']);
+                    ?>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="card-footer">
-              <a href="<?php echo base_url('daftarpengurus'); ?>" class="btn btn-outline-info">Back</a>
-              <button type="submit" class="btn btn-primary float-right">Simpan</button>
-            </div>
           </div>
-          <?php echo form_close(); ?>
+          <div class="card-footer">
+            <a href="<?php echo base_url('bahasa'); ?>" class="btn btn-outline-info">Back</a>
+            <button type="submit" class="btn btn-primary float-right">Simpan</button>
+          </div>
         </div>
+        <?php echo form_close(); ?>
       </div>
     </div>
   </div>
+</div>
 </div>
 <?php echo view('_partials/footer'); ?>

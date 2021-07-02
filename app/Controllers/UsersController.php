@@ -24,7 +24,6 @@ class UsersController extends BaseController
 		}
 		// membuat halaman otomatis berubah ketika berpindah halaman 
 		$currentPage = $this->request->getVar('page_user') ? $this->request->getVar('page_user') : 1;
-		// paginate
 		$paginate = 5;
 		$data['user']   = $this->user_model->paginate($paginate, 'user');
 		$data['pager']        = $this->user_model->pager;

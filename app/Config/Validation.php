@@ -45,14 +45,14 @@ class Validation
 
 	// validasi untuk  setiap field yang ada di Database 
 	public $bahasa = [
-		'user_id'				=> 'required',
+		'karyawan_id'				=> 'required',
 		'bahasa_document'     	=> 'required',
 		'tanggal_masuk'     	=> 'required',
 	];
 
 	public $bahasa_errors = [
 
-		'user_id'     	=> [
+		'karyawan_id'     	=> [
 			'required'		=> 'Users Penanggung Jawab Wajib Diisi'
 		],
 
@@ -72,7 +72,7 @@ class Validation
 
 	// validasi untuk  setiap field yang ada di Database 
 	public $rak = [
-		'user_id'			=> 'required',
+		'karyawan_id'			=> 'required',
 		'nama_rak'     		=> 'required',
 		'kode_rak'     		=> 'required',
 		'tanggal_masuk'   	=> 'required',
@@ -81,7 +81,7 @@ class Validation
 
 	public $rak_errors = [
 
-		'user_id'     	=> [
+		'karyawan_id'     	=> [
 			'required'		=> 'Staff Penanggung Jawab Wajib Diisi'
 		],
 
@@ -102,7 +102,7 @@ class Validation
 
 	// validasi untuk  setiap field yang ada di Database 
 	public $vendor = [
-		'user_id'			=> 'required',
+		'karyawan_id'			=> 'required',
 		'nama_vendor'     	=> 'required',
 		'jenis_vendor'     	=> 'required',
 		'tanggal_masuk'   	=> 'required',
@@ -111,7 +111,7 @@ class Validation
 
 	public $vendor_errors = [
 
-		'user_id'     	=> [
+		'karyawan_id'     	=> [
 			'required'		=> 'Staff Penanggung Jawab Wajib Diisi'
 		],
 
@@ -141,7 +141,7 @@ class Validation
 		'bahasa_id'   				=> 'required',
 		'tanggal_keluar'   			=> 'required',
 		'status'   					=> 'required',
-		'user_id'   				=> 'required',
+		'karyawan_id'   				=> 'required',
 
 
 
@@ -176,7 +176,7 @@ class Validation
 		'status'   	=>  [
 			'required'		=> 'Data Status  Document Wajib Di isi'
 		],
-		'user_id'   	=>  [
+		'karyawan_id'   	=>  [
 			'required'		=> 'Data Penanggung Jawab Document Wajib Di isi'
 		],
 
@@ -198,7 +198,7 @@ class Validation
 		'bahasa_id'   				=> 'required',
 		'tanggal_masuk'   			=> 'required',
 		'status'   					=> 'required',
-		'user_id'   				=> 'required',
+		'karyawan_id'   				=> 'required',
 
 	];
 
@@ -233,7 +233,7 @@ class Validation
 		'status'   	=>  [
 			'required'		=> 'Data Status  Document Wajib Di isi'
 		],
-		'user_id'   	=>  [
+		'karyawan_id'   	=>  [
 			'required'		=> 'Data Penanggung Jawab Document Wajib Di isi'
 		],
 
@@ -245,8 +245,7 @@ class Validation
 
 	// validasi untuk  setiap field yang ada di Database 
 	public $drawingkode = [
-		'idpengurus'		=> 'required',
-		'foto'				=> 'uploaded[foto]|mime_in[foto,image/jpg,image/jpeg,image/gif,image/png]|max_size[foto,1000]',
+		'karyawan_id'		=> 'required',
 		'nama'     			=> 'required',
 		'alamat'     		=> 'required',
 		'status'   			=> 'required',
@@ -256,14 +255,8 @@ class Validation
 
 	public $drawingkode_errors = [
 
-		'idpengurus'     	=> [
-			'required'		=> 'Pengurus Wajib Di isi'
-		],
-
-		'foto'     			=> [
-			'mime_in'   => 'Gambar imam hanya boleh diisi dengan jpg, jpeg, png atau gif.',
-			'max_size'  => 'Gambar imam maksimal 2mb',
-			'uploaded'  => 'Gambar imam wajib diisi'
+		'karyawan_id'     	=> [
+			'required'		=> 'Karyawan Wajib Di isi'
 		],
 
 		'nama'     			=> [
@@ -290,7 +283,7 @@ class Validation
 
 	// validasi untuk  setiap field yang ada di Database 
 	public $drawingtype = [
-		'user_id'			=> 'required',
+		'karyawan_id'			=> 'required',
 		'drawing_type'      => 'required',
 		'tanggal_masuk'     => 'required',
 
@@ -305,7 +298,7 @@ class Validation
 		'tanggal_masuk'   	=>  [
 			'required'		=> 'Data Tanggal Masuk  Wajib Di isi'
 		],
-		'user_id'   	=>  [
+		'karyawan_id'   	=>  [
 			'required'		=> 'Data Penanggung Jawab Wajib Di isi'
 		]
 	];
@@ -316,7 +309,6 @@ class Validation
 
 	// validasi untuk  setiap field yang ada di Database 
 	public $jabatan = [
-		'user_id'			=> 'required',
 		'nama_jabatan'     	=> 'required',
 		'jenis_jabatan'     => 'required',
 		'tanggal_masuk'   	=> 'required',
@@ -335,9 +327,6 @@ class Validation
 		'tanggal_masuk'   	=>  [
 			'required'		=> 'Data Tanggal Masuk Document Wajib Di isi'
 		],
-		'user_id'   	=>  [
-			'required'		=> 'Data Penanggung Jawab Wajib Di isi'
-		],
 
 	];
 
@@ -347,7 +336,7 @@ class Validation
 
 	// validasi untuk  setiap field yang ada di Database 
 	public $notamasuk = [
-		'user_id'			=> 'required',
+		'karyawan_id'			=> 'required',
 		'vendor_id'     	=> 'required',
 		'kode_nota'     	=> 'required',
 		'nama_barang'   	=> 'required',
@@ -379,7 +368,7 @@ class Validation
 		'status'   	=>  [
 			'required'		=> 'Data Status nota Wajib Di isi'
 		],
-		'user_id'   	=>  [
+		'karyawan_id'   	=>  [
 			'required'		=> 'Data Penanggung Jawab nota Wajib Di isi'
 		]
 	];
@@ -388,7 +377,7 @@ class Validation
 
 	// validasi untuk  setiap field yang ada di Database 
 	public $notakeluar = [
-		'user_id'			=> 'required',
+		'karyawan_id'			=> 'required',
 		'vendor_id'     	=> 'required',
 		'kode_nota'     	=> 'required',
 		'nama_barang'   	=> 'required',
@@ -421,12 +410,57 @@ class Validation
 		'status'   	=>  [
 			'required'		=> 'Data Status nota Wajib Di isi'
 		],
-		'user_id'   	=>  [
+		'karyawan_id'   	=>  [
 			'required'		=> 'Data Penanggung Jawab nota Wajib Di isi'
 		]
 	];
 
 
+
+	public $karyawan = [
+		'jabatan_id'			=> 'required',
+		'nama_karyawan'     	=> 'required',
+		'jk'     				=> 'required',
+		'alamat'   				=> 'required',
+		'divisi'   				=> 'required',
+		'jabatan_id'   			=> 'required',
+		'telephone'   			=> 'required',
+		'status'   				=> 'required',
+		'tanggalmasuk'   		=> 'required',
+
+
+
+	];
+
+	public $karyawan_errors = [
+
+		'nama_karyawan'    => [
+			'required'		=> 'Nama Barang Wajib Di isi'
+		],
+		'jk'     	=> [
+			'required'		=> 'Jenis Kelamin  Wajib Di isi'
+		],
+
+		'alamat'    => [
+			'required'		=> 'Nama Barang Wajib Di isi'
+		],
+
+		'divisi'   	=> [
+			'required'		=> 'Jumlah Barang Wajib Di isi'
+		],
+		'jabatan_id'   		=>  [
+			'required'		=> 'Data Vendor Wajib Di isi'
+		],
+		'telephone'   	=>  [
+			'required'		=> 'Data Tanggal keluar nota Wajib Di isi'
+		],
+		'status'   	=>  [
+			'required'		=> 'Data Status nota Wajib Di isi'
+		],
+		'tanggalmasuk'   	=>  [
+			'required'		=> 'Data Penanggung Jawab nota Wajib Di isi'
+		]
+	];
 
 
 

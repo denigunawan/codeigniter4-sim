@@ -8,15 +8,15 @@ class DaftarUsersModel extends Model
 {
 	protected $table = 'user';
 
-	public function getData($user_id = false)
+	public function getData($id = false)
 	{
-		if ($user_id === false) {
+		if ($id === false) {
 			return $this->table('user')
 				->get()
 				->getResultArray();
 		} else {
 			return $this->table('user')
-				->where('user.user_id', $user_id)
+				->where('user.user_id', $id)
 				->get()
 				->getRowArray();
 		}
@@ -28,14 +28,14 @@ class DaftarUsersModel extends Model
 		return $this->db->table($this->table)->insert($data);
 	}
 
-	public function updateData($data, $user_id)
+	public function updateData($data, $id)
 	{
-		return $this->db->table($this->table)->update($data, ['user_id' => $user_id]);
+		return $this->db->table($this->table)->update($data, ['user_id' => $id]);
 	}
 
 
-	public function deleteData($user_id)
+	public function deleteData($id)
 	{
-		return $this->db->table($this->table)->delete(['user_id' => $user_id]);
+		return $this->db->table($this->table)->delete(['user_id' => $id]);
 	}
 }

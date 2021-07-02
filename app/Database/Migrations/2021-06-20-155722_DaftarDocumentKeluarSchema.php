@@ -59,7 +59,7 @@ class DaftarDocumentKeluarSchema extends Migration
 				'constraint'		=> "'Masuk','Proses','Keluar'",
 				'default'			=> 'Masuk'
 			],
-			'user_id'			    => [
+			'karyawan_id'			    => [
 				'type'				=> 'INT',
 				'constraint'		=> 36,
 				'unsigned'			=> TRUE,
@@ -69,7 +69,7 @@ class DaftarDocumentKeluarSchema extends Migration
 
 
 		$this->forge->addKey('document_keluar_id', true);
-		$this->forge->addForeignKey('user_id', 'user', 'user_id', 'cascade', 'cascade');
+		$this->forge->addForeignKey('karyawan_id', 'karyawan', 'karyawan_id', 'cascade', 'cascade');
 		$this->forge->addForeignKey('vendor_id', 'vendor', 'vendor_id', 'cascade', 'cascade');
 		$this->forge->addForeignKey('drawingtype_id', 'drawingtype', 'drawingtype_id', 'cascade', 'cascade');
 		$this->forge->addForeignKey('drawingkode_id', 'drawingkode', 'drawingkode_id', 'cascade', 'cascade');

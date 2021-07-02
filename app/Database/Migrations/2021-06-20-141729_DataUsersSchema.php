@@ -4,8 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class DatauserSchema extends Migration
-
+class DaftaUsersSchema extends Migration
 {
 	public function up()
 	{

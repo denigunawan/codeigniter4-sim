@@ -59,10 +59,6 @@ class BahasaController extends BaseController
 			'user_id'        		=> $this->request->getPost('user_id'),
 			'bahasa_document'       => $this->request->getPost('bahasa_document'),
 			'tanggal_masuk'         => $this->request->getPost('tanggal_masuk'),
-			'created_at'            => $this->request->getPost('created_at'),
-			'updated_at'            => $this->request->getPost('updated_at'),
-
-
 
 		);
 
@@ -119,9 +115,6 @@ class BahasaController extends BaseController
 			'user_id'        		=> $this->request->getPost('user_id'),
 			'bahasa_document'       => $this->request->getPost('bahasa_document'),
 			'tanggal_masuk'         => $this->request->getPost('tanggal_masuk'),
-			'created_at'            => $this->request->getPost('created_at'),
-			'updated_at'            => $this->request->getPost('updated_at'),
-
 		);
 		if ($validation->run($data, 'bahasa') == FALSE) {
 			session()->setFlashdata('inputs', $this->request->getPost());
