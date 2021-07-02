@@ -72,7 +72,7 @@
                   <div class="form-group">
                     <?php
                     echo form_label('Penanggung Jawab Data', 'daftarstaff');
-                    echo form_dropdown('user_id', $user, $inputs['user_id'], ['class' => 'form-control']);
+                    echo form_dropdown('karyawan_id', $karyawan, $inputs['karyawan_id'], ['class' => 'form-control']);
                     ?>
                   </div>
                 </div>

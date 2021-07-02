@@ -12,12 +12,12 @@ class DaftarBahasaModel extends Model
 	{
 		if ($id === false) {
 			return $this->table('bahasa')
-				->join('user', 'user.user_id = bahasa.user_id')
+				->join('karyawan', 'karyawan.karyawan_id = bahasa.karyawan_id')
 				->get()
 				->getResultArray();
 		} else {
 			return $this->table('bahasa')
-				->join('user', 'user.user_id = bahasa.user_id')
+				->join('karyawan', 'karyawan.karyawan_id = bahasa.karyawan_id')
 				->where('bahasa.bahasa_id', $id)
 				->get()
 				->getRowArray();

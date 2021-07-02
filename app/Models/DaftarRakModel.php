@@ -12,12 +12,12 @@ class DaftarRakModel extends Model
 	{
 		if ($id === false) {
 			return $this->table('rak')
-				->join('user', 'user.user_id = rak.user_id')
+				->join('karyawan', 'karyawan.karyawan_id = rak.karyawan_id')
 				->get()
 				->getResultArray();
 		} else {
 			return $this->table('rak')
-				->join('user', 'user.user_id = rak.user_id')
+				->join('karyawan', 'karyawan.karyawan_id = rak.karyawan_id')
 				->where('rak.rak_id', $id)
 				->get()
 				->getRowArray();

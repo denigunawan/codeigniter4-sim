@@ -2,16 +2,19 @@
 
 namespace App\Controllers;
 
-use CodeIgniter\Controller;
+use App\Models\DaftarJabatanModel;
 use App\Models\KaryawanModel;
 
 class KaryawanController extends BaseController
 {
+
+
     protected $helpers = [];
 
     public function __construct()
     {
         helper(['form']);
+        $this->jabatan_model = new DaftarJabatanModel();
         $this->karyawan_model = new KaryawanModel();
     }
 
@@ -24,16 +27,14 @@ class KaryawanController extends BaseController
         }
         // membuat halaman otomatis berubah ketika berpindah halaman 
         $currentPage = $this->request->getVar('page_karyawan') ? $this->request->getVar('page_karyawan') : 1;
-
         // paginate
         $paginate = 5;
-        $data['karyawan'] = $this->karyawan_model->paginate($paginate, 'karyawan');
-        $data['pager']          = $this->karyawan_model->pager;
-        $data['currentPage']    = $currentPage;
-
-
+        $data['karyawan']   = $this->karyawan_model->join('jabatan', 'jabatan.jabatan_id = karyawan.jabatan_id')->paginate($paginate, 'karyawan');
+        $data['pager']        = $this->karyawan_model->pager;
+        $data['currentPage']  = $currentPage;
         echo view('karyawan/index', $data);
     }
+
 
     public function create()
     {
@@ -42,7 +43,9 @@ class KaryawanController extends BaseController
             session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
             return redirect()->to(base_url('login'));
         }
-        return view('karyawan/create');
+        $jabatan = $this->jabatan_model->findAll();
+        $data['jabatan'] = ['' => 'jabatan'] + array_column($jabatan, 'nama_jabatan', 'jabatan_id');
+        return view('karyawan/create', $data);
     }
 
     public function store()
@@ -64,7 +67,6 @@ class KaryawanController extends BaseController
             'status'            => $this->request->getPost('status'),
             'tanggalmasuk'      => $this->request->getPost('tanggalmasuk'),
 
-
         );
 
         if ($validation->run($data, 'karyawan') == FALSE) {
@@ -72,15 +74,13 @@ class KaryawanController extends BaseController
             session()->setFlashdata('errors', $validation->getErrors());
             return redirect()->to(base_url('karyawan/create'));
         } else {
-            $model = new KaryawanModel();
-            $simpan = $model->insertData($data);
+            $simpan = $this->karyawan_model->insertData($data);
             if ($simpan) {
-                session()->setFlashdata('success', 'Data Berhasil Ditambahkan');
+                session()->setFlashdata('success', 'Created  successfully');
                 return redirect()->to(base_url('karyawan'));
             }
         }
     }
-
 
     public function edit($id)
     {
@@ -89,23 +89,25 @@ class KaryawanController extends BaseController
             session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
             return redirect()->to(base_url('login'));
         }
-        $model = new KaryawanModel();
-        $data['karyawan'] = $model->getData($id)->getRowArray();
+        $jabatan = $this->jabatan_model->findAll();
+        $data['jabatan'] = ['' => 'Pilih jabatan'] + array_column($jabatan, 'nama_jabatan', 'jabatan_id');
+
+        $data['karyawan'] = $this->karyawan_model->getData($id);
         echo view('karyawan/edit', $data);
     }
-
     public function update()
     {
         // proteksi halaman
-        if (session()->get('usekaryawan_Modelname') == '') {
+        if (session()->get('username') == '') {
             session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
             return redirect()->to(base_url('login'));
         }
-        $id = $this->request->getPost('idkaryawan');
+        $id = $this->request->getPost('karyawan_id');
 
         $validation =  \Config\Services::validation();
 
         $data = array(
+
             'nama_karyawan'     => $this->request->getPost('nama_karyawan'),
             'jk'                => $this->request->getPost('jk'),
             'telephone'         => $this->request->getPost('telephone'),
@@ -114,6 +116,7 @@ class KaryawanController extends BaseController
             'jabatan_id'        => $this->request->getPost('jabatan_id'),
             'status'            => $this->request->getPost('status'),
             'tanggalmasuk'      => $this->request->getPost('tanggalmasuk'),
+
         );
 
         if ($validation->run($data, 'karyawan') == FALSE) {
@@ -137,10 +140,9 @@ class KaryawanController extends BaseController
             session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
             return redirect()->to(base_url('login'));
         }
-        $model = new KaryawanModel();
-        $hapus = $model->deleteData($id);
+        $hapus = $this->karyawan_model->deleteData($id);
         if ($hapus) {
-            session()->setFlashdata('warning', 'Delete Data Berhasil');
+            session()->setFlashdata('warning', 'Delete  karyawan Berhasil');
             return redirect()->to(base_url('karyawan'));
         }
     }

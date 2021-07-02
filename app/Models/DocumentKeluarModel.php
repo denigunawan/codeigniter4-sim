@@ -12,7 +12,7 @@ class DocumentKeluarModel extends Model
 	{
 		if ($id === false) {
 			return $this->table('documentkeluar')
-				->join('user', 'user.user_id = documentkeluar.user_id')
+				->join('karyawan', 'karyawan.karyawan_id = documentkeluar.karyawan_id')
 				->join('vendor', 'vendor.vendor_id = documentkeluar.vendor_id')
 				->join('drawingtype', 'drawingtype.drawingtype_id = documentkeluar.drawingtype_id')
 				->join('drawingkode', 'drawingkode.drawingkode_id = documentkeluar.drawingkode_id')
@@ -21,7 +21,7 @@ class DocumentKeluarModel extends Model
 				->getResultArray();
 		} else {
 			return $this->table('documentkeluar')
-				->join('user', 'user.user_id = documentkeluar.user_id')
+				->join('karyawan', 'karyawan.karyawan_id = documentkeluar.karyawan_id')
 				->join('vendor', 'vendor.vendor_id = documentkeluar.vendor_id')
 				->join('drawingtype', 'drawingtype.drawingtype_id = documentkeluar.drawingtype_id')
 				->join('drawingkode', 'drawingkode.drawingkode_id = documentkeluar.drawingkode_id')

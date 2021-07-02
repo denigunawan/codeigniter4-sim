@@ -12,12 +12,12 @@ class DaftarDrawingTypeModel extends Model
 	{
 		if ($id === false) {
 			return $this->table('drawingtype')
-				->join('user', 'user.user_id = drawingtype.user_id')
+				->join('karyawan', 'karyawan.karyawan_id = drawingtype.karyawan_id')
 				->get()
 				->getResultArray();
 		} else {
 			return $this->table('drawingtype')
-				->join('user', 'user.user_id = drawingtype.user_id')
+				->join('karyawan', 'karyawan.karyawan_id = drawingtype.karyawan_id')
 				->where('drawingtype.drawingtype_id', $id)
 				->get()
 				->getRowArray();

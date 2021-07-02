@@ -12,12 +12,12 @@ class DaftarVendorModel extends Model
 	{
 		if ($id === false) {
 			return $this->table('vendor')
-				->join('user', 'user.user_id = vendor.user_id')
+				->join('karyawan', 'karyawan.karyawan_id = vendor.karyawan_id')
 				->get()
 				->getResultArray();
 		} else {
 			return $this->table('vendor')
-				->join('user', 'user.user_id = vendor.user_id')
+				->join('karyawan', 'karyawan.karyawan_id = vendor.karyawan_id')
 				->where('vendor.vendor_id', $id)
 				->get()
 				->getRowArray();

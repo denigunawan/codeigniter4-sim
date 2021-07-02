@@ -13,7 +13,7 @@ class DocumentMasukModel extends Model
 	{
 		if ($id === false) {
 			return $this->table('documentmasuk')
-				->join('user', 'user.user_id = documentmasuk.user_id')
+				->join('karyawan', 'karyawan.karyawan_id = documentmasuk.karyawan_id')
 				->join('vendor', 'vendor.vendor_id = documentmasuk.vendor_id')
 				->join('drawingtype', 'drawingtype.drawingtype_id = documentmasuk.drawingtype_id')
 				->join('drawingkode', 'drawingkode.drawingkode_id = documentmasuk.drawingkode_id')
@@ -23,7 +23,7 @@ class DocumentMasukModel extends Model
 				->getResultArray();
 		} else {
 			return $this->table('documentmasuk')
-				->join('user', 'user.user_id = documentmasuk.user_id')
+				->join('karyawan', 'karyawan.karyawan_id = documentmasuk.karyawan_id')
 				->join('vendor', 'vendor.vendor_id = documentmasuk.vendor_id')
 				->join('drawingtype', 'drawingtype.drawingtype_id = documentmasuk.drawingtype_id')
 				->join('drawingkode', 'drawingkode.drawingkode_id = documentmasuk.drawingkode_id')

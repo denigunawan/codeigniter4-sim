@@ -12,12 +12,12 @@ class DaftarDrawingKodeModel extends Model
 	{
 		if ($id === false) {
 			return $this->table('drawingkode')
-				->join('user', 'user.user_id = drawingkode.user_id')
+				->join('karyawan', 'karyawan.karyawan_id = drawingkode.karyawan_id')
 				->get()
 				->getResultArray();
 		} else {
 			return $this->table('drawingkode')
-				->join('user', 'user.user_id = drawingkode.user_id')
+				->join('karyawan', 'karyawan.karyawan_id = drawingkode.karyawan_id')
 				->where('drawingkode.drawingkode_id', $id)
 				->get()
 				->getRowArray();

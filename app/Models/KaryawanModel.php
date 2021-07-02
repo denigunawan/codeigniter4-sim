@@ -30,10 +30,10 @@ class KaryawanModel extends Model
 
     public function updateData($data, $id)
     {
-        return $this->db->table($this->table)->update($data, ['jabatan_id' => $id]);
+        return $this->db->table($this->table)->update($data, ['karyawan_id' => $id]);
     }
     public function deleteData($id)
     {
-        return $this->db->table($this->table)->delete(['jabatan_id' => $id]);
+        return $this->db->table($this->table)->delete(['karyawan_id' => $id]);
     }
 }

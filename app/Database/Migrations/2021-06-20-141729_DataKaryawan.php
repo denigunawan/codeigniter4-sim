@@ -21,15 +21,16 @@ class DataKaryawan extends Migration
 				'type'           => 'VARCHAR',
 				'constraint'     => '255',
 			],
-			'jk'					=> [
-				'type'				=> 'ENUM',
-				'constraint'		=> "'Pria','Wanita'",
-				'default'			=> 'Pria'
+			'jk'				=> [
+				'type'			=> 'ENUM',
+				'constraint'	=> "'Pria','Wanita'",
+				'default'		=> 'Pria'
 			],
-			'telephone'      => [
-				'type'           => 'DATE',
+			'telephone'      	 => [
+				'type'           => 'VARCHAR',
+				'constraint'	 => '15'
 			],
-			'alamat'      => [
+			'alamat'      		=> [
 				'type'           => 'VARCHAR',
 				'constraint'     => '255',
 			],
@@ -56,7 +57,6 @@ class DataKaryawan extends Migration
 		//primary key
 		$this->forge->addKey('karyawan_id', TRUE);
 		$this->forge->addForeignKey('jabatan_id', 'jabatan', 'jabatan_id', 'cascade', 'cascade');
-
 		//nama tabel
 		$this->forge->createTable('karyawan', TRUE);
 	}

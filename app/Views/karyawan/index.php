@@ -4,16 +4,14 @@
 <div class="content-wrapper">
     <div class="content-header">
         <div class="container-fluid  text-center">
-            <marquee style="color: red;">
-                <p class="mb-2"><b>Untuk menjaga Keamanan data, Lakukan Pencadangan Data Secara Mandiri</b></p>
-            </marquee>
-
-            <h1 class="h3 mb-2 text-gray-800"> Data karyawan Masjid Al-Hikmah Kp. payangan</h1>
-            <p class="mb-4">Data karyawan yang dimasukan adalah data yang sudah valid dan sesuai dengan data internal masjid</p>
+            <h3 class="h3 mb-2 text-gray-800"> Data Karyawan
+                <p style="color:red;"> PT HSRCC </p> Division Engginer
+            </h3>
+            <p class="mb-4">Data Karyawan Hanya Bisa Dimasukan Oleh Developer atau Manager</p>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="<?php echo base_url('/dashboard') ?>"> <i class="nav-icon fas fa-mosque"></i>Dashboard</a></li>
-                    <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas fa-users"></i> Data karyawan</li>
+                    <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>"> <i class="nav-icon fas  fa-campground"></i> Dashboard</a></li>
+                    <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas fa-users"></i> Data Karyawan</li>
                 </ol>
             </nav>
         </div>
@@ -53,11 +51,12 @@
                                     <tr>
                                         <th>No</th>
                                         <th>nama karyawan</th>
-                                        <th>telephone</th>
-                                        <th>alamat</th>
-                                        <th>divisi</th>
-                                        <th>jabatan</th>
-                                        <th>status</th>
+                                        <th>Jenis Kelamin</th>
+                                        <th>Telephone</th>
+                                        <th>Alamat</th>
+                                        <th>Divisi</th>
+                                        <th>Jabatan</th>
+                                        <th>Status</th>
                                         <th>Tanggal Masuk</th>
                                         <th>Action</th>
                                     </tr>
@@ -67,10 +66,11 @@
                                         <tr>
                                             <td><?php echo $key + 1; ?></td>
                                             <td><?php echo $row['nama_karyawan']; ?></td>
+                                            <td><?php echo $row['jk']; ?></td>
                                             <td><?php echo $row['telephone']; ?></td>
                                             <td><?php echo $row['alamat']; ?></td>
                                             <td><?php echo $row['divisi']; ?></td>
-                                            <td><?php echo $row['jabatan_id']; ?></td>
+                                            <td><?php echo $row['nama_jabatan']; ?></td>
                                             <td><?php echo $row['status']; ?></td>
                                             <td><?php echo $row['tanggalmasuk']; ?></td>
 
@@ -91,11 +91,12 @@
                                     <tr>
                                         <th>No</th>
                                         <th>nama karyawan</th>
-                                        <th>telephone</th>
-                                        <th>alamat</th>
-                                        <th>divisi</th>
-                                        <th>jabatan</th>
-                                        <th>status</th>
+                                        <th>Jenis Kelamin</th>
+                                        <th>Telephone</th>
+                                        <th>Alamat</th>
+                                        <th>Divisi</th>
+                                        <th>Jabatan</th>
+                                        <th>Status</th>
                                         <th>Tanggal Masuk</th>
                                         <th>Action</th>
                                     </tr>

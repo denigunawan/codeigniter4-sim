@@ -4,17 +4,15 @@
 <div class="content-wrapper">
   <div class="content-header">
     <div class="container-fluid  text-center">
-      <marquee style="color: red;">
-        <p class="mb-2"><b>Untuk menjaga Keamanan data, Lakukan Pencadangan Data Secara Mandiri</b></p>
-      </marquee>
-
-      <h1 class="h3 mb-2 text-gray-800"> Data Pengurus Masjid Al-Hikmah Kp. payangan</h1>
-      <p class="mb-4">Data Pengurus yang dimasukan adalah data yang sudah valid dan sesuai dengan data internal masjid</p>
+      <h3 class="h3 mb-2 text-gray-800"> Data Karyawan
+        <p style="color:red;"> PT HSRCC </p> Division Engginer
+      </h3>
+      <p class="mb-4">Data Karyawan Hanya Bisa Dimasukan Oleh Developer atau Manager</p>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>">Dashboard</a></li>
-          <li class="breadcrumb-item"><a href="<?php echo base_url('/daftarpengurus') ?>">Data Pengurus</a></li>
-          <li class="breadcrumb-item" aria-current="page">Tambah Pengurus</li>
+          <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>"> <i class="nav-icon fas  fa-campground"></i> Dashboard</a></li>
+          <li class="breadcrumb-item"><a href="<?php echo base_url('/karyawan') ?>"> <i class="nav-icon fas  fa-users"></i> Data Karyawan</a></li>
+          <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas fa-user"></i> Add New Karyawan</li>
         </ol>
       </nav>
     </div>
@@ -36,21 +34,21 @@
               </ul>
             </div>
           <?php } ?>
-          <?php echo form_open_multipart('daftarpengurus/store'); ?>
+          <?php echo form_open_multipart('karyawan/store'); ?>
           <div class="card">
             <div class="card-body">
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
                     <?php
-                    echo form_label('Nama Imam');
+                    echo form_label('Nama Karyawan');
                     $nama = [
                       'type'  => 'text',
-                      'name'  => 'namapengurus',
-                      'id'    => 'namapengurus',
-                      'value' => $inputs['namapengurus'],
+                      'name'  => 'nama_karyawan',
+                      'id'    => 'nama_karyawan',
+                      'value' => $inputs['nama_karyawan'],
                       'class' => 'form-control',
-                      'placeholder' => 'Masukan Nama imam'
+                      'placeholder' => 'Masukan Nama Karyawan'
                     ];
                     echo form_input($nama);
                     ?>
@@ -63,37 +61,29 @@
                   </div>
                   <div class="form-group">
                     <?php
-                    echo form_label('Pekerjaan');
-                    $pekerjaan = [
-                      'type'  => 'text',
-                      'name'  => 'pekerjaan',
-                      'id'    => 'pekerjaan',
-                      'value' => $inputs['pekerjaan'],
-                      'class' => 'form-control',
-                      'placeholder' => 'Masukan Pekerjaan...'
-                    ];
-                    echo form_input($pekerjaan);
-                    ?>
-                  </div>
-                  <div class="form-group">
-                    <?php
-                    echo form_label('Alamat Rumah Imam');
+                    echo form_label('Alamat Rumah Karyawan');
                     $alamat = [
                       'type'  => 'text',
                       'name'  => 'alamat',
                       'id'    => 'alamat',
                       'value' => $inputs['alamat'],
                       'class' => 'form-control',
-                      'placeholder' => 'Masukan alamat imam'
+                      'placeholder' => 'Masukan alamat Karyawan'
                     ];
                     echo form_input($alamat);
+                    ?>
+                  </div>
+                  <div class="form-group">
+                    <?php
+                    echo form_label('Status Karyawan', 'Status');
+                    echo form_dropdown('status', ['' => 'Pilih', 'AKTIF' => 'AKTIF', 'OFF' => 'OFF'], $inputs['status'], ['class' => 'form-control']);
                     ?>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <?php
-                    echo form_label('Kontak Pengurus');
+                    echo form_label('Kontak Karyawan');
                     $handphone = [
                       'type'  => 'number',
                       'name'  => 'telephone',
@@ -107,19 +97,28 @@
                   </div>
                   <div class="form-group">
                     <?php
-                    echo form_label('Jabatan Pengurus', 'jabatan');
-                    echo form_dropdown('jabatan', ['' => 'Pilih', 'PENASEHAT' => 'PENASEHAT', 'KETUA' => 'KETUA', 'WAKIL KETUA' => 'WAKIL KETUA', 'SEKERTARIS' => 'SEKERTARIS', 'SEKSI PERLENGKAPAN' => 'SEKSI PERLENGKAPAN', 'SEKSI HUMAS' => 'SEKSI HUMAS', 'SEKSI BENDAHARA' => 'SEKSI BENDAHARA', 'SEKSI BENDAHARA' => 'SEKSI BENDAHARA', 'SEKSI PBHI' => 'SEKSI PBHI', 'SEKSI TEKNISI' => 'SEKSI TEKNISI'], $inputs['jabatan'], ['class' => 'form-control']);
+                    echo form_label('DivisI Karyawan');
+                    $divisi = [
+                      'type'  => 'text',
+                      'name'  => 'divisi',
+                      'id'    => 'divisi',
+                      'value' => $inputs['divisi'],
+                      'class' => 'form-control',
+                      'placeholder' => 'Masukan Devisi Karyawan'
+                    ];
+                    echo form_input($divisi);
+                    ?>
+                  </div>
+
+                  <div class="form-group">
+                    <?php
+                    echo form_label('Jabatan Karyawan', 'jabatan');
+                    echo form_dropdown('jabatan_id', $jabatan, $inputs['jabatan_id'], ['class' => 'form-control']);
                     ?>
                   </div>
                   <div class="form-group">
                     <?php
-                    echo form_label('Status Keaktifan Imam', 'Status');
-                    echo form_dropdown('status', ['' => 'Pilih', 'AKTIF' => 'AKTIF', 'OFF' => 'OFF'], $inputs['status'], ['class' => 'form-control']);
-                    ?>
-                  </div>
-                  <div class="form-group">
-                    <?php
-                    echo form_label('Tanggal  Terdata');
+                    echo form_label('Tanggal karyawan Terdata');
                     $tanggalmasuk = [
                       'type'  => 'date',
                       'name'  => 'tanggalmasuk',
@@ -131,12 +130,11 @@
                     echo form_input($tanggalmasuk);
                     ?>
                   </div>
-
                 </div>
               </div>
             </div>
             <div class="card-footer">
-              <a href="<?php echo base_url('daftarpengurus'); ?>" class="btn btn-outline-info">Back</a>
+              <a href="<?php echo base_url('karyawan'); ?>" class="btn btn-outline-info">Back</a>
               <button type="submit" class="btn btn-primary float-right">Simpan</button>
             </div>
           </div>

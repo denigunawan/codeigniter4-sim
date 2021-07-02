@@ -53,7 +53,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Bahasa Documents</th>
-                                        <th>Tanggal Teregistrasi</th>
+                                        <th>Tanggal Terdata</th>
                                         <th>Staff Verified</th>
                                         <th>Action</th>
                                     </tr>
@@ -64,7 +64,7 @@
                                             <td><?php echo $key + 1; ?></td>
                                             <td><?php echo $row['bahasa_document']; ?></td>
                                             <td><?php echo $row['tanggal_masuk']; ?></td>
-                                            <td><?php echo $row['user_id']; ?></td>
+                                            <td><?php echo $row['nama_karyawan']; ?></td>
                                             <td>
                                                 <div class="btn-group">
                                                     <a href="<?php echo base_url('bahasa/edit/' . $row['bahasa_id']); ?>" class="btn btn-sm btn-success">
@@ -82,7 +82,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Bahasa Documents</th>
-                                        <th>Tanggal Teregistrasi</th>
+                                        <th>Tanggal Terdata</th>
                                         <th>Staff Verified</th>
                                         <th>Action</th>
                                     </tr>

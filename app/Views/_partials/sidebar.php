@@ -110,7 +110,14 @@
                         </p>
                     </a>
                 </li>
-
+                <li class="nav-item">
+                    <a href="<?php echo base_url('karyawan'); ?>" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Data Karyawan
+                        </p>
+                    </a>
+                </li>
 
                 <?php if (session()->get('level') == 1) { ?>
                     <li class="nav-item has-treeview">

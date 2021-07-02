@@ -53,7 +53,7 @@ class Validation
 	public $bahasa_errors = [
 
 		'karyawan_id'     	=> [
-			'required'		=> 'Users Penanggung Jawab Wajib Diisi'
+			'required'		=> 'Data Karyawan Wajib Diisi'
 		],
 
 		'bahasa_document'   => [
@@ -62,10 +62,6 @@ class Validation
 		'tanggal_masuk'   	=> [
 			'required'		=> 'Tanggal Terdata Dokumen Wajib Di isi'
 		],
-		'status'   			=>  [
-			'required'		=> ' Status Data  Wajib Di isi'
-		],
-
 	];
 
 
