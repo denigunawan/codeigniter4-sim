@@ -6,17 +6,17 @@ use CodeIgniter\Model;
 
 class DaftarUsersModel extends Model
 {
-	protected $table = 'user';
+	protected $table = 'users';
 
 	public function getData($id = false)
 	{
 		if ($id === false) {
-			return $this->table('user')
+			return $this->table('users')
 				->get()
 				->getResultArray();
 		} else {
-			return $this->table('user')
-				->where('user.user_id', $id)
+			return $this->table('users')
+				->where('users.id', $id)
 				->get()
 				->getRowArray();
 		}
@@ -30,12 +30,12 @@ class DaftarUsersModel extends Model
 
 	public function updateData($data, $id)
 	{
-		return $this->db->table($this->table)->update($data, ['user_id' => $id]);
+		return $this->db->table($this->table)->update($data, ['id' => $id]);
 	}
 
 
 	public function deleteData($id)
 	{
-		return $this->db->table($this->table)->delete(['user_id' => $id]);
+		return $this->db->table($this->table)->delete(['id' => $id]);
 	}
 }

@@ -6,11 +6,11 @@ use CodeIgniter\Model;
 
 class DashboardModel extends Model
 {
-	protected $table = 'user';
+	protected $table = 'users';
 
 	public function getCountUser()
 	{
-		return $this->db->table("user")->countAll();
+		return $this->db->table("users")->countAll();
 	}
 
 	public function getCountBahasa()

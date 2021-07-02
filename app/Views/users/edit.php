@@ -3,25 +3,18 @@
 <div class="content-wrapper">
   <div class="content-header">
     <div class="container-fluid text-center">
-      <marquee style="color: red;">
-        <p class="mb-2"><b>Untuk menjaga Keamanan data, Lakukan Pencadangan Data Secara Mandiri</b></p>
-      </marquee>
 
       <h1 class="h3 mb-2 text-gray-800"> Data users Masjid Al-Hikmah Kp. payangan</h1>
-      <p class="mb-4">Data users yang dimasukan adalah data yang sudah valid dan sesuai dengan data internal masjid</p>
 
-      Alamat : <p><b>Jl. Wibawa Mukti II Jl. Diman, RT.004/RW.006, Jatisari, Kec. Jatiasih, Kota Bks, Jawa Barat 17426</b></p>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>">Dashboard</a></li>
           <li class="breadcrumb-item"><a href="<?php echo base_url('/users') ?>">Data users</a></li>
           <li class="breadcrumb-item" aria-current="page">Edit users</li>
-          
+
         </ol>
       </nav>
-      
     </div>
-    <p class="mb-2 text-center " style="color: red;"><b>Setiap Edit Data Foto Harus Diganti</b></p>
 
   </div>
 
@@ -48,9 +41,7 @@
             <div class="card-body">
               <?php echo form_hidden('id', $users['id']); ?>
               <div class="row">
-                <div class="col-md-4">
-                </div>
-                <div class="col-md-8">
+                <div class="col-md-12">
                   <div class="form-group">
                     <?php echo form_label('Nama Users', 'Nama'); ?>
                     <?php echo form_input('nama_user', $users['nama_user'], ['class' => 'form-control', 'placeholder' => 'Nama Users']); ?>
@@ -63,11 +54,6 @@
                     <?php echo form_label('Password Users', 'Password'); ?>
                     <?php echo form_input('password', $users['password'], ['class' => 'form-control', 'placeholder' => 'Password Users', 'type' => 'text']); ?>
                   </div>
-                  
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
                   <div class="form-group">
                     <?php echo form_label('Level Hak Akses Users', 'hak akses'); ?>
                     <?php echo form_input('level', $users['level'], ['class' => 'form-control', 'placeholder' => 'Level Akses Users']); ?>
@@ -79,7 +65,7 @@
               <a href="<?php echo base_url('users'); ?>" class="btn btn-outline-info">Back</a>
               <button type="submit" class="btn btn-primary float-right">Update Data</button>
             </div>
-            <?php echo form_close(); ?> 
+            <?php echo form_close(); ?>
           </div>
         </div>
       </div>

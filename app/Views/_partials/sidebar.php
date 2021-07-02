@@ -102,42 +102,30 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="<?php echo base_url('bahasa'); ?>" class="nav-link">
-                        <i class="nav-icon fas fa-language"></i>
-                        <p>
-                            Data Bahasa
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?php echo base_url('karyawan'); ?>" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>
-                            Data Karyawan
-                        </p>
-                    </a>
-                </li>
+
 
                 <?php if (session()->get('level') == 1) { ?>
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-user-shield"></i>
+                    <li class="nav-item ">
+                        <a href="<?php echo base_url('users'); ?>" class="nav-link">
+                            <i class="fas fa-user-lock nav-icon"></i>
+                            <p>Users Management</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?php echo base_url('karyawan'); ?>" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
                             <p>
-                                Manager Area
-                                <i class="fas fa-angle-left right"></i>
+                                Data Karyawan
                             </p>
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="<?php echo base_url('user'); ?>" class="nav-link">
-                                    <i class="fas fa-user-lock nav-icon"></i>
-                                    <p>Users Management
-
-                                    </p>
-                                </a>
-                            </li>
-                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?php echo base_url('bahasa'); ?>" class="nav-link">
+                            <i class="nav-icon fas fa-language"></i>
+                            <p>
+                                Data Bahasa
+                            </p>
+                        </a>
                     </li>
                 <?php  } ?>
             </ul>

@@ -9,7 +9,7 @@ class UsersModels extends Model
 
 	public function cek_login($username, $password)
 	{
-		return $this->db->table('user')
+		return $this->db->table('users')
 			->where(array('username' => $username, 'password' => $password))
 			->get()->getRowArray();
 	}

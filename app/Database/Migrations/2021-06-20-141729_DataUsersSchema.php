@@ -8,10 +8,8 @@ class DaftaUsersSchema extends Migration
 {
 	public function up()
 	{
-
-		//list field
 		$this->forge->addField([
-			'user_id'          => [
+			'id'          => [
 				'type'           => 'INT',
 				'constraint'     => 11,
 				'unsigned'       => TRUE,
@@ -30,19 +28,17 @@ class DaftaUsersSchema extends Migration
 				'type'           => 'VARCHAR',
 				'constraint'     => '255',
 			],
-			'level'                 => [
+			'level'             => [
 				'type'          => 'INT',
 				'constraint'    => 11
 			]
 		]);
-		//primary key
-		$this->forge->addKey('user_id', TRUE);
-		//nama tabel
-		$this->forge->createTable('user', TRUE);
+		$this->forge->addKey('id', TRUE);
+		$this->forge->createTable('users', TRUE);
 	}
 
 	public function down()
 	{
-		$this->forge->dropTable('user');
+		$this->forge->dropTable('users');
 	}
 }

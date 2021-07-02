@@ -64,7 +64,7 @@
                                 </thead>
                                 <tbody>
                                     <?php $i = 1 + (5 * ($currentPage - 1)); ?>
-                                    <?php foreach ($user as $row) { ?>
+                                    <?php foreach ($users as $row) { ?>
                                         <tr>
                                             <td class="text-center"><?= $i++; ?></td>
                                             <td><?php echo $row['nama_user']; ?></td>
@@ -73,10 +73,10 @@
                                             <td><?php echo $row['level']; ?></td>
                                             <td class="text-center">
                                                 <div class="btn-group">
-                                                    <a href="<?php echo base_url('users/edit/' . $row['user_id']); ?>" class="btn btn-sm btn-success">
+                                                    <a href="<?php echo base_url('users/edit/' . $row['id']); ?>" class="btn btn-sm btn-success">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
-                                                    <a href="<?php echo base_url('users/delete/' . $row['user_id']); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus Data ini?');">
+                                                    <a href="<?php echo base_url('users/delete/' . $row['id']); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus Data ini?');">
                                                         <i class="fa fa-trash-alt"></i>
                                                     </a>
                                                 </div>

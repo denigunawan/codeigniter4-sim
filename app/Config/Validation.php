@@ -461,7 +461,7 @@ class Validation
 
 
 	// validasi untuk  setiap field yang ada di Database 
-	public $user = [
+	public $users = [
 		'nama_user'			=> 'required',
 		'username'     		=> 'required',
 		'password'     		=> 'required',
@@ -469,7 +469,7 @@ class Validation
 
 	];
 
-	public $user_errors = [
+	public $users_errors = [
 
 		'nama_user'     	=> [
 			'required'		=> 'Nama Users Wajib Di isi'
