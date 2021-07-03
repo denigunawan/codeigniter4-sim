@@ -41,8 +41,8 @@ class DrawingKodeController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
-		$user = $this->karyawan_model->findAll();
-		$data['karyawan'] = ['' => 'karyawan'] + array_column($user, 'nama_karyawan', 'karyawan_id');
+		$karyawan = $this->karyawan_model->findAll();
+		$data['karyawan'] = ['' => 'karyawan'] + array_column($karyawan, 'nama_karyawan', 'karyawan_id');
 		return view('drawingkode/create', $data);
 	}
 
@@ -78,18 +78,6 @@ class DrawingKodeController extends BaseController
 	}
 
 
-
-	public function show($id)
-	{
-		// proteksi halaman
-		if (session()->get('username') == '') {
-			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
-			return redirect()->to(base_url('login'));
-		}
-		$data['drawingkode'] = $this->drawingkode_model->getData($id);
-		echo view('drawingkode/show', $data);
-	}
-
 	public function edit($id)
 	{
 		// proteksi halaman
@@ -97,7 +85,10 @@ class DrawingKodeController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
+		$karyawan = $this->karyawan_model->findAll();
 		$data['drawingkode'] = $this->drawingkode_model->getData($id);
+		$data['karyawan'] = ['' => 'karyawan'] + array_column($karyawan, 'nama_karyawan', 'karyawan_id');
+
 		echo view('drawingkode/edit', $data);
 	}
 

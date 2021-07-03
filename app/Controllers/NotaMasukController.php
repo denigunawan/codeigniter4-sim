@@ -13,9 +13,9 @@ class NotaMasukController extends BaseController
 	public function __construct()
 	{
 		helper(['form']);
-		$this->karyawan_model = new KaryawanModel();
-		$this->notamasuk_model = new NotaMasukModel();
-		$this->vendor_model = new DaftarVendorModel();
+		$this->karyawan_model 	= new KaryawanModel();
+		$this->notamasuk_model  = new NotaMasukModel();
+		$this->vendor_model 	= new DaftarVendorModel();
 	}
 
 	public function index()
@@ -45,10 +45,10 @@ class NotaMasukController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
-		$user = $this->karyawan_model->findAll();
-		$vendor = $this->vendor_model->where('nama_vendor')->findAll();
-		$data['karyawan'] = ['' => 'karyawan'] + array_column($user, 'nama_karyawan', 'karyawan_id');
-		$data['vendor'] = ['' => 'vendor'] + array_column($vendor, 'nama_vendor', 'vendor_id');
+		$karyawan 	= $this->karyawan_model->findAll();
+		$vendor 	= $this->vendor_model->findAll();
+		$data['karyawan'] = ['' => 'karyawan'] + array_column($karyawan, 'nama_karyawan', 'karyawan_id');
+		$data['vendor']   = ['' => 'vendor'] + array_column($vendor, 'nama_vendor', 'vendor_id');
 
 		return view('notamasuk/create', $data);
 	}
@@ -69,8 +69,6 @@ class NotaMasukController extends BaseController
 			'jumlah_barang'         => $this->request->getPost('jumlah_barang'),
 			'status'        		=> $this->request->getPost('status'),
 			'tanggal_masuk'         => $this->request->getPost('tanggal_masuk'),
-			'created_at'            => $this->request->getPost('created_at'),
-			'updated_at'            => $this->request->getPost('updated_at'),
 
 
 
@@ -89,20 +87,6 @@ class NotaMasukController extends BaseController
 			}
 		}
 	}
-
-
-
-	public function show($id)
-	{
-		// proteksi halaman
-		if (session()->get('username') == '') {
-			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
-			return redirect()->to(base_url('login'));
-		}
-		$data['notamasuk'] = $this->notamasuk_model->getData($id);
-		echo view('notamasuk/show', $data);
-	}
-
 	public function edit($id)
 	{
 		// proteksi halaman
@@ -110,7 +94,11 @@ class NotaMasukController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
+		$karyawan = $this->karyawan_model->findAll();
+		$vendor   = $this->vendor_model->findAll();
 		$data['notamasuk'] = $this->notamasuk_model->getData($id);
+		$data['karyawan'] = ['' => 'Pilih karyawan'] + array_column($karyawan, 'nama_karyawan', 'karyawan_id');
+		$data['vendor'] = ['' => 'Pilih vendor'] + array_column($vendor, 'nama_vendor', 'vendor_id');
 		echo view('notamasuk/edit', $data);
 	}
 
@@ -133,9 +121,6 @@ class NotaMasukController extends BaseController
 			'jumlah_barang'         => $this->request->getPost('jumlah_barang'),
 			'status'        		=> $this->request->getPost('status'),
 			'tanggal_masuk'         => $this->request->getPost('tanggal_masuk'),
-			'created_at'            => $this->request->getPost('created_at'),
-			'updated_at'            => $this->request->getPost('updated_at'),
-
 		);
 		if ($validation->run($data, 'notamasuk') == FALSE) {
 			session()->setFlashdata('inputs', $this->request->getPost());

@@ -32,7 +32,7 @@ class DaftarNotaMasukSchema extends Migration
 				'constraint'		=> "'Masuk','Proses','Keluar'",
 				'default'			=> 'Masuk'
 			],
-			'vendor_id'		=> [
+			'vendor_id'				=> [
 				'type'				=> 'INT',
 				'constraint'		=> 36,
 				'unsigned'			=> TRUE,
@@ -41,7 +41,7 @@ class DaftarNotaMasukSchema extends Migration
 			'tanggal_masuk'			=> [
 				'type'				=> 'DATE',
 			],
-			'karyawan_id'			    => [
+			'karyawan_id'			=> [
 				'type'				=> 'INT',
 				'constraint'		=> 36,
 				'unsigned'			=> TRUE,

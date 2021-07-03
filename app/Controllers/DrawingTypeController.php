@@ -77,19 +77,6 @@ class DrawingTypeController extends BaseController
 		}
 	}
 
-
-
-	public function show($id)
-	{
-		// proteksi halaman
-		if (session()->get('username') == '') {
-			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
-			return redirect()->to(base_url('login'));
-		}
-		$data['drawingtype'] = $this->drawingtype_model->getData($id);
-		echo view('drawingtype/show', $data);
-	}
-
 	public function edit($id)
 	{
 		// proteksi halaman
@@ -97,6 +84,8 @@ class DrawingTypeController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
+		$karyawan = $this->karyawan_model->findAll();
+		$data['karyawan'] = ['' => 'karyawan'] + array_column($karyawan, 'nama_karyawan', 'karyawan_id');
 		$data['drawingtype'] = $this->drawingtype_model->getData($id);
 		echo view('drawingtype/edit', $data);
 	}

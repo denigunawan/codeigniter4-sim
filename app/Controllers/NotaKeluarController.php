@@ -68,8 +68,6 @@ class NotaKeluarController extends BaseController
 			'jumlah_barang'         => $this->request->getPost('jumlah_barang'),
 			'status'        		=> $this->request->getPost('status'),
 			'tanggal_keluar'        => $this->request->getPost('tanggal_keluar'),
-			'created_at'            => $this->request->getPost('created_at'),
-			'updated_at'            => $this->request->getPost('updated_at'),
 
 		);
 
@@ -130,8 +128,6 @@ class NotaKeluarController extends BaseController
 			'jumlah_barang'         => $this->request->getPost('jumlah_barang'),
 			'status'        		=> $this->request->getPost('status'),
 			'tanggal_keluar'        => $this->request->getPost('tanggal_keluar'),
-			'created_at'            => $this->request->getPost('created_at'),
-			'updated_at'            => $this->request->getPost('updated_at'),
 
 		);
 		if ($validation->run($data, 'notakeluar') == FALSE) {

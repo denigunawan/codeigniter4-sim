@@ -11,7 +11,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>"> <i class="nav-icon fas  fa-campground"></i> Dashboard</a></li>
-                    <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas fa-sitemap"></i> Data jabatan</li>
+                    <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas fa-sitemap"></i> Data Bahasa</li>
                 </ol>
             </nav>
         </div>

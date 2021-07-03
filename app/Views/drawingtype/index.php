@@ -4,20 +4,19 @@
 <div class="content-wrapper">
     <div class="content-header">
         <div class="container-fluid  text-center">
-            <marquee style="color: red;">
-                <p class="mb-2"><b>Untuk menjaga Keamanan data, Lakukan Pencadangan Data Secara Mandiri</b></p>
-            </marquee>
-
-            <h1 class="h3 mb-2 text-gray-800"> Data Pengurus Masjid Al-Hikmah Kp. payangan</h1>
-            <p class="mb-4">Data Pengurus yang dimasukan adalah data yang sudah valid dan sesuai dengan data internal masjid</p>
+            <h3 class="h3 mb-2 text-gray-800"> Data Rak Document <em></em>
+                <p style="color:red;"> PT HSRCC </p> Division Engginer
+            </h3>
+            <p class="mb-4">Data Rak adalah data kode dan data lokasi penempatan Rak document berada</p>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="<?php echo base_url('/dashboard') ?>"> <i class="nav-icon fas fa-mosque"></i>Dashboard</a></li>
-                    <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas fa-users"></i> Data Pengurus</li>
+                    <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>"> <i class="nav-icon fas  fa-campground"></i> Dashboard</a></li>
+                    <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas fa-draw-polygon"></i> Data Drawing Kode</li>
                 </ol>
             </nav>
         </div>
     </div>
+
 
     <section class="content">
         <div class="row">
@@ -64,7 +63,7 @@
                                             <td><?php echo $key + 1; ?></td>
                                             <td><?php echo $row['drawing_type']; ?></td>
                                             <td><?php echo $row['tanggal_masuk']; ?></td>
-                                            <td><?php echo $row['user_id']; ?></td>
+                                            <td><?php echo $row['nama_karyawan']; ?></td>
                                             <td>
                                                 <div class="btn-group">
                                                     <a href="<?php echo base_url('drawingtype/edit/' . $row['drawingtype_id']); ?>" class="btn btn-sm btn-success">

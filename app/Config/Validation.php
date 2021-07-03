@@ -242,11 +242,9 @@ class Validation
 	// validasi untuk  setiap field yang ada di Database 
 	public $drawingkode = [
 		'karyawan_id'		=> 'required',
-		'nama'     			=> 'required',
-		'alamat'     		=> 'required',
-		'status'   			=> 'required',
-		'handphone'   		=> 'required',
-		'tahun'   			=> 'required',
+		'drawing_kode'     	=> 'required',
+		'tanggal_masuk'     => 'required',
+
 	];
 
 	public $drawingkode_errors = [
@@ -255,21 +253,13 @@ class Validation
 			'required'		=> 'Karyawan Wajib Di isi'
 		],
 
-		'nama'     			=> [
-			'required'		=> 'Data nama Wajib Di isi'
+		'kode_drawing'     			=> [
+			'required'		=> 'Data Drawing kode Wajib Di isi'
 		],
-		'alamat'   		=> [
-			'required'		=> 'Data Alamat Wajib Di isi'
+		'tanggal_masuk'   		=> [
+			'required'		=> 'Data Tanggal Masuk Wajib Di isi'
 		],
-		'status'   			=>  [
-			'required'		=> ' Data Status Wajib Di isi'
-		],
-		'handphone'   		=>  [
-			'required'		=> 'Data Handphone  Wajib Di isi'
-		],
-		'tahun'   		=>  [
-			'required'		=> 'Data Tahun Wajib Di isi'
-		]
+
 
 	];
 
