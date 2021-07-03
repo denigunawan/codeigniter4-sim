@@ -4,14 +4,14 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\DaftarDrawingTypeModel;
-use App\Models\DaftarUsersModel;
+use App\Models\KaryawanModel;
 
 class DrawingTypeController extends BaseController
 {
 	public function __construct()
 	{
 		helper(['form']);
-		$this->user_model = new DaftarUsersModel();
+		$this->karyawan_model = new KaryawanModel();
 		$this->drawingtype_model = new DaftarDrawingTypeModel();
 	}
 
@@ -27,7 +27,7 @@ class DrawingTypeController extends BaseController
 
 		// paginate
 		$paginate = 5;
-		$data['drawingtype']   = $this->drawingtype_model->join('user', 'user.user_id = drawingtype.user_id')->paginate($paginate, 'drawingtype');
+		$data['drawingtype']   = $this->drawingtype_model->join('karyawan', 'karyawan.karyawan_id = drawingtype.karyawan_id')->paginate($paginate, 'drawingtype');
 		$data['pager']        = $this->drawingtype_model->pager;
 		$data['currentPage']  = $currentPage;
 		echo view('drawingtype/index', $data);
@@ -41,8 +41,8 @@ class DrawingTypeController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
-		$user = $this->user_model->where('status', 'AKTIF')->findAll();
-		$data['user'] = ['' => 'user'] + array_column($user, 'nama_user', 'user_id');
+		$user = $this->karyawan_model->findAll();
+		$data['karyawan'] = ['' => 'karyawan'] + array_column($user, 'nama_karyawan', 'karyawan_id');
 		return view('drawingtype/create', $data);
 	}
 
@@ -55,11 +55,9 @@ class DrawingTypeController extends BaseController
 		}
 		$validation =  \Config\Services::validation();
 		$data = array(
-			'user_id'        		=> $this->request->getPost('user_id'),
+			'karyawan_id'        	=> $this->request->getPost('karyawan_id'),
 			'drawing_type'       	=> $this->request->getPost('drawing_type'),
 			'tanggal_masuk'         => $this->request->getPost('tanggal_masuk'),
-			'created_at'            => $this->request->getPost('created_at'),
-			'updated_at'            => $this->request->getPost('updated_at'),
 
 
 
@@ -115,11 +113,9 @@ class DrawingTypeController extends BaseController
 		$validation =  \Config\Services::validation();
 
 		$data = array(
-			'user_id'        		=> $this->request->getPost('user_id'),
+			'karyawan_id'        	=> $this->request->getPost('karyawan_id'),
 			'drawing_type'       	=> $this->request->getPost('drawing_type'),
 			'tanggal_masuk'         => $this->request->getPost('tanggal_masuk'),
-			'created_at'            => $this->request->getPost('created_at'),
-			'updated_at'            => $this->request->getPost('updated_at'),
 
 		);
 		if ($validation->run($data, 'drawingtype') == FALSE) {

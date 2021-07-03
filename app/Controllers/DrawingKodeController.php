@@ -4,14 +4,14 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\DaftarDrawingKodeModel;
-use App\Models\DaftarUsersModel;
+use App\Models\KaryawanModel;
 
 class DrawingKodeController extends BaseController
 {
 	public function __construct()
 	{
 		helper(['form']);
-		$this->user_model = new DaftarUsersModel();
+		$this->karyawan_model = new KaryawanModel();
 		$this->drawingkode_model = new DaftarDrawingKodeModel();
 	}
 
@@ -27,7 +27,7 @@ class DrawingKodeController extends BaseController
 
 		// paginate
 		$paginate = 5;
-		$data['drawingkode']   = $this->drawingkode_model->join('user', 'user.user_id = drawingkode.user_id')->paginate($paginate, 'drawingkode');
+		$data['drawingkode']   = $this->drawingkode_model->join('karyawan', 'karyawan.karyawan_id = drawingkode.karyawan_id')->paginate($paginate, 'drawingkode');
 		$data['pager']        = $this->drawingkode_model->pager;
 		$data['currentPage']  = $currentPage;
 		echo view('drawingkode/index', $data);
@@ -41,8 +41,8 @@ class DrawingKodeController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
-		$user = $this->user_model->where('status', 'AKTIF')->findAll();
-		$data['user'] = ['' => 'user'] + array_column($user, 'nama_user', 'user_id');
+		$user = $this->karyawan_model->findAll();
+		$data['karyawan'] = ['' => 'karyawan'] + array_column($user, 'nama_karyawan', 'karyawan_id');
 		return view('drawingkode/create', $data);
 	}
 
@@ -55,11 +55,9 @@ class DrawingKodeController extends BaseController
 		}
 		$validation =  \Config\Services::validation();
 		$data = array(
-			'user_id'        		=> $this->request->getPost('user_id'),
-			'drawing_kode'      	 => $this->request->getPost('drawing_kode'),
+			'karyawan_id'        	=> $this->request->getPost('karyawan_id'),
+			'drawing_kode'      	=> $this->request->getPost('drawing_kode'),
 			'tanggal_masuk'         => $this->request->getPost('tanggal_masuk'),
-			'created_at'            => $this->request->getPost('created_at'),
-			'updated_at'            => $this->request->getPost('updated_at'),
 
 
 
@@ -115,11 +113,9 @@ class DrawingKodeController extends BaseController
 		$validation =  \Config\Services::validation();
 
 		$data = array(
-			'user_id'        		=> $this->request->getPost('user_id'),
+			'karyawan_id'        	=> $this->request->getPost('karyawan_id'),
 			'drawing_kode'       	=> $this->request->getPost('drawing_kode'),
 			'tanggal_masuk'         => $this->request->getPost('tanggal_masuk'),
-			'created_at'            => $this->request->getPost('created_at'),
-			'updated_at'            => $this->request->getPost('updated_at'),
 
 		);
 		if ($validation->run($data, 'drawingkode') == FALSE) {

@@ -4,7 +4,7 @@
 <div class="content-wrapper">
   <div class="content-header">
     <div class="container-fluid  text-center">
-      <h3 class="h3 mb-2 text-gray-800"> Data Jabatan Teregistrasi <em></em>
+      <h3 class="h3 mb-2 text-gray-800"> Data Jabatan Terdata <em></em>
         <p style="color:red;"> PT HSRCC </p> Division Engginer
       </h3>
       <p class="mb-4">Data Jabatan Hanya Bisa Dimasukan Oleh Developer atau Manager</p>

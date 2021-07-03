@@ -3,8 +3,8 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\DaftarUsersModel;
 use App\Models\DaftarVendorModel;
+use App\Models\KaryawanModel;
 
 class VendorController extends BaseController
 {
@@ -12,7 +12,7 @@ class VendorController extends BaseController
 	public function __construct()
 	{
 		helper(['form']);
-		$this->user_model = new DaftarUsersModel();
+		$this->karyawan_model = new KaryawanModel();
 		$this->vendor_model = new DaftarVendorModel();
 	}
 
@@ -28,7 +28,7 @@ class VendorController extends BaseController
 
 		// paginate
 		$paginate = 5;
-		$data['vendor']   = $this->vendor_model->join('user', 'user.user_id = vendor.user_id')->paginate($paginate, 'vendor');
+		$data['vendor']   = $this->vendor_model->join('karyawan', 'karyawan.karyawan_id = vendor.karyawan_id')->paginate($paginate, 'vendor');
 		$data['pager']        = $this->vendor_model->pager;
 		$data['currentPage']  = $currentPage;
 		echo view('vendor/index', $data);
@@ -42,8 +42,8 @@ class VendorController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
-		$user = $this->user_model->where('status', 'AKTIF')->findAll();
-		$data['user'] = ['' => 'user'] + array_column($user, 'nama_user', 'user_id');
+		$user = $this->karyawan_model->findAll();
+		$data['karyawan'] = ['' => 'karyawan'] + array_column($user, 'nama_karyawan', 'karyawan_id');
 		return view('vendor/create', $data);
 	}
 
@@ -57,12 +57,11 @@ class VendorController extends BaseController
 		$validation =  \Config\Services::validation();
 		$data = array(
 
-			'user_id'        		=> $this->request->getPost('user_id'),
-			'nama_vendor'       => $this->request->getPost('nama_vendor'),
-			'jenis_vendor'       => $this->request->getPost('jenis_vendor'),
-			'tanggal_masuk'         => $this->request->getPost('tanggal_masuk'),
-			'created_at'            => $this->request->getPost('created_at'),
-			'updated_at'            => $this->request->getPost('updated_at'),
+			'karyawan_id'        		=> $this->request->getPost('karyawan_id'),
+			'nama_vendor'       		=> $this->request->getPost('nama_vendor'),
+			'jenis_vendor'       		=> $this->request->getPost('jenis_vendor'),
+			'tanggal_masuk'         	=> $this->request->getPost('tanggal_masuk'),
+
 
 
 		);
@@ -83,17 +82,6 @@ class VendorController extends BaseController
 
 
 
-	public function show($id)
-	{
-		// proteksi halaman
-		if (session()->get('username') == '') {
-			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
-			return redirect()->to(base_url('login'));
-		}
-		$data['vendor'] = $this->vendor_model->getData($id);
-		echo view('vendor/show', $data);
-	}
-
 	public function edit($id)
 	{
 		// proteksi halaman
@@ -101,6 +89,10 @@ class VendorController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
+
+		$karyawan = $this->karyawan_model->findAll();
+		$data['karyawan'] = ['' => 'Pilih karyawan'] + array_column($karyawan, 'nama_karyawan', 'karyawan_id');
+
 		$data['vendor'] = $this->vendor_model->getData($id);
 		echo view('vendor/edit', $data);
 	}
@@ -117,12 +109,11 @@ class VendorController extends BaseController
 		$validation =  \Config\Services::validation();
 
 		$data = array(
-			'user_id'        		=> $this->request->getPost('user_id'),
-			'nama_vendor'       => $this->request->getPost('nama_vendor'),
-			'jenis_vendor'       => $this->request->getPost('jenis_vendor'),
-			'tanggal_masuk'         => $this->request->getPost('tanggal_masuk'),
-			'created_at'            => $this->request->getPost('created_at'),
-			'updated_at'            => $this->request->getPost('updated_at'),
+			'karyawan_id'        		=> $this->request->getPost('karyawan_id'),
+			'nama_vendor'       		=> $this->request->getPost('nama_vendor'),
+			'jenis_vendor'       		=> $this->request->getPost('jenis_vendor'),
+			'tanggal_masuk'         	=> $this->request->getPost('tanggal_masuk'),
+
 
 		);
 		if ($validation->run($data, 'vendor') == FALSE) {

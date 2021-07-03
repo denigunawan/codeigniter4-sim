@@ -4,19 +4,15 @@
 <div class="content-wrapper">
   <div class="content-header">
     <div class="container-fluid  text-center">
-      <marquee style="color: red;">
-        <p class="mb-2"><b>Untuk menjaga Keamanan data, Lakukan Pencadangan Data Secara Mandiri</b></p>
-      </marquee>
-
-      <h1 class="h3 mb-2 text-gray-800"> Data jabatan Masjid Al-Hikmah Kp. payangan</h1>
-      <p class="mb-4">Data jabatan yang dimasukan adalah data yang sudah valid dan sesuai dengan data internal masjid</p>
-
-      Alamat : <p><b>Jl. Wibawa Mukti II Jl. Diman, RT.004/RW.006, Jatisari, Kec. Jatiasih, Kota Bks, Jawa Barat 17426</b></p>
+      <h3 class="h3 mb-2 text-gray-800"> Data Karyawan
+        <p style="color:red;"> PT HSRCC </p> Division Engginer
+      </h3>
+      <p class="mb-4">Data Karyawan Hanya Bisa Dimasukan Oleh Developer atau Manager</p>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>"> <i class="nav-icon fas  fa-campground"></i> Dashboard</a></li>
-          <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>"> <i class="nav-icon fas  fa-users"></i> Data Karyawan</a></li>
-          <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas fa-user"></i> Add New Karyawan</li>
+          <li class="breadcrumb-item"><a href="<?php echo base_url('/karyawan') ?>"> <i class="nav-icon fas  fa-users"></i> Data Karyawan</a></li>
+          <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas fa-user"></i> Edit Data Karyawan</li>
         </ol>
       </nav>
     </div>

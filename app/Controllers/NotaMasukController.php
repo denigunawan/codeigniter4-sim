@@ -3,8 +3,8 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\DaftarUsersModel;
 use App\Models\DaftarVendorModel;
+use App\Models\KaryawanModel;
 use App\Models\NotaMasukModel;
 
 class NotaMasukController extends BaseController
@@ -13,7 +13,7 @@ class NotaMasukController extends BaseController
 	public function __construct()
 	{
 		helper(['form']);
-		$this->user_model = new DaftarUsersModel();
+		$this->karyawan_model = new KaryawanModel();
 		$this->notamasuk_model = new NotaMasukModel();
 		$this->vendor_model = new DaftarVendorModel();
 	}
@@ -30,7 +30,7 @@ class NotaMasukController extends BaseController
 
 		// paginate
 		$paginate = 5;
-		$data['notamasuk']   = $this->notamasuk_model->join('user', 'user.user_id = notamasuk.user_id')->paginate($paginate, 'notamasuk');
+		$data['notamasuk']   = $this->notamasuk_model->join('karyawan', 'karyawan.karyawan_id = notamasuk.karyawan_id')->paginate($paginate, 'notamasuk');
 		$data['notamasuk']   = $this->notamasuk_model->join('vendor', 'vendor.vendor_id = notamasuk.vendor_id')->paginate($paginate, 'notamasuk');
 		$data['pager']        = $this->notamasuk_model->pager;
 		$data['currentPage']  = $currentPage;
@@ -45,9 +45,9 @@ class NotaMasukController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
-		$user = $this->user_model->where('status', 'AKTIF')->findAll();
+		$user = $this->karyawan_model->findAll();
 		$vendor = $this->vendor_model->where('nama_vendor')->findAll();
-		$data['user'] = ['' => 'user'] + array_column($user, 'nama_user', 'user_id');
+		$data['karyawan'] = ['' => 'karyawan'] + array_column($user, 'nama_karyawan', 'karyawan_id');
 		$data['vendor'] = ['' => 'vendor'] + array_column($vendor, 'nama_vendor', 'vendor_id');
 
 		return view('notamasuk/create', $data);
@@ -62,7 +62,7 @@ class NotaMasukController extends BaseController
 		}
 		$validation =  \Config\Services::validation();
 		$data = array(
-			'user_id'        		=> $this->request->getPost('user_id'),
+			'karyawan_id'        	=> $this->request->getPost('karyawan_id'),
 			'vendor_id'        		=> $this->request->getPost('vendor_id'),
 			'kode_nota'    			=> $this->request->getPost('kode_nota'),
 			'nama_barang'         	=> $this->request->getPost('nama_barang'),
@@ -126,7 +126,7 @@ class NotaMasukController extends BaseController
 		$validation =  \Config\Services::validation();
 
 		$data = array(
-			'user_id'        		=> $this->request->getPost('user_id'),
+			'karyawan_id'        	=> $this->request->getPost('karyawan_id'),
 			'vendor_id'        		=> $this->request->getPost('vendor_id'),
 			'kode_nota'    			=> $this->request->getPost('kode_nota'),
 			'nama_barang'         	=> $this->request->getPost('nama_barang'),

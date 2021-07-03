@@ -6,16 +6,16 @@ use App\Controllers\BaseController;
 use App\Models\DaftarBahasaModel;
 use App\Models\DaftarDrawingKodeModel;
 use App\Models\DaftarDrawingTypeModel;
-use App\Models\DaftarUsersModel;
 use App\Models\DaftarVendorModel;
 use App\Models\DocumentKeluarModel;
+use App\Models\KaryawanModel;
 
 class DocumentKeluarController extends BaseController
 {
 	public function __construct()
 	{
 		helper(['form']);
-		$this->user_model 			= new DaftarUsersModel();
+		$this->karyawan_model 		= new KaryawanModel();
 		$this->documentkeluar_model = new DocumentKeluarModel();
 		$this->vendor_model 		= new DaftarVendorModel();
 		$this->drawingtype_model 	= new DaftarDrawingTypeModel();
@@ -35,7 +35,7 @@ class DocumentKeluarController extends BaseController
 
 		// paginate
 		$paginate = 5;
-		$data['documentkeluar']   = $this->documentkeluar_model->join('user', 'user.user_id = documentkeluar.user_id')->paginate($paginate, 'documentkeluar');
+		$data['documentkeluar']   = $this->documentkeluar_model->join('karyawan', 'karyawan.karyawan_id = documentkeluar.karyawan_id')->paginate($paginate, 'documentkeluar');
 		$data['documentkeluar']   = $this->documentkeluar_model->join('vendor', 'vendor.vendor_id = documentkeluar.vendor_id')->paginate($paginate, 'documentkeluar');
 		$data['documentkeluar']   = $this->documentkeluar_model->join('drawingtype', 'drawingtype.drawingtype_id = documentkeluar.drawingtype_id')->paginate($paginate, 'documentkeluar');
 		$data['documentkeluar']   = $this->documentkeluar_model->join('drawingkode', 'drawingkode.drawingkode_id = documentkeluar.drawingkode_id')->paginate($paginate, 'documentkeluar');
@@ -53,13 +53,13 @@ class DocumentKeluarController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
-		$user = $this->user_model->where('status', 'AKTIF')->findAll();
+		$user = $this->karyawan_model->findAll();
 		$vendor = $this->vendor_model->where('nama_vendor')->findAll();
 		$drawingtype = $this->drawingtype_model->where('drawing_type')->findAll();
 		$drawingkode = $this->drawingkode_model->where('drawing_kode')->findAll();
 		$bahasa = $this->bahasa_model->where('bahasa_document')->findAll();
 
-		$data['user'] = ['' => 'user'] + array_column($user, 'nama_user', 'user_id');
+		$data['karyawan'] = ['' => 'karyawan'] + array_column($user, 'nama_karyawan', 'karyawan_id');
 		$data['vendor'] = ['' => 'vendor'] + array_column($vendor, 'nama_vendor', 'vendor_id');
 		$data['drawingtype'] = ['' => 'drawingtype'] + array_column($drawingtype, 'drawing_type', 'drawingtype_id');
 		$data['drawingkode'] = ['' => 'drawingkode'] + array_column($drawingkode, 'drawing_kode', 'drawingkode_id');
@@ -77,7 +77,7 @@ class DocumentKeluarController extends BaseController
 		}
 		$validation =  \Config\Services::validation();
 		$data = array(
-			'user_id'        		=> $this->request->getPost('user_id'),
+			'karyawan_id'        	=> $this->request->getPost('karyawan_id'),
 			'vendor_id'        		=> $this->request->getPost('vendor_id'),
 			'drawingtype_id'        => $this->request->getPost('drawingtype_id'),
 			'drawingkode_id'        => $this->request->getPost('drawingkode_id'),
@@ -87,9 +87,6 @@ class DocumentKeluarController extends BaseController
 			'isi_box'         		=> $this->request->getPost('isi_box'),
 			'status'        		=> $this->request->getPost('status'),
 			'tanggal_keluar'        => $this->request->getPost('tanggal_keluar'),
-			'created_at'            => $this->request->getPost('created_at'),
-			'updated_at'            => $this->request->getPost('updated_at'),
-
 		);
 
 		if ($validation->run($data, 'documentkeluar') == FALSE) {
@@ -142,7 +139,7 @@ class DocumentKeluarController extends BaseController
 		$validation =  \Config\Services::validation();
 
 		$data = array(
-			'user_id'        		=> $this->request->getPost('user_id'),
+			'karyawan_id'        	=> $this->request->getPost('karyawan_id'),
 			'vendor_id'        		=> $this->request->getPost('vendor_id'),
 			'drawingtype_id'        => $this->request->getPost('drawingtype_id'),
 			'drawingkode_id'        => $this->request->getPost('drawingkode_id'),
@@ -152,8 +149,6 @@ class DocumentKeluarController extends BaseController
 			'isi_box'         		=> $this->request->getPost('isi_box'),
 			'status'        		=> $this->request->getPost('status'),
 			'tanggal_keluar'        => $this->request->getPost('tanggal_keluar'),
-			'created_at'            => $this->request->getPost('created_at'),
-			'updated_at'            => $this->request->getPost('updated_at'),
 
 		);
 		if ($validation->run($data, 'documentkeluar') == FALSE) {

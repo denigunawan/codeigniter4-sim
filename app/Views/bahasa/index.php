@@ -4,21 +4,18 @@
 <div class="content-wrapper">
     <div class="content-header">
         <div class="container-fluid  text-center">
-            <marquee style="color: red;">
-                <p class="mb-2"><b>Untuk menjaga Keamanan data, Lakukan Pencadangan Data Secara Mandiri</b></p>
-            </marquee>
-
-            <h1 class="h3 mb-2 text-gray-800"> Data bahasa Masjid Al-Hikmah Kp. payangan</h1>
-            <p class="mb-4">Data bahasa yang dimasukan adalah data yang sudah valid dan sesuai dengan data internal masjid</p>
+            <h3 class="h3 mb-2 text-gray-800"> Data Bahasa Terdata <em></em>
+                <p style="color:red;"> PT HSRCC </p> Division Engginer
+            </h3>
+            <p class="mb-4">Data Bahasa Hanya Bisa Dimasukan Oleh Developer atau Manager</p>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="<?php echo base_url('/dashboard') ?>"> <i class="nav-icon fas fa-campground"></i> Dashboard</a></li>
-                    <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas fa-users"></i> Data bahasa</li>
+                    <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>"> <i class="nav-icon fas  fa-campground"></i> Dashboard</a></li>
+                    <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas fa-sitemap"></i> Data jabatan</li>
                 </ol>
             </nav>
         </div>
     </div>
-
     <section class="content">
         <div class="row">
             <div class="col-12">

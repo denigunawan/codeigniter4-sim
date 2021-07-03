@@ -107,7 +107,6 @@ class KaryawanController extends BaseController
         $validation =  \Config\Services::validation();
 
         $data = array(
-
             'nama_karyawan'     => $this->request->getPost('nama_karyawan'),
             'jk'                => $this->request->getPost('jk'),
             'telephone'         => $this->request->getPost('telephone'),

@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\DaftarRakModel;
-use App\Models\DaftarUsersModel;
+use App\Models\KaryawanModel;
 
 class RakController extends BaseController
 {
@@ -12,7 +12,7 @@ class RakController extends BaseController
 	public function __construct()
 	{
 		helper(['form']);
-		$this->user_model = new DaftarUsersModel();
+		$this->karyawan_model = new KaryawanModel();
 		$this->rak_model = new DaftarRakModel();
 	}
 
@@ -28,7 +28,7 @@ class RakController extends BaseController
 
 		// paginate
 		$paginate = 5;
-		$data['rak']   = $this->rak_model->join('user', 'user.user_id = rak.user_id')->paginate($paginate, 'rak');
+		$data['rak']   = $this->rak_model->join('karyawan', 'karyawan.karyawan_id = rak.karyawan_id')->paginate($paginate, 'rak');
 		$data['pager']        = $this->rak_model->pager;
 		$data['currentPage']  = $currentPage;
 		echo view('rak/index', $data);
@@ -42,8 +42,8 @@ class RakController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
-		$user = $this->user_model->where('status', 'AKTIF')->findAll();
-		$data['user'] = ['' => 'user'] + array_column($user, 'nama_user', 'user_id');
+		$karyawan = $this->karyawan_model->findAll();
+		$data['karyawan'] = ['' => 'karyawan'] + array_column($karyawan, 'nama_karyawan', 'karyawan_id');
 		return view('rak/create', $data);
 	}
 
@@ -56,12 +56,10 @@ class RakController extends BaseController
 		}
 		$validation =  \Config\Services::validation();
 		$data = array(
-			'user_id'        		=> $this->request->getPost('user_id'),
+			'karyawan_id'        	=> $this->request->getPost('karyawan_id'),
 			'nama_rak'      	 	=> $this->request->getPost('nama_rak'),
 			'kode_rak'       		=> $this->request->getPost('kode_rak'),
 			'tanggal_masuk'         => $this->request->getPost('tanggal_masuk'),
-			'created_at'            => $this->request->getPost('created_at'),
-			'updated_at'            => $this->request->getPost('updated_at'),
 
 
 
@@ -81,19 +79,6 @@ class RakController extends BaseController
 		}
 	}
 
-
-
-	public function show($id)
-	{
-		// proteksi halaman
-		if (session()->get('username') == '') {
-			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
-			return redirect()->to(base_url('login'));
-		}
-		$data['rak'] = $this->rak_model->getData($id);
-		echo view('rak/show', $data);
-	}
-
 	public function edit($id)
 	{
 		// proteksi halaman
@@ -101,6 +86,9 @@ class RakController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
+		$karyawan = $this->karyawan_model->findAll();
+		$data['karyawan'] = ['' => 'Pilih karyawan'] + array_column($karyawan, 'nama_karyawan', 'karyawan_id');
+
 		$data['rak'] = $this->rak_model->getData($id);
 		echo view('rak/edit', $data);
 	}
@@ -117,13 +105,10 @@ class RakController extends BaseController
 		$validation =  \Config\Services::validation();
 
 		$data = array(
-			'user_id'        		=> $this->request->getPost('user_id'),
+			'karyawan_id'        	=> $this->request->getPost('karyawan_id'),
 			'nama_rak'      	 	=> $this->request->getPost('nama_rak'),
 			'kode_rak'       		=> $this->request->getPost('kode_rak'),
-			'tanggal_masuk'         => $this->request->getPost('tanggal_masuk'),
-			'created_at'            => $this->request->getPost('created_at'),
-			'updated_at'            => $this->request->getPost('updated_at'),
-
+			'tanggal_masuk'         => $this->request->getPost('tanggal_masuk')
 		);
 		if ($validation->run($data, 'rak') == FALSE) {
 			session()->setFlashdata('inputs', $this->request->getPost());
