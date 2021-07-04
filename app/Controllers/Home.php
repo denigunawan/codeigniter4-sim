@@ -21,16 +21,11 @@ class Home extends BaseController
 
 
 		$data['total_user']       		= $this->dashboard_model->getCountUser();
-		$data['total_bahasa']           = $this->dashboard_model->getCountBahasa();
-		$data['total_rak']          	= $this->dashboard_model->getCountRak();
 		$data['total_documentmasuk']    = $this->dashboard_model->getCountDocumentMasuk();
 		$data['total_documentkeluar']   = $this->dashboard_model->getCounDocumentKeluar();
 		$data['total_notamasuk']        = $this->dashboard_model->getCountNotaMasuk();
 		$data['total_notakeluar']       = $this->dashboard_model->getCountNotaKeluar();
-		$data['total_drawingkode']      = $this->dashboard_model->getCountDrawingKode();
-		$data['total_drawingtype']      = $this->dashboard_model->getCountDrawingType();
-		$data['total_jabatan']          = $this->dashboard_model->getCountJabatan();
-		$data['total_vendor']           = $this->dashboard_model->getCountVendor();
+		$data['total_karyawan']         = $this->dashboard_model->getCountKaryawan();
 
 
 

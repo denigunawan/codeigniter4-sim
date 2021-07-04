@@ -13,20 +13,9 @@ class DashboardModel extends Model
 		return $this->db->table("users")->countAll();
 	}
 
-	public function getCountBahasa()
+	public function getCountKaryawan()
 	{
-		return $this->db->table("bahasa")->countAll();
-	}
-
-	public function getCountVendor()
-	{
-		return $this->db->table("vendor")->countAll();
-	}
-
-
-	public function getCountRak()
-	{
-		return $this->db->table("rak")->countAll();
+		return $this->db->table("karyawan")->countAll();
 	}
 
 	public function getCountDocumentMasuk()
@@ -47,17 +36,5 @@ class DashboardModel extends Model
 	public function getCountNotaKeluar()
 	{
 		return $this->db->table("notakeluar")->countAll();
-	}
-	public function getCountDrawingKode()
-	{
-		return $this->db->table("drawingkode")->countAll();
-	}
-	public function getCountDrawingType()
-	{
-		return $this->db->table("drawingtype")->countAll();
-	}
-	public function getCountJabatan()
-	{
-		return $this->db->table("jabatan")->countAll();
 	}
 }

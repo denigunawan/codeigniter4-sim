@@ -85,68 +85,8 @@
                   <span class="info-box-icon bg-danger shadow-lg elevation-1"><i class="fas fa-archive"></i></span>
 
                   <div class="info-box-content">
-                    <span class="info-box-text">Drawing Kode</span>
-                    <span class="info-box-number"><?php echo $total_drawingkode ?></span>
-                  </div>
-                  <!-- /.info-box-content -->
-                </div>
-                <!-- /.info-box -->
-              </div>
-              <div class="col-12 col-sm-6 col-md-3">
-                <div class="info-box">
-                  <span class="info-box-icon bg-danger shadow-lg elevation-1"><i class="fas fa-archive"></i></span>
-
-                  <div class="info-box-content">
-                    <span class="info-box-text">Drawing Type</span>
-                    <span class="info-box-number"><?php echo $total_drawingtype ?></span>
-                  </div>
-                  <!-- /.info-box-content -->
-                </div>
-                <!-- /.info-box -->
-              </div>
-              <div class="col-12 col-sm-6 col-md-3">
-                <div class="info-box">
-                  <span class="info-box-icon bg-danger shadow-lg elevation-1"><i class="fas fa-archive"></i></span>
-
-                  <div class="info-box-content">
-                    <span class="info-box-text"> Data Jabatan</span>
-                    <span class="info-box-number"><?php echo $total_jabatan  ?></span>
-                  </div>
-                  <!-- /.info-box-content -->
-                </div>
-                <!-- /.info-box -->
-              </div>
-              <div class="col-12 col-sm-6 col-md-3">
-                <div class="info-box">
-                  <span class="info-box-icon bg-danger shadow-lg elevation-1"><i class="fas fa-archive"></i></span>
-
-                  <div class="info-box-content">
-                    <span class="info-box-text"> Data Rak</span>
-                    <span class="info-box-number"><?php echo $total_rak ?></span>
-                  </div>
-                  <!-- /.info-box-content -->
-                </div>
-                <!-- /.info-box -->
-              </div>
-              <div class="col-12 col-sm-6 col-md-3">
-                <div class="info-box">
-                  <span class="info-box-icon bg-danger shadow-lg elevation-1"><i class="fas fa-archive"></i></span>
-
-                  <div class="info-box-content">
-                    <span class="info-box-text"> Data Language</span>
-                    <span class="info-box-number"><?php echo $total_bahasa ?></span>
-                  </div>
-                  <!-- /.info-box-content -->
-                </div>
-                <!-- /.info-box -->
-              </div>
-              <div class="col-12 col-sm-6 col-md-3">
-                <div class="info-box">
-                  <span class="info-box-icon bg-danger shadow-lg elevation-1"><i class="fas fa-archive"></i></span>
-
-                  <div class="info-box-content">
-                    <span class="info-box-text"> Data Vendor </span>
-                    <span class="info-box-number"><?php echo $total_vendor ?></span>
+                    <span class="info-box-text">Data Karyawan</span>
+                    <span class="info-box-number"><?php echo $total_karyawan ?></span>
                   </div>
                   <!-- /.info-box-content -->
                 </div>
