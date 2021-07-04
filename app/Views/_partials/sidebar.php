@@ -11,11 +11,11 @@
             </div> -->
             <div class="image">
                 <h6 style="color:azure"><?php if (session()->get('level') == 1) {
-                                            echo 'ADMIN';
+                                            echo 'Manager';
                                         } elseif (session()->get('level') == 2) {
-                                            echo 'TRANSLETER';
+                                            echo 'Translator';
                                         } else {
-                                            echo 'MANAJER';
+                                            echo 'Staff Engginer';
                                         } ?></h6>
             </div>
             <div class="info">

@@ -19,47 +19,38 @@ class DaftarDocumentMasukSchema extends Migration
 				'type'				=> 'VARCHAR',
 				'constraint'		=> '255'
 			],
-			'drawingtype_id'			=> [
-				'type'				=> 'INT',
-				'constraint'		=> 36,
-				'unsigned'			=> TRUE,
-				'null'				=> TRUE
+			'document_type'			=> [
+				'type'				=> 'ENUM',
+				'constraint'		=> "'BRIDGE','ALIGNMENT','CULVERT','TUNNEL NO.3','SUBGRADE'",
+				'default'			=> 'BRIDGE'
 			],
-			'drawingkode_id'			=> [
-				'type'				=> 'INT',
-				'constraint'		=> 36,
-				'unsigned'			=> TRUE,
-				'null'				=> TRUE
+			'document_number'		=> [
+				'type'				=> 'VARCHAR',
+				'constraint'		=> '255',
+
 			],
 			'judul_dokumen'			=> [
 				'type'				=> 'VARCHAR',
 				'constraint'		=> '255'
 			],
-			'rak_id'				=> [
-				'type'				=> 'INT',
-				'constraint'		=> 36,
-				'unsigned'			=> TRUE,
-				'null'				=> TRUE
+			'vendor'				=> [
+				'type'				=> 'ENUM',
+				'constraint'		=> "'KJB','HSRCC'",
+				'default'			=> 'KJB'
 			],
-			'vendor_id'				=> [
-				'type'				=> 'INT',
-				'constraint'		=> 36,
-				'unsigned'			=> TRUE,
-				'null'				=> TRUE
+			'bahasa'				=> [
+				'type'				=> 'ENUM',
+				'constraint'		=> "'ENGLISH & CHINESE','ENGLISH','CHINESE'",
+				'default'			=> 'ENGLISH & CHINESE'
 			],
-			'bahasa_id'			    => [
-				'type'				=> 'INT',
-				'constraint'		=> 36,
-				'unsigned'			=> TRUE,
-				'null'				=> TRUE
+
+			'status'				=> [
+				'type'				=> 'ENUM',
+				'constraint'		=> "'Masuk','Keluar'",
+				'default'			=> 'Masuk'
 			],
 			'tanggal_masuk'			=> [
 				'type'				=> 'DATE',
-			],
-			'status'				=> [
-				'type'				=> 'ENUM',
-				'constraint'		=> "'Masuk','Proses','Keluar'",
-				'default'			=> 'Masuk'
 			],
 			'karyawan_id'			    => [
 				'type'				=> 'INT',
@@ -72,11 +63,6 @@ class DaftarDocumentMasukSchema extends Migration
 
 		$this->forge->addKey('documentmasuk_id', true);
 		$this->forge->addForeignKey('karyawan_id', 'karyawan', 'karyawan_id', 'cascade', 'cascade');
-		$this->forge->addForeignKey('vendor_id', 'vendor', 'vendor_id', 'cascade', 'cascade');
-		$this->forge->addForeignKey('drawingtype_id', 'drawingtype', 'drawingtype_id', 'cascade', 'cascade');
-		$this->forge->addForeignKey('drawingkode_id', 'drawingkode', 'drawingkode_id', 'cascade', 'cascade');
-		$this->forge->addForeignKey('rak_id', 'rak', 'rak_id', 'cascade', 'cascade');
-		$this->forge->addForeignKey('bahasa_id', 'bahasa', 'bahasa_id', 'cascade', 'cascade');
 		$this->forge->createTable('documentmasuk', true);
 	}
 

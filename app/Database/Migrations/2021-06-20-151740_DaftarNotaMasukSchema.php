@@ -19,6 +19,11 @@ class DaftarNotaMasukSchema extends Migration
 				'type'				=> 'VARCHAR',
 				'constraint'		=> '255'
 			],
+			'vendor'				=> [
+				'type'				=> 'ENUM',
+				'constraint'		=> "'KJB','HSRCC'",
+				'default'			=> 'KJB'
+			],
 			'nama_barang'			=> [
 				'type'				=> 'VARCHAR',
 				'constraint'		=> '255'
@@ -31,12 +36,6 @@ class DaftarNotaMasukSchema extends Migration
 				'type'				=> 'ENUM',
 				'constraint'		=> "'Masuk','Proses','Keluar'",
 				'default'			=> 'Masuk'
-			],
-			'vendor_id'				=> [
-				'type'				=> 'INT',
-				'constraint'		=> 36,
-				'unsigned'			=> TRUE,
-				'null'				=> TRUE
 			],
 			'tanggal_masuk'			=> [
 				'type'				=> 'DATE',
@@ -52,7 +51,6 @@ class DaftarNotaMasukSchema extends Migration
 
 		$this->forge->addKey('notamasuk_id', true);
 		$this->forge->addForeignKey('karyawan_id', 'karyawan', 'karyawan_id', 'cascade', 'cascade');
-		$this->forge->addForeignKey('vendor_id', 'vendor', 'vendor_id', 'cascade', 'cascade');
 		$this->forge->createTable('notamasuk', true);
 	}
 

@@ -11,38 +11,24 @@ class DataKaryawan extends Migration
 
 		//list field
 		$this->forge->addField([
-			'karyawan_id'          => [
-				'type'           => 'INT',
-				'constraint'     => 36,
-				'unsigned'       => TRUE,
-				'auto_increment' => TRUE
+			'karyawan_id'          	=> [
+				'type'           	=> 'INT',
+				'constraint'     	=> 36,
+				'unsigned'       	=> TRUE,
+				'auto_increment' 	=> TRUE
 			],
-			'nama_karyawan'      => [
-				'type'           => 'VARCHAR',
-				'constraint'     => '255',
+			'nama_karyawan'      	=> [
+				'type'           	=> 'VARCHAR',
+				'constraint'     	=> '255',
 			],
-			'jk'				=> [
-				'type'			=> 'ENUM',
-				'constraint'	=> "'Pria','Wanita'",
-				'default'		=> 'Pria'
+			'divisi'      		  	=> [
+				'type'           	=> 'VARCHAR',
+				'constraint'     	=> '255'
 			],
-			'telephone'      	 => [
-				'type'           => 'VARCHAR',
-				'constraint'	 => '15'
-			],
-			'alamat'      		=> [
-				'type'           => 'VARCHAR',
-				'constraint'     => '255',
-			],
-			'divisi'      		  => [
-				'type'           => 'VARCHAR',
-				'constraint'     => '255'
-			],
-			'jabatan_id'			    => [
-				'type'				=> 'INT',
-				'constraint'		=> 36,
-				'unsigned'			=> TRUE,
-				'null'				=> TRUE
+			'jabatan'				=> [
+				'type'				=> 'ENUM',
+				'constraint'		=> "'Manager','Translator','Staff Engginer'",
+				'default'			=> 'Staff Engginer'
 			],
 			'status'				=> [
 				'type'				=> 'ENUM',

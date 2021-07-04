@@ -19,17 +19,19 @@ class DaftarDocumentKeluarSchema extends Migration
 				'type'				=> 'VARCHAR',
 				'constraint'		=> '255'
 			],
-			'drawingtype_id'		=> [
-				'type'				=> 'INT',
-				'constraint'		=> 36,
-				'unsigned'			=> TRUE,
-				'null'				=> TRUE
+			'document_type'			=> [
+				'type'				=> 'ENUM',
+				'constraint'		=> "'BRIDGE','ALIGNMENT','CULVERT','TUNNEL NO.3','SUBGRADE'",
+				'default'			=> 'BRIDGE'
 			],
-			'drawingkode_id'		=> [
-				'type'				=> 'INT',
-				'constraint'		=> 36,
-				'unsigned'			=> TRUE,
-				'null'				=> TRUE
+			'document_number'		=> [
+				'type'				=> 'VARCHAR',
+				'constraint'		=> '255',
+
+			],
+			'judul_dokumen'			=> [
+				'type'				=> 'VARCHAR',
+				'constraint'		=> '255'
 			],
 			'nomer_box'				=> [
 				'type'				=> 'VARCHAR',
@@ -39,27 +41,35 @@ class DaftarDocumentKeluarSchema extends Migration
 				'type'				=> 'VARCHAR',
 				'constraint'		=> '255'
 			],
-			'vendor_id'		=> [
-				'type'				=> 'INT',
-				'constraint'		=> 36,
-				'unsigned'			=> TRUE,
-				'null'				=> TRUE
-			],
-			'bahasa_id'			    => [
-				'type'				=> 'INT',
-				'constraint'		=> 36,
-				'unsigned'			=> TRUE,
-				'null'				=> TRUE
-			],
-			'tanggal_keluar'			=> [
+			'tanggal_keluar'		=> [
 				'type'				=> 'DATE',
 			],
+			'vendor'				=> [
+				'type'				=> 'ENUM',
+				'constraint'		=> "'KCIC','CREC','CRDC','CDJO'",
+				'default'			=> 'KCIC'
+			],
+			'bahasa'				=> [
+				'type'				=> 'ENUM',
+				'constraint'		=> "'ENGLISH & CHINESE','ENGLISH','CHINESE'",
+				'default'			=> 'ENGLISH & CHINESE'
+			],
+			'approved'				=> [
+				'type'				=> 'VARCHAR',
+				'constraint'		=> '255'
+			],
+			'jabatan'				=> [
+				'type'				=> 'ENUM',
+				'constraint'		=> "'MANAGER','STAFF','TRANSLATOR'",
+				'default'			=> 'MANAGER'
+			],
+
 			'status'				=> [
 				'type'				=> 'ENUM',
-				'constraint'		=> "'Masuk','Proses','Keluar'",
+				'constraint'		=> "'Masuk','Keluar'",
 				'default'			=> 'Masuk'
 			],
-			'karyawan_id'			    => [
+			'karyawan_id'			 => [
 				'type'				=> 'INT',
 				'constraint'		=> 36,
 				'unsigned'			=> TRUE,
@@ -70,10 +80,6 @@ class DaftarDocumentKeluarSchema extends Migration
 
 		$this->forge->addKey('document_keluar_id', true);
 		$this->forge->addForeignKey('karyawan_id', 'karyawan', 'karyawan_id', 'cascade', 'cascade');
-		$this->forge->addForeignKey('vendor_id', 'vendor', 'vendor_id', 'cascade', 'cascade');
-		$this->forge->addForeignKey('drawingtype_id', 'drawingtype', 'drawingtype_id', 'cascade', 'cascade');
-		$this->forge->addForeignKey('drawingkode_id', 'drawingkode', 'drawingkode_id', 'cascade', 'cascade');
-		$this->forge->addForeignKey('bahasa_id', 'bahasa', 'bahasa_id', 'cascade', 'cascade');
 		$this->forge->createTable('documentkeluar', true);
 	}
 
