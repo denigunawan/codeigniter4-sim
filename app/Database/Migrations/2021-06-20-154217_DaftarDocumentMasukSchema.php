@@ -44,7 +44,7 @@ class DaftarDocumentMasukSchema extends Migration
 				'default'			=> 'ENGLISH & CHINESE'
 			],
 
-			'status'				=> [
+			'status_document'		=> [
 				'type'				=> 'ENUM',
 				'constraint'		=> "'Masuk','Keluar'",
 				'default'			=> 'Masuk'

@@ -32,9 +32,9 @@ class DaftarNotaKeluarSchema extends Migration
 				'type'				=> 'VARCHAR',
 				'constraint'		=> '255'
 			],
-			'status'				=> [
+			'status_document'				=> [
 				'type'				=> 'ENUM',
-				'constraint'		=> "'Masuk','Proses','Keluar'",
+				'constraint'		=> "'Masuk','Keluar'",
 				'default'			=> 'Masuk'
 			],
 			'tanggal_keluar'		=> [

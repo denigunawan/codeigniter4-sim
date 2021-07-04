@@ -15,7 +15,6 @@ class NotaMasukController extends BaseController
 		helper(['form']);
 		$this->karyawan_model 	= new KaryawanModel();
 		$this->notamasuk_model  = new NotaMasukModel();
-		$this->vendor_model 	= new DaftarVendorModel();
 	}
 
 	public function index()
@@ -29,9 +28,8 @@ class NotaMasukController extends BaseController
 		$currentPage = $this->request->getVar('page_notamasuk') ? $this->request->getVar('page_notamasuk') : 1;
 
 		// paginate
-		$paginate = 5;
+		$paginate = 100;
 		$data['notamasuk']   = $this->notamasuk_model->join('karyawan', 'karyawan.karyawan_id = notamasuk.karyawan_id')->paginate($paginate, 'notamasuk');
-		$data['notamasuk']   = $this->notamasuk_model->join('vendor', 'vendor.vendor_id = notamasuk.vendor_id')->paginate($paginate, 'notamasuk');
 		$data['pager']        = $this->notamasuk_model->pager;
 		$data['currentPage']  = $currentPage;
 		echo view('notamasuk/index', $data);
@@ -46,9 +44,7 @@ class NotaMasukController extends BaseController
 			return redirect()->to(base_url('login'));
 		}
 		$karyawan 	= $this->karyawan_model->findAll();
-		$vendor 	= $this->vendor_model->findAll();
 		$data['karyawan'] = ['' => 'karyawan'] + array_column($karyawan, 'nama_karyawan', 'karyawan_id');
-		$data['vendor']   = ['' => 'vendor'] + array_column($vendor, 'nama_vendor', 'vendor_id');
 
 		return view('notamasuk/create', $data);
 	}
@@ -63,7 +59,6 @@ class NotaMasukController extends BaseController
 		$validation =  \Config\Services::validation();
 		$data = array(
 			'karyawan_id'        	=> $this->request->getPost('karyawan_id'),
-			'vendor_id'        		=> $this->request->getPost('vendor_id'),
 			'kode_nota'    			=> $this->request->getPost('kode_nota'),
 			'nama_barang'         	=> $this->request->getPost('nama_barang'),
 			'jumlah_barang'         => $this->request->getPost('jumlah_barang'),
@@ -96,7 +91,6 @@ class NotaMasukController extends BaseController
 		$vendor   = $this->vendor_model->findAll();
 		$data['notamasuk'] = $this->notamasuk_model->getData($id);
 		$data['karyawan'] = ['' => 'Pilih karyawan'] + array_column($karyawan, 'nama_karyawan', 'karyawan_id');
-		$data['vendor'] = ['' => 'Pilih vendor'] + array_column($vendor, 'nama_vendor', 'vendor_id');
 		echo view('notamasuk/edit', $data);
 	}
 
@@ -113,7 +107,6 @@ class NotaMasukController extends BaseController
 
 		$data = array(
 			'karyawan_id'        	=> $this->request->getPost('karyawan_id'),
-			'vendor_id'        		=> $this->request->getPost('vendor_id'),
 			'kode_nota'    			=> $this->request->getPost('kode_nota'),
 			'nama_barang'         	=> $this->request->getPost('nama_barang'),
 			'jumlah_barang'         => $this->request->getPost('jumlah_barang'),

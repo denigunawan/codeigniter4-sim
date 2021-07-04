@@ -4,14 +4,16 @@
 <div class="content-wrapper">
     <div class="content-header">
         <div class="container-fluid  text-center">
-            <h3 class="h3 mb-2 text-gray-800"> Data Karyawan
-                <p style="color:red;"> PT HSRCC </p> Division Engginer
+            <p style="color:red;"> <b>PT HIGH SPEED RAILWAYS CONTRACTOR CONSORTIUM<b /><br></p>
+            <h4><b><i>DIVISION ENGGINER</i></b></h4>
+            <img src="<?php echo base_url('hsrcc.png'); ?>" alt="gambar hsrcc"> <br><br>
+            <h3 class="h3 mb-2 text-gray-800"> Data Karyawan <br>
             </h3>
             <p class="mb-4">Data Karyawan Hanya Bisa Dimasukan Oleh Developer atau Manager</p>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>"> <i class="nav-icon fas  fa-campground"></i> Dashboard</a></li>
-                    <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas fa-users"></i> Data Karyawan</li>
+                    <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas  fa-users"></i> Data Karyawan</li>
                 </ol>
             </nav>
         </div>
@@ -22,7 +24,7 @@
             <div class="col-12">
                 <div class="card shadow-lg">
                     <div class="card-header shadow-sm">
-                        <a href="<?php echo base_url('karyawan/create'); ?>" class="btn btn-outline-success float-right"><i class="nav-icon fas fa-folder-plus"></i> | Tambah Pendataan karyawan</a>
+                        <a href="<?php echo base_url('karyawan/create'); ?>" class="btn btn-outline-danger float-right"><i class="nav-icon fas fa-folder-plus"></i> | Tambah Pendataan karyawan</a>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -46,15 +48,12 @@
                         <?php } ?>
                         <div class="table-responsive">
 
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="example2" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>nama karyawan</th>
-                                        <th>Jenis Kelamin</th>
-                                        <th>Telephone</th>
-                                        <th>Alamat</th>
-                                        <th>Divisi</th>
+                                        <th>Nama Karyawan</th>
+                                        <th>Divisi Karyawan</th>
                                         <th>Jabatan</th>
                                         <th>Status</th>
                                         <th>Tanggal Masuk</th>
@@ -66,11 +65,8 @@
                                         <tr>
                                             <td><?php echo $key + 1; ?></td>
                                             <td><?php echo $row['nama_karyawan']; ?></td>
-                                            <td><?php echo $row['jk']; ?></td>
-                                            <td><?php echo $row['telephone']; ?></td>
-                                            <td><?php echo $row['alamat']; ?></td>
                                             <td><?php echo $row['divisi']; ?></td>
-                                            <td><?php echo $row['nama_jabatan']; ?></td>
+                                            <td><?php echo $row['jabatan']; ?></td>
                                             <td><?php echo $row['status']; ?></td>
                                             <td><?php echo $row['tanggalmasuk']; ?></td>
 
@@ -90,11 +86,8 @@
                                 <tfoot>
                                     <tr>
                                         <th>No</th>
-                                        <th>nama karyawan</th>
-                                        <th>Jenis Kelamin</th>
-                                        <th>Telephone</th>
-                                        <th>Alamat</th>
-                                        <th>Divisi</th>
+                                        <th>Nama Karyawan</th>
+                                        <th>Divisi Karyawan</th>
                                         <th>Jabatan</th>
                                         <th>Status</th>
                                         <th>Tanggal Masuk</th>

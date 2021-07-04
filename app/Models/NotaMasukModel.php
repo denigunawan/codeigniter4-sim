@@ -13,13 +13,11 @@ class NotaMasukModel extends Model
 		if ($id === false) {
 			return $this->table('notamasuk')
 				->join('karyawan', 'karyawan.karyawan_id = notamasuk.karyawan_id')
-				->join('vendor', 'vendor.vendor_id = notamasuk.vendor_id')
 				->get()
 				->getResultArray();
 		} else {
 			return $this->table('notamasuk')
 				->join('karyawan', 'karyawan.karyawan_id = notamasuk.karyawan_id')
-				->join('vendor', 'vendor.vendor_id = notamasuk.vendor_id')
 				->where('notamasuk.notamasuk_id', $id)
 				->get()
 				->getRowArray();

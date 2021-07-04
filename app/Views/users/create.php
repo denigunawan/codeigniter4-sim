@@ -3,20 +3,18 @@
 
 <div class="content-wrapper">
   <div class="content-header">
-    <div class="container-fluid text-center">
-      <marquee style="color: red;">
-        <p class="mb-2"><b>Untuk menjaga Keamanan data, Lakukan Pencadangan Data Secara Mandiri</b></p>
-      </marquee>
-
-      <h1 class="h3 mb-2 text-gray-800"> Data users Masjid Al-Hikmah Kp. payangan</h1>
-      <p class="mb-4">Data users yang dimasukan adalah data yang sudah valid dan sesuai dengan data internal masjid</p>
-
-      Alamat : <p><b>Jl. Wibawa Mukti II Jl. Diman, RT.004/RW.006, Jatisari, Kec. Jatiasih, Kota Bks, Jawa Barat 17426</b></p>
+    <div class="container-fluid  text-center">
+      <p style="color:red;"> <b>PT HIGH SPEED RAILWAYS CONTRACTOR CONSORTIUM<b /><br></p>
+      <h4><b><i>DIVISION ENGGINER</i></b></h4>
+      <img src="<?php echo base_url('hsrcc.png'); ?>" alt="gambar hsrcc"> <br><br>
+      <h3 class="h3 mb-2 text-gray-800"> Data Users <br>
+      </h3>
+      <p class="mb-4">Data Users Hanya Bisa Dimasukan Oleh Developer atau Manager</p>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>">Dashboard</a></li>
-          <li class="breadcrumb-item"><a href="<?php echo base_url('/users') ?>">Data users</a></li>
-          <li class="breadcrumb-item" aria-current="page">Tambah Data users</li>
+          <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>"> <i class="nav-icon fas  fa-campground"></i> Dashboard</a></li>
+          <li class="breadcrumb-item"><a href="<?php echo base_url('/users') ?>"> <i class="nav-icon fas  fa-user-lock"></i> Data Users</a></li>
+          <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas fa-user-friends"></i> Tambah Data Users</li>
         </ol>
       </nav>
     </div>
@@ -44,7 +42,7 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-md-6">
-                 
+
                   <div class="form-group">
                     <?php
                     echo form_label('Nama users');

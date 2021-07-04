@@ -64,7 +64,7 @@ class DaftarDocumentKeluarSchema extends Migration
 				'default'			=> 'MANAGER'
 			],
 
-			'status'				=> [
+			'status_document'		=> [
 				'type'				=> 'ENUM',
 				'constraint'		=> "'Masuk','Keluar'",
 				'default'			=> 'Masuk'

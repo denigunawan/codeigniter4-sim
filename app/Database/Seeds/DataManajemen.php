@@ -19,6 +19,22 @@ class DataManajemen extends Seeder
 			],
 			[
 				'karyawan_id' 	=> 2,
+				'nama_karyawan'	=> 'Dainara',
+				'divisi'		=> 'Engineer',
+				'jabatan'		=> 'Translator',
+				'status'		=> 'AKTIF',
+				'tanggalmasuk'	=> '2021-07-03'
+			],
+			[
+				'karyawan_id' 	=> 3,
+				'nama_karyawan'	=> 'Sheila M',
+				'divisi'		=> 'Engineer',
+				'jabatan'		=> 'Translator',
+				'status'		=> 'AKTIF',
+				'tanggalmasuk'	=> '2021-07-03'
+			],
+			[
+				'karyawan_id' 	=> 4,
 				'nama_karyawan'	=> 'Waladun Shalihun',
 				'divisi'		=> 'Engineer',
 				'jabatan'		=> 'Staff Engginer',
@@ -26,26 +42,10 @@ class DataManajemen extends Seeder
 				'tanggalmasuk'	=> '2021-07-03'
 			],
 			[
-				'karyawan_id' 	=> 3,
+				'karyawan_id' 	=> 5,
 				'nama_karyawan'	=> 'Utari Pratiwi',
 				'divisi'		=> 'Engineer',
 				'jabatan'		=> 'Staff Engginer',
-				'status'		=> 'AKTIF',
-				'tanggalmasuk'	=> '2021-07-03'
-			],
-			[
-				'karyawan_id' 	=> 4,
-				'nama_karyawan'	=> 'Sheila .M',
-				'divisi'		=> 'Engineer',
-				'jabatan'		=> 'Translator',
-				'status'		=> 'AKTIF',
-				'tanggalmasuk'	=> '2021-07-03'
-			],
-			[
-				'karyawan_id' 	=> 5,
-				'nama_karyawan'	=> 'Dainara',
-				'divisi'		=> 'Engineer',
-				'jabatan'		=> 'Translator',
 				'status'		=> 'AKTIF',
 				'tanggalmasuk'	=> '2021-07-03'
 			],
@@ -105,7 +105,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'KJB',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '10',
-				'status'			=> 'Masuk',
+				'status_document'			=> 'Masuk',
 				'tanggal_masuk'		=> '2021-06-08',
 				'karyawan_id'		=> 5,
 
@@ -117,7 +117,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'KJB',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '10',
-				'status'			=> 'Masuk',
+				'status_document'			=> 'Masuk',
 				'tanggal_masuk'		=> '2021-06-08',
 				'karyawan_id'		=> 5,
 
@@ -129,7 +129,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'KJB',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '10',
-				'status'			=> 'Masuk',
+				'status_document'			=> 'Masuk',
 				'tanggal_masuk'		=> '2021-06-08',
 				'karyawan_id'		=> 5,
 
@@ -141,7 +141,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'KJB',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '10',
-				'status'			=> 'Masuk',
+				'status_document'			=> 'Masuk',
 				'tanggal_masuk'		=> '2021-06-07',
 				'karyawan_id'		=> 5,
 
@@ -153,7 +153,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'KJB',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '8',
-				'status'			=> 'Masuk',
+				'status_document'			=> 'Masuk',
 				'tanggal_masuk'		=> '2021-06-06',
 				'karyawan_id'		=> 5,
 
@@ -165,7 +165,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'KJB',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '10',
-				'status'			=> 'Masuk',
+				'status_document'			=> 'Masuk',
 				'tanggal_masuk'		=> '2021-06-06',
 				'karyawan_id'		=> 5,
 
@@ -177,7 +177,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'KJB',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '10',
-				'status'			=> 'Masuk',
+				'status_document'			=> 'Masuk',
 				'tanggal_masuk'		=> '2021-06-06',
 				'karyawan_id'		=> 5,
 
@@ -189,7 +189,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'KJB',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '8',
-				'status'			=> 'Masuk',
+				'status_document'			=> 'Masuk',
 				'tanggal_masuk'		=> '2021-06-06',
 				'karyawan_id'		=> 5,
 
@@ -201,7 +201,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'KJB',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '8',
-				'status'			=> 'Masuk',
+				'status_document'			=> 'Masuk',
 				'tanggal_masuk'		=> '2021-06-05',
 				'karyawan_id'		=> 5,
 
@@ -213,7 +213,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'KJB',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '10',
-				'status'			=> 'Masuk',
+				'status_document'			=> 'Masuk',
 				'tanggal_masuk'		=> '2021-06-04',
 				'karyawan_id'		=> 5,
 
@@ -225,7 +225,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'KJB',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '8',
-				'status'			=> 'Masuk',
+				'status_document'			=> 'Masuk',
 				'tanggal_masuk'		=> '2021-06-04',
 				'karyawan_id'		=> 5,
 
@@ -237,7 +237,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'KJB',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '10',
-				'status'			=> 'Masuk',
+				'status_document'			=> 'Masuk',
 				'tanggal_masuk'		=> '2021-06-04',
 				'karyawan_id'		=> 5,
 
@@ -249,7 +249,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'KJB',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '10',
-				'status'			=> 'Masuk',
+				'status_document'			=> 'Masuk',
 				'tanggal_masuk'		=> '2021-06-04',
 				'karyawan_id'		=> 5,
 
@@ -261,7 +261,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'KJB',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '8',
-				'status'			=> 'Masuk',
+				'status_document'			=> 'Masuk',
 				'tanggal_masuk'		=> '2021-06-04',
 				'karyawan_id'		=> 5,
 
@@ -273,7 +273,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'KJB',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '8',
-				'status'			=> 'Masuk',
+				'status_document'			=> 'Masuk',
 				'tanggal_masuk'		=> '2021-06-04',
 				'karyawan_id'		=> 5,
 
@@ -285,7 +285,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'KJB',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '10',
-				'status'			=> 'Masuk',
+				'status_document'			=> 'Masuk',
 				'tanggal_masuk'		=> '2021-06-03',
 				'karyawan_id'		=> 5,
 
@@ -297,7 +297,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'KJB',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '8',
-				'status'			=> 'Masuk',
+				'status_document'			=> 'Masuk',
 				'tanggal_masuk'		=> '2021-06-03',
 				'karyawan_id'		=> 5,
 
@@ -309,7 +309,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'KJB',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '10',
-				'status'			=> 'Masuk',
+				'status_document'			=> 'Masuk',
 				'tanggal_masuk'		=> '2021-06-03',
 				'karyawan_id'		=> 5,
 
@@ -321,7 +321,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'KJB',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '10',
-				'status'			=> 'Masuk',
+				'status_document'			=> 'Masuk',
 				'tanggal_masuk'		=> '2021-06-03',
 				'karyawan_id'		=> 5,
 
@@ -339,7 +339,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'HSRCC',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '10',
-				'status'			=> 'Keluar',
+				'status_document'			=> 'Keluar',
 				'tanggal_keluar'	=> '2021-06-02',
 				'karyawan_id'		=> 4
 			],
@@ -349,7 +349,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'HSRCC',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '8',
-				'status'			=> 'Keluar',
+				'status_document'			=> 'Keluar',
 				'tanggal_keluar'	=> '2021-06-02',
 				'karyawan_id'		=> 4
 			],
@@ -359,7 +359,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'HSRCC',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '10',
-				'status'			=> 'Keluar',
+				'status_document'			=> 'Keluar',
 				'tanggal_keluar'	=> '2021-06-01',
 				'karyawan_id'		=> 4
 			],
@@ -369,7 +369,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'HSRCC',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '10',
-				'status'			=> 'Keluar',
+				'status_document'			=> 'Keluar',
 				'tanggal_keluar'	=> '2021-06-01',
 				'karyawan_id'		=> 4
 			],
@@ -379,7 +379,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'HSRCC',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '8',
-				'status'			=> 'Keluar',
+				'status_document'			=> 'Keluar',
 				'tanggal_keluar'	=> '2021-06-01',
 				'karyawan_id'		=> 4
 			],
@@ -389,7 +389,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'HSRCC',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '10',
-				'status'			=> 'Keluar',
+				'status_document'			=> 'Keluar',
 				'tanggal_keluar'	=> '2021-05-31',
 				'karyawan_id'		=> 4
 			],
@@ -399,7 +399,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'HSRCC',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '8',
-				'status'			=> 'Keluar',
+				'status_document'			=> 'Keluar',
 				'tanggal_keluar'	=> '2021-05-31',
 				'karyawan_id'		=> 4
 			],
@@ -409,7 +409,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'HSRCC',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '8',
-				'status'			=> 'Keluar',
+				'status_document'			=> 'Keluar',
 				'tanggal_keluar'	=> '2021-05-31',
 				'karyawan_id'		=> 4
 			],
@@ -419,7 +419,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'HSRCC',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '10',
-				'status'			=> 'Keluar',
+				'status_document'			=> 'Keluar',
 				'tanggal_keluar'	=> '2021-05-30',
 				'karyawan_id'		=> 4
 			],
@@ -429,7 +429,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'HSRCC',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '10',
-				'status'			=> 'Keluar',
+				'status_document'			=> 'Keluar',
 				'tanggal_keluar'	=> '2021-05-30',
 				'karyawan_id'		=> 4
 			],
@@ -439,7 +439,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'HSRCC',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '8',
-				'status'			=> 'Keluar',
+				'status_document'			=> 'Keluar',
 				'tanggal_keluar'	=> '2021-05-30',
 				'karyawan_id'		=> 4
 			],
@@ -449,7 +449,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'HSRCC',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '10',
-				'status'			=> 'Keluar',
+				'status_document'			=> 'Keluar',
 				'tanggal_keluar'	=> '2021-05-29',
 				'karyawan_id'		=> 4
 			],
@@ -459,7 +459,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'HSRCC',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '8',
-				'status'			=> 'Keluar',
+				'status_document'			=> 'Keluar',
 				'tanggal_keluar'	=> '2021-05-29',
 				'karyawan_id'		=> 4
 			],
@@ -469,7 +469,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'HSRCC',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '10',
-				'status'			=> 'Keluar',
+				'status_document'			=> 'Keluar',
 				'tanggal_keluar'	=> '2021-05-29',
 				'karyawan_id'		=> 4
 			],
@@ -479,7 +479,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'HSRCC',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '8',
-				'status'			=> 'Keluar',
+				'status_document'			=> 'Keluar',
 				'tanggal_keluar'	=> '2021-05-28',
 				'karyawan_id'		=> 4
 			],
@@ -489,7 +489,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'HSRCC',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '10',
-				'status'			=> 'Keluar',
+				'status_document'			=> 'Keluar',
 				'tanggal_keluar'	=> '2021-05-28',
 				'karyawan_id'		=> 4
 			],
@@ -499,7 +499,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'HSRCC',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '8',
-				'status'			=> 'Keluar',
+				'status_document'			=> 'Keluar',
 				'tanggal_keluar'	=> '2021-05-28',
 				'karyawan_id'		=> 4
 			],
@@ -509,7 +509,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'HSRCC',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '8',
-				'status'			=> 'Keluar',
+				'status_document'			=> 'Keluar',
 				'tanggal_keluar'	=> '2021-05-27',
 				'karyawan_id'		=> 4
 			],
@@ -519,7 +519,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'HSRCC',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '10',
-				'status'			=> 'Keluar',
+				'status_document'			=> 'Keluar',
 				'tanggal_keluar'	=> '2021-05-27',
 				'karyawan_id'		=> 4
 			],
@@ -529,7 +529,7 @@ class DataManajemen extends Seeder
 				'vendor'			=> 'HSRCC',
 				'nama_barang'		=> 'document',
 				'jumlah_barang'		=> '10',
-				'status'			=> 'Keluar',
+				'status_document'			=> 'Keluar',
 				'tanggal_keluar'	=> '2021-05-27',
 				'karyawan_id'		=> 4
 			],
@@ -549,7 +549,7 @@ class DataManajemen extends Seeder
 				'judul_dokumen'			=> 'CONSTRUCTION DRAWING DESIGN DK226 BRIDGE MILEAGE DK22+657.44',
 				'vendor'				=> 'KJB',
 				'bahasa'				=> 'ENGLISH & CHINESE',
-				'status'				=> 'Masuk',
+				'status_document'				=> 'Masuk',
 				'tanggal_masuk'			=> '2021-06-08',
 				'karyawan_id'			=> 2,
 			],
@@ -561,7 +561,7 @@ class DataManajemen extends Seeder
 				'judul_dokumen'			=> 'CONSTRUCTION DRAWING DESIGN DK226 BRIDGE MILEAGE DK22+657.44 (DK18+134.10-DK18+589.09)',
 				'vendor'				=> 'KJB',
 				'bahasa'				=> 'ENGLISH & CHINESE',
-				'status'				=> 'Masuk',
+				'status_document'				=> 'Masuk',
 				'tanggal_masuk'			=> '2021-06-08',
 				'karyawan_id'			=> 2,
 			],
@@ -573,7 +573,7 @@ class DataManajemen extends Seeder
 				'judul_dokumen'			=> 'SUPER MAJOR BRIDGE (DIK115+244.60~DIK116+585.35)',
 				'vendor'				=> 'KJB',
 				'bahasa'				=> 'ENGLISH & CHINESE',
-				'status'				=> 'Masuk',
+				'status_document'				=> 'Masuk',
 				'tanggal_masuk'			=> '2021-06-08',
 				'karyawan_id'			=> 3,
 			],
@@ -585,7 +585,7 @@ class DataManajemen extends Seeder
 				'judul_dokumen'			=> 'CONSTRUCTION DRAWING DESIGN (CONSULTING EDITION) DK490 BRIDGE MILEAGE DK49+085.50',
 				'vendor'				=> 'KJB',
 				'bahasa'				=> 'ENGLISH & CHINESE',
-				'status'				=> 'Masuk',
+				'status_document'				=> 'Masuk',
 				'tanggal_masuk'			=> '2021-06-07',
 				'karyawan_id'			=> 2,
 			],
@@ -597,7 +597,7 @@ class DataManajemen extends Seeder
 				'judul_dokumen'			=> 'Design Drawing of Tunnel No. 3',
 				'vendor'				=> 'KJB',
 				'bahasa'				=> 'ENGLISH & CHINESE',
-				'status'				=> 'Masuk',
+				'status_document'				=> 'Masuk',
 				'tanggal_masuk'			=> '2021-06-06',
 				'karyawan_id'			=> 4,
 			],
@@ -609,7 +609,7 @@ class DataManajemen extends Seeder
 				'judul_dokumen'			=> 'ALIGNMENT PLAN DK74+010 - DK76+895',
 				'vendor'				=> 'KJB',
 				'bahasa'				=> 'ENGLISH & CHINESE',
-				'status'				=> 'Masuk',
+				'status_document'				=> 'Masuk',
 				'tanggal_masuk'			=> '2021-06-06',
 				'karyawan_id'			=> 4,
 			],
@@ -621,7 +621,7 @@ class DataManajemen extends Seeder
 				'judul_dokumen'			=> 'SUBGRADE CONSTRUCTION DRAWING DK75+050.00-DK75+105.16',
 				'vendor'				=> 'KJB',
 				'bahasa'				=> 'ENGLISH & CHINESE',
-				'status'				=> 'Masuk',
+				'status_document'				=> 'Masuk',
 				'tanggal_masuk'			=> '2021-06-06',
 				'karyawan_id'			=> 4,
 			],
@@ -633,7 +633,7 @@ class DataManajemen extends Seeder
 				'judul_dokumen'			=> 'DK226 EXTRA LARGE BRIDGE（DK31+016.56~DK32+733.66）',
 				'vendor'				=> 'KJB',
 				'bahasa'				=> 'ENGLISH & CHINESE',
-				'status'				=> 'Masuk',
+				'status_document'				=> 'Masuk',
 				'tanggal_masuk'			=> '2021-06-06',
 				'karyawan_id'			=> 2,
 			],
@@ -645,7 +645,7 @@ class DataManajemen extends Seeder
 				'judul_dokumen'			=> 'DK851 LARGE BRIDGE（DK85+043.00~DK85+228.32）',
 				'vendor'				=> 'KJB',
 				'bahasa'				=> 'ENGLISH & CHINESE',
-				'status'				=> 'Masuk',
+				'status_document'				=> 'Masuk',
 				'tanggal_masuk'			=> '2021-06-05',
 				'karyawan_id'			=> 3,
 			],
@@ -657,7 +657,7 @@ class DataManajemen extends Seeder
 				'judul_dokumen'			=> '1-3,0m Reinforced Concrete Frame Box Culvert',
 				'vendor'				=> 'KJB',
 				'bahasa'				=> 'ENGLISH & CHINESE',
-				'status'				=> 'Masuk',
+				'status_document'				=> 'Masuk',
 				'tanggal_masuk'			=> '2021-06-04',
 				'karyawan_id'			=> 3,
 			],
@@ -669,7 +669,7 @@ class DataManajemen extends Seeder
 				'judul_dokumen'			=> 'C1-3,0m Reinforced Concrete Frame Box Culvert(DK22+154.44)',
 				'vendor'				=> 'KJB',
 				'bahasa'				=> 'ENGLISH & CHINESE',
-				'status'				=> 'Masuk',
+				'status_document'				=> 'Masuk',
 				'tanggal_masuk'			=> '2021-06-04',
 				'karyawan_id'			=> 3,
 			],
@@ -681,7 +681,7 @@ class DataManajemen extends Seeder
 				'judul_dokumen'			=> 'CONSTRUCTION DRAWING DESIGN DK143 BRIDGE MILEAGE DK87+1544.44',
 				'vendor'				=> 'KJB',
 				'bahasa'				=> 'ENGLISH & CHINESE',
-				'status'				=> 'Masuk',
+				'status_document'				=> 'Masuk',
 				'tanggal_masuk'			=> '2021-06-04',
 				'karyawan_id'			=> 2,
 			],
@@ -693,7 +693,7 @@ class DataManajemen extends Seeder
 				'judul_dokumen'			=> 'CONSTRUCTION DRAWING DESIGN DK142 BRIDGE MILEAGE DK545+654.33',
 				'vendor'				=> 'KJB',
 				'bahasa'				=> 'ENGLISH & CHINESE',
-				'status'				=> 'Masuk',
+				'status_document'				=> 'Masuk',
 				'tanggal_masuk'			=> '2021-06-04',
 				'karyawan_id'			=> 2,
 			],
@@ -705,7 +705,7 @@ class DataManajemen extends Seeder
 				'judul_dokumen'			=> 'SUBGRADE CONSTRUCTION DRAWING DDK65+432.12-DK75+105.16',
 				'vendor'				=> 'KJB',
 				'bahasa'				=> 'ENGLISH & CHINESE',
-				'status'				=> 'Masuk',
+				'status_document'				=> 'Masuk',
 				'tanggal_masuk'			=> '2021-06-04',
 				'karyawan_id'			=> 2,
 			],
@@ -717,7 +717,7 @@ class DataManajemen extends Seeder
 				'judul_dokumen'			=> 'SUBGRADE CONSTRUCTION DRAWING DK75+050.00-DK14+541.15',
 				'vendor'				=> 'KJB',
 				'bahasa'				=> 'ENGLISH & CHINESE',
-				'status'				=> 'Masuk',
+				'status_document'				=> 'Masuk',
 				'tanggal_masuk'			=> '2021-06-04',
 				'karyawan_id'			=> 4,
 			],
@@ -729,7 +729,7 @@ class DataManajemen extends Seeder
 				'judul_dokumen'			=> 'SUBGRADE CONSTRUCTION DRAWING DK66+212.13+105.16',
 				'vendor'				=> 'KJB',
 				'bahasa'				=> 'ENGLISH & CHINESE',
-				'status'				=> 'Masuk',
+				'status_document'				=> 'Masuk',
 				'tanggal_masuk'			=> '2021-06-04',
 				'karyawan_id'			=> 4,
 			],
@@ -741,7 +741,7 @@ class DataManajemen extends Seeder
 				'judul_dokumen'			=> 'CONSTRUCTION DRAWING DESIGN DK226 BRIDGE MILEAGE DK78+132.45',
 				'vendor'				=> 'KJB',
 				'bahasa'				=> 'ENGLISH & CHINESE',
-				'status'				=> 'Masuk',
+				'status_document'				=> 'Masuk',
 				'tanggal_masuk'			=> '2021-06-03',
 				'karyawan_id'			=> 4,
 			],
@@ -753,7 +753,7 @@ class DataManajemen extends Seeder
 				'judul_dokumen'			=> 'Design Drawing of Tunnel No. 3 (DK154+312.44)',
 				'vendor'				=> 'KJB',
 				'bahasa'				=> 'ENGLISH & CHINESE',
-				'status'				=> 'Masuk',
+				'status_document'				=> 'Masuk',
 				'tanggal_masuk'			=> '2021-06-03',
 				'karyawan_id'			=> 3,
 			],
@@ -765,7 +765,7 @@ class DataManajemen extends Seeder
 				'judul_dokumen'			=> 'Design Drawing of Tunnel No. 3 (DK154+312.44)',
 				'vendor'				=> 'KJB',
 				'bahasa'				=> 'ENGLISH & CHINESE',
-				'status'				=> 'Masuk',
+				'status_document'				=> 'Masuk',
 				'tanggal_masuk'			=> '2021-06-03',
 				'karyawan_id'			=> 3,
 			],
@@ -777,7 +777,7 @@ class DataManajemen extends Seeder
 				'judul_dokumen'			=> 'Design Drawing of Tunnel No. 3(DK14+784.16)',
 				'vendor'				=> 'KJB',
 				'bahasa'				=> 'ENGLISH & CHINESE',
-				'status'				=> 'Masuk',
+				'status_document'				=> 'Masuk',
 				'tanggal_masuk'			=> '2021-06-03',
 				'karyawan_id'			=> 3,
 			],
@@ -798,7 +798,7 @@ class DataManajemen extends Seeder
 				'bahasa'				=> 'ENGLISH & CHINESE',
 				'approved'				=> 'Didit Mulyana',
 				'jabatan'				=> 'MANAGER',
-				'status'				=> 'Keluar',
+				'status_document'				=> 'Keluar',
 				'karyawan_id'			=> 2
 
 			],
@@ -815,7 +815,7 @@ class DataManajemen extends Seeder
 				'bahasa'				=> 'ENGLISH & CHINESE',
 				'approved'				=> 'Didit Mulyana',
 				'jabatan'				=> 'MANAGER',
-				'status'				=> 'Keluar',
+				'status_document'				=> 'Keluar',
 				'karyawan_id'			=> 2
 
 			],
@@ -832,7 +832,7 @@ class DataManajemen extends Seeder
 				'bahasa'				=> 'ENGLISH & CHINESE',
 				'approved'				=> 'Didit Mulyana',
 				'jabatan'				=> 'MANAGER',
-				'status'				=> 'Keluar',
+				'status_document'				=> 'Keluar',
 				'karyawan_id'			=> 2
 
 			],
@@ -849,7 +849,7 @@ class DataManajemen extends Seeder
 				'bahasa'				=> 'ENGLISH & CHINESE',
 				'approved'				=> 'Didit Mulyana',
 				'jabatan'				=> 'MANAGER',
-				'status'				=> 'Keluar',
+				'status_document'				=> 'Keluar',
 				'karyawan_id'			=> 2
 
 			],
@@ -866,7 +866,7 @@ class DataManajemen extends Seeder
 				'bahasa'				=> 'ENGLISH & CHINESE',
 				'approved'				=> 'Didit Mulyana',
 				'jabatan'				=> 'MANAGER',
-				'status'				=> 'Keluar',
+				'status_document'				=> 'Keluar',
 				'karyawan_id'			=> 2
 
 			],
@@ -883,7 +883,7 @@ class DataManajemen extends Seeder
 				'bahasa'				=> 'ENGLISH & CHINESE',
 				'approved'				=> 'Didit Mulyana',
 				'jabatan'				=> 'MANAGER',
-				'status'				=> 'Keluar',
+				'status_document'				=> 'Keluar',
 				'karyawan_id'			=> 2
 
 			],
@@ -900,7 +900,7 @@ class DataManajemen extends Seeder
 				'bahasa'				=> 'ENGLISH & CHINESE',
 				'approved'				=> 'Didit Mulyana',
 				'jabatan'				=> 'MANAGER',
-				'status'				=> 'Keluar',
+				'status_document'				=> 'Keluar',
 				'karyawan_id'			=> 2
 
 			],
@@ -917,7 +917,7 @@ class DataManajemen extends Seeder
 				'bahasa'				=> 'ENGLISH & CHINESE',
 				'approved'				=> 'Didit Mulyana',
 				'jabatan'				=> 'MANAGER',
-				'status'				=> 'Keluar',
+				'status_document'				=> 'Keluar',
 				'karyawan_id'			=> 2
 
 			],
@@ -934,7 +934,7 @@ class DataManajemen extends Seeder
 				'bahasa'				=> 'ENGLISH & CHINESE',
 				'approved'				=> 'Didit Mulyana',
 				'jabatan'				=> 'MANAGER',
-				'status'				=> 'Keluar',
+				'status_document'				=> 'Keluar',
 				'karyawan_id'			=> 2
 
 			],
@@ -951,7 +951,7 @@ class DataManajemen extends Seeder
 				'bahasa'				=> 'ENGLISH & CHINESE',
 				'approved'				=> 'Didit Mulyana',
 				'jabatan'				=> 'MANAGER',
-				'status'				=> 'Keluar',
+				'status_document'				=> 'Keluar',
 				'karyawan_id'			=> 2
 
 			],
@@ -968,7 +968,7 @@ class DataManajemen extends Seeder
 				'bahasa'				=> 'ENGLISH & CHINESE',
 				'approved'				=> 'Didit Mulyana',
 				'jabatan'				=> 'MANAGER',
-				'status'				=> 'Keluar',
+				'status_document'				=> 'Keluar',
 				'karyawan_id'			=> 2
 
 			],
@@ -985,7 +985,7 @@ class DataManajemen extends Seeder
 				'bahasa'				=> 'ENGLISH & CHINESE',
 				'approved'				=> 'Didit Mulyana',
 				'jabatan'				=> 'MANAGER',
-				'status'				=> 'Keluar',
+				'status_document'				=> 'Keluar',
 				'karyawan_id'			=> 2
 
 			],
@@ -1002,7 +1002,7 @@ class DataManajemen extends Seeder
 				'bahasa'				=> 'ENGLISH & CHINESE',
 				'approved'				=> 'Didit Mulyana',
 				'jabatan'				=> 'MANAGER',
-				'status'				=> 'Keluar',
+				'status_document'				=> 'Keluar',
 				'karyawan_id'			=> 2
 
 			],
@@ -1019,7 +1019,7 @@ class DataManajemen extends Seeder
 				'bahasa'				=> 'ENGLISH & CHINESE',
 				'approved'				=> 'Didit Mulyana',
 				'jabatan'				=> 'MANAGER',
-				'status'				=> 'Keluar',
+				'status_document'				=> 'Keluar',
 				'karyawan_id'			=> 2
 
 			],
@@ -1036,7 +1036,7 @@ class DataManajemen extends Seeder
 				'bahasa'				=> 'ENGLISH & CHINESE',
 				'approved'				=> 'Didit Mulyana',
 				'jabatan'				=> 'MANAGER',
-				'status'				=> 'Keluar',
+				'status_document'				=> 'Keluar',
 				'karyawan_id'			=> 2
 
 			],
@@ -1053,7 +1053,7 @@ class DataManajemen extends Seeder
 				'bahasa'				=> 'ENGLISH & CHINESE',
 				'approved'				=> 'Didit Mulyana',
 				'jabatan'				=> 'MANAGER',
-				'status'				=> 'Keluar',
+				'status_document'				=> 'Keluar',
 				'karyawan_id'			=> 2
 
 			],
@@ -1070,7 +1070,7 @@ class DataManajemen extends Seeder
 				'bahasa'				=> 'ENGLISH & CHINESE',
 				'approved'				=> 'Didit Mulyana',
 				'jabatan'				=> 'MANAGER',
-				'status'				=> 'Keluar',
+				'status_document'				=> 'Keluar',
 				'karyawan_id'			=> 2
 
 			],
@@ -1087,7 +1087,7 @@ class DataManajemen extends Seeder
 				'bahasa'				=> 'ENGLISH & CHINESE',
 				'approved'				=> 'Didit Mulyana',
 				'jabatan'				=> 'MANAGER',
-				'status'				=> 'Keluar',
+				'status_document'				=> 'Keluar',
 				'karyawan_id'			=> 2
 
 			],
@@ -1104,7 +1104,7 @@ class DataManajemen extends Seeder
 				'bahasa'				=> 'ENGLISH & CHINESE',
 				'approved'				=> 'Didit Mulyana',
 				'jabatan'				=> 'MANAGER',
-				'status'				=> 'Keluar',
+				'status_document'				=> 'Keluar',
 				'karyawan_id'			=> 2
 
 			],
@@ -1121,7 +1121,7 @@ class DataManajemen extends Seeder
 				'bahasa'				=> 'ENGLISH & CHINESE',
 				'approved'				=> 'Didit Mulyana',
 				'jabatan'				=> 'MANAGER',
-				'status'				=> 'Keluar',
+				'status_document'				=> 'Keluar',
 				'karyawan_id'			=> 2
 
 			],

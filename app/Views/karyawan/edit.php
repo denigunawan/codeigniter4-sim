@@ -4,15 +4,17 @@
 <div class="content-wrapper">
   <div class="content-header">
     <div class="container-fluid  text-center">
-      <h3 class="h3 mb-2 text-gray-800"> Data Karyawan
-        <p style="color:red;"> PT HSRCC </p> Division Engginer
+      <p style="color:red;"> <b>PT HIGH SPEED RAILWAYS CONTRACTOR CONSORTIUM<b /><br></p>
+      <h4><b><i>DIVISION ENGGINER</i></b></h4>
+      <img src="<?php echo base_url('hsrcc.png'); ?>" alt="gambar hsrcc"> <br><br>
+      <h3 class="h3 mb-2 text-gray-800"> Data Karyawan <br>
       </h3>
       <p class="mb-4">Data Karyawan Hanya Bisa Dimasukan Oleh Developer atau Manager</p>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>"> <i class="nav-icon fas  fa-campground"></i> Dashboard</a></li>
           <li class="breadcrumb-item"><a href="<?php echo base_url('/karyawan') ?>"> <i class="nav-icon fas  fa-users"></i> Data Karyawan</a></li>
-          <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas fa-user"></i> Edit Data Karyawan</li>
+          <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas  fa-user"></i> Edit Data Karyawan</li>
         </ol>
       </nav>
     </div>
@@ -41,33 +43,17 @@
             <div class="card-body">
               <?php echo form_hidden('karyawan_id', $karyawan['karyawan_id']); ?>
               <div class="row">
-                <div class="col-md-8">
-                  <div class="form-group">
-                    <?php echo form_label('Nama jabatan', 'jabatan'); ?>
-                    <?php echo form_dropdown('jabatan_id', $jabatan, $karyawan['jabatan_id'], ['class' => 'form-control']); ?>
-                  </div>
-                  <div class="form-group">
-                    <?php echo form_label('nama', 'Name'); ?>
-                    <?php echo form_input('nama_karyawan', $karyawan['nama_karyawan'], ['class' => 'form-control', 'placeholder' => 'Product Name']); ?>
-                  </div>
-                  <div class="form-group">
-                    <?php echo form_label('Alamat', 'Price'); ?>
-                    <?php echo form_input('alamat', $karyawan['alamat'], ['class' => 'form-control', 'placeholder' => 'Product Price', 'type' => 'text']); ?>
-                  </div>
-                  <div class="form-group">
-                    <?php echo form_label('Handphone', 'Handphone'); ?>
-                    <?php echo form_input('telephone', $karyawan['telephone'], ['class' => 'form-control', 'placeholder' => 'Product SKU', 'type' => 'number']); ?>
-                  </div>
-                  <div class="form-group">
-                    <?php echo form_label('Jenis Kelamin', 'jk'); ?>
-                    <?php echo form_dropdown('jk', ['' => 'Pilih', 'PRIA' => 'Pria', 'WANITA' => 'WANITA'], $karyawan['jk'], ['class' => 'form-control']); ?>
-
-                  </div>
-                </div>
-              </div>
-              <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
+                    <div class="form-group">
+                      <?php echo form_label('nama', 'Name'); ?>
+                      <?php echo form_input('nama_karyawan', $karyawan['nama_karyawan'], ['class' => 'form-control', 'placeholder' => 'Product Name']); ?>
+                    </div>
+                    <div class="form-group">
+                      <?php echo form_label('Jabatan Karyawan', 'jabatan'); ?>
+                      <?php echo form_dropdown('jabatan', ['' => 'Pilih Jabatan', 'Manager' => 'Manager', 'Translator' => 'Translator', 'Staff Engginer' => 'Staff Engginer'], $karyawan['jabatan'], ['class' => 'form-control']); ?>
+
+                    </div>
                     <?php echo form_label('Divisi', 'divisi'); ?>
                     <?php echo form_input('divisi', $karyawan['divisi'], ['class' => 'form-control', 'placeholder' => 'Product SKU', 'type' => 'number']); ?>
                   </div>

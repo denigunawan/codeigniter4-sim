@@ -46,17 +46,17 @@
                         <?php } ?>
                         <div class="table-responsive">
 
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="example2" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>No</th>
                                         <th>Kode Nota</th>
+                                        <th>Vendor Receiver</th>
                                         <th>Nama Barang</th>
                                         <th>Jumlah Barang</th>
                                         <th>Status Barang</th>
-                                        <th>Vendor</th>
                                         <th>Tanggal Masuk</th>
-                                        <th>ID STAFF</th>
+                                        <th>Staff Verified</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -65,12 +65,12 @@
                                         <tr>
                                             <td><?php echo $key + 1; ?></td>
                                             <td><?php echo $row['kode_nota']; ?></td>
+                                            <td><?php echo $row['vendor']; ?></td>
                                             <td><?php echo $row['nama_barang']; ?></td>
                                             <td><?php echo $row['jumlah_barang']; ?></td>
-                                            <td><?php echo $row['status']; ?></td>
-                                            <td><?php echo $row['nama_vendor']; ?></td>
+                                            <td><?php echo $row['status_document']; ?></td>
                                             <td><?php echo $row['tanggal_masuk']; ?></td>
-                                            <td><?php echo $row['karyawan_id']; ?></td>
+                                            <td><?php echo $row['nama_karyawan']; ?></td>
 
                                             <td>
                                                 <div class="btn-group">
@@ -89,12 +89,12 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Kode Nota</th>
+                                        <th>Vendor Receiver</th>
                                         <th>Nama Barang</th>
                                         <th>Jumlah Barang</th>
                                         <th>Status Barang</th>
-                                        <th>Vendor</th>
                                         <th>Tanggal Masuk</th>
-                                        <th>Staff</th>
+                                        <th>Staff Verified</th>
                                         <th>Action</th>
                                     </tr>
                                 </tfoot>

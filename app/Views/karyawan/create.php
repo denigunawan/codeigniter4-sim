@@ -4,19 +4,22 @@
 <div class="content-wrapper">
   <div class="content-header">
     <div class="container-fluid  text-center">
-      <h3 class="h3 mb-2 text-gray-800"> Data Karyawan
-        <p style="color:red;"> PT HSRCC </p> Division Engginer
+      <p style="color:red;"> <b>PT HIGH SPEED RAILWAYS CONTRACTOR CONSORTIUM<b /><br></p>
+      <h4><b><i>DIVISION ENGGINER</i></b></h4>
+      <img src="<?php echo base_url('hsrcc.png'); ?>" alt="gambar hsrcc"> <br><br>
+      <h3 class="h3 mb-2 text-gray-800"> Data Karyawan <br>
       </h3>
       <p class="mb-4">Data Karyawan Hanya Bisa Dimasukan Oleh Developer atau Manager</p>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>"> <i class="nav-icon fas  fa-campground"></i> Dashboard</a></li>
           <li class="breadcrumb-item"><a href="<?php echo base_url('/karyawan') ?>"> <i class="nav-icon fas  fa-users"></i> Data Karyawan</a></li>
-          <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas fa-user"></i> Add New Karyawan</li>
+          <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas  fa-user"></i> Tambah Data Karyawan</li>
         </ol>
       </nav>
     </div>
   </div>
+
   <div class="content">
     <div class="container-fluid">
       <div class="row">
@@ -55,24 +58,11 @@
                   </div>
                   <div class="form-group">
                     <?php
-                    echo form_label('Jenis Kelamin', 'jk');
-                    echo form_dropdown('jk', ['' => 'Pilih', 'PRIA' => 'PRIA', 'WANITA' => 'WANITA'], $inputs['jk'], ['class' => 'form-control']);
+                    echo form_label('Jabatan Karyawan', 'jabatan');
+                    echo form_dropdown('jabatan', ['' => 'Pilih Jabatan', 'Manager' => 'Manager', 'Translator' => 'Translator', 'Staff Engginer' => 'Staff Engginer'], $inputs['jabatan'], ['class' => 'form-control']);
                     ?>
                   </div>
-                  <div class="form-group">
-                    <?php
-                    echo form_label('Alamat Rumah Karyawan');
-                    $alamat = [
-                      'type'  => 'text',
-                      'name'  => 'alamat',
-                      'id'    => 'alamat',
-                      'value' => $inputs['alamat'],
-                      'class' => 'form-control',
-                      'placeholder' => 'Masukan alamat Karyawan'
-                    ];
-                    echo form_input($alamat);
-                    ?>
-                  </div>
+
                   <div class="form-group">
                     <?php
                     echo form_label('Status Karyawan', 'Status');
@@ -83,14 +73,14 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <?php
-                    echo form_label('Kontak Karyawan');
+                    echo form_label('Diviso Karyawan');
                     $handphone = [
-                      'type'  => 'number',
-                      'name'  => 'telephone',
-                      'id'    => 'telephone',
-                      'value' => $inputs['telephone'],
+                      'type'  => 'text',
+                      'name'  => 'divisi',
+                      'id'    => 'divisi',
+                      'value' => $inputs['divisi'],
                       'class' => 'form-control',
-                      'placeholder' => 'Masukan Nomer telephone'
+                      'placeholder' => 'Masukan Divisi'
                     ];
                     echo form_input($handphone);
                     ?>
@@ -112,13 +102,7 @@
 
                   <div class="form-group">
                     <?php
-                    echo form_label('Jabatan Karyawan', 'jabatan');
-                    echo form_dropdown('jabatan_id', $jabatan, $inputs['jabatan_id'], ['class' => 'form-control']);
-                    ?>
-                  </div>
-                  <div class="form-group">
-                    <?php
-                    echo form_label('Tanggal karyawan Terdata');
+                    echo form_label('Tanggal  Terdata');
                     $tanggalmasuk = [
                       'type'  => 'date',
                       'name'  => 'tanggalmasuk',

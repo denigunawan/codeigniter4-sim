@@ -48,7 +48,6 @@ class UsersController extends BaseController
 		$validation =  \Config\Services::validation();
 
 
-
 		$data = array(
 			'nama_user'             => $this->request->getPost('nama_user'),
 			'username'              => $this->request->getPost('username'),

@@ -2,20 +2,21 @@
 <?php echo view('_partials/sidebar'); ?>
 <div class="content-wrapper">
   <div class="content-header">
-    <div class="container-fluid text-center">
-
-      <h1 class="h3 mb-2 text-gray-800"> Data users Masjid Al-Hikmah Kp. payangan</h1>
-
+    <div class="container-fluid  text-center">
+      <p style="color:red;"> <b>PT HIGH SPEED RAILWAYS CONTRACTOR CONSORTIUM<b /><br></p>
+      <h4><b><i>DIVISION ENGGINER</i></b></h4>
+      <img src="<?php echo base_url('hsrcc.png'); ?>" alt="gambar hsrcc"> <br><br>
+      <h3 class="h3 mb-2 text-gray-800"> Data Users <br>
+      </h3>
+      <p class="mb-4">Data Users Hanya Bisa Dimasukan Oleh Developer atau Manager</p>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>">Dashboard</a></li>
-          <li class="breadcrumb-item"><a href="<?php echo base_url('/users') ?>">Data users</a></li>
-          <li class="breadcrumb-item" aria-current="page">Edit users</li>
-
+          <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>"> <i class="nav-icon fas  fa-campground"></i> Dashboard</a></li>
+          <li class="breadcrumb-item"><a href="<?php echo base_url('/users') ?>"> <i class="nav-icon fas  fa-user-lock"></i> Data Users</a></li>
+          <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas fa-user-edit"></i> Edit Data Users</li>
         </ol>
       </nav>
     </div>
-
   </div>
 
   <div class="content">
@@ -37,7 +38,6 @@
           <?php } ?>
           <div class="card">
             <?php echo form_open_multipart('users/update/' . $users['id']); ?>
-            <div class="card-header">Form Edit Produk</div>
             <div class="card-body">
               <?php echo form_hidden('id', $users['id']); ?>
               <div class="row">

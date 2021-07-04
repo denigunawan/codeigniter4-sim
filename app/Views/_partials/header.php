@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>IMS | HSRCC</title>
+    <title>MIS | HSRCC</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
@@ -16,10 +16,10 @@
     <link rel="stylesheet" href="<?php echo base_url('plugins/daterangepicker/daterangepicker.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('plugins/summernote/summernote-bs4.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('dist/css/adminlte.min.css'); ?>">
-    <link rel="shortcut icon" href="hsrcc.png" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo base_url('hsrcc.png'); ?>" type="image/x-icon">
 
-    <script type="text/javascript" id="debugbar_dynamic_script"></script>
-    <script type="text/javascript" id="debugbar_loader" data-time="1585277113" src="<?php echo base_url('plugins/'); ?>/index.php?debugbar"></script>
+    <script type="text/javascript" id="<?php echo base_url('debugbar_dynamic_script'); ?>"></script>
+    <script type="text/javascript" id="debugbar_loader" data-time="1585277113" src="<?php echo base_url('plugins/index.php?debugbar'); ?>"></script>
 </head>
 
 <body class="hold-transition sidebar-mini">

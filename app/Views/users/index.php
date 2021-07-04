@@ -4,18 +4,16 @@
 <div class="content-wrapper">
     <div class="content-header">
         <div class="container-fluid  text-center">
-            <marquee style="color: red;">
-                <p class="mb-2"><b>Untuk menjaga Keamanan data, Lakukan Pencadangan Data Secara Mandiri</b></p>
-            </marquee>
-
-            <h1 class="h3 mb-2 text-gray-800"> Data users Masjid Al-Hikmah Kp. payangan</h1>
-            <p class="mb-4">Data users yang dimasukan adalah data yang sudah valid dan sesuai dengan data internal masjid</p>
-
-            Alamat : <p><b>Jl. Wibawa Mukti II Jl. Diman, RT.004/RW.006, Jatisari, Kec. Jatiasih, Kota Bks, Jawa Barat 17426</b></p>
+            <p style="color:red;"> <b>PT HIGH SPEED RAILWAYS CONTRACTOR CONSORTIUM<b /><br></p>
+            <h4><b><i>DIVISION ENGGINER</i></b></h4>
+            <img src="<?php echo base_url('hsrcc.png'); ?>" alt="gambar hsrcc"> <br><br>
+            <h3 class="h3 mb-2 text-gray-800"> Data Users <br>
+            </h3>
+            <p class="mb-4">Data Users Hanya Bisa Dimasukan Oleh Developer atau Manager</p>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>">Dashboard</a></li>
-                    <li class="breadcrumb-item" aria-current="page">Data users</li>
+                    <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>"> <i class="nav-icon fas  fa-campground"></i> Dashboard</a></li>
+                    <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas  fa-user-lock"></i> Data Users</li>
                 </ol>
             </nav>
         </div>
@@ -26,8 +24,9 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <a href="<?php echo base_url('users/create'); ?>" class="btn btn-primary float-right">Tambah users</a>
-
+                        <a href="<?php echo base_url('users/create'); ?>" class="btn btn-outline-danger float-right">Tambah Data users</a>
+                        <div class="btn-group float-right">
+                        </div>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -51,7 +50,7 @@
                         <?php } ?>
                         <div class="table-responsive">
 
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="example2" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>No</th>

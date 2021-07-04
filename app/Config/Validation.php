@@ -55,7 +55,7 @@ class Validation
 		'bahasa'   					=> 'required',
 		'approved'   				=> 'required',
 		'jabatan'   				=> 'required',
-		'status'   					=> 'required',
+		'status_document'   					=> 'required',
 		'karyawan_id'   			=> 'required',
 
 
@@ -99,8 +99,8 @@ class Validation
 			'required'		=> 'Data Jabatan Wajib Di isi'
 		],
 
-		'status'   			=>  [
-			'required'		=> 'Data Status  Document Wajib Di isi'
+		'status_document'   			=>  [
+			'required'		=> 'Data status_document  Document Wajib Di isi'
 		],
 		'karyawan_id'   	=>  [
 			'required'		=> 'Data Penanggung Jawab Document Wajib Di isi'
@@ -120,7 +120,7 @@ class Validation
 		'judul_dokumen'   			=> 'required',
 		'vendor'   					=> 'required',
 		'bahasa'   					=> 'required',
-		'status'   					=> 'required',
+		'status_document'   					=> 'required',
 		'tanggal_masuk'   			=> 'required',
 		'karyawan_id'   			=> 'required',
 
@@ -151,8 +151,8 @@ class Validation
 		'tanggal_masuk'   	=>  [
 			'required'		=> 'Data Tanggal Masuk Document Wajib Di isi'
 		],
-		'status'   	=>  [
-			'required'		=> 'Data Status  Document Wajib Di isi'
+		'status_document'   	=>  [
+			'required'		=> 'Data status_document  Document Wajib Di isi'
 		],
 		'karyawan_id'   	=>  [
 			'required'		=> 'Data Penanggung Jawab Document Wajib Di isi'
@@ -170,7 +170,7 @@ class Validation
 		'vendor'     		=> 'required',
 		'nama_barang'   	=> 'required',
 		'jumlah_barang'   	=> 'required',
-		'status'   			=> 'required',
+		'status_document'   			=> 'required',
 		'tanggal_masuk'   	=> 'required',
 
 
@@ -195,8 +195,8 @@ class Validation
 		'tanggal_keluar'   	=>  [
 			'required'		=> 'Data Tanggal keluar nota Wajib Di isi'
 		],
-		'status'   	=>  [
-			'required'		=> 'Data Status nota Wajib Di isi'
+		'status_document'   	=>  [
+			'required'		=> 'Data status_document nota Wajib Di isi'
 		],
 		'karyawan_id'   	=>  [
 			'required'		=> 'Data Penanggung Jawab nota Wajib Di isi'
@@ -213,7 +213,7 @@ class Validation
 		'vendor'     		=> 'required',
 		'nama_barang'   	=> 'required',
 		'jumlah_barang'   	=> 'required',
-		'status'   			=> 'required',
+		'status_document'   			=> 'required',
 		'tanggal_keluar'   	=> 'required',
 
 
@@ -238,8 +238,8 @@ class Validation
 		'tanggal_keluar'   	=>  [
 			'required'		=> 'Data Tanggal keluar nota Wajib Di isi'
 		],
-		'status'   	=>  [
-			'required'		=> 'Data Status nota Wajib Di isi'
+		'status_document'   	=>  [
+			'required'		=> 'Data status_document nota Wajib Di isi'
 		],
 		'karyawan_id'   	=>  [
 			'required'		=> 'Data Penanggung Jawab nota Wajib Di isi'
@@ -272,7 +272,7 @@ class Validation
 			'required'		=> 'Data Vendor Wajib Di isi'
 		],
 		'status'   			=>  [
-			'required'		=> 'Data Status nota Wajib Di isi'
+			'required'		=> 'Data status_document nota Wajib Di isi'
 		],
 		'tanggalmasuk'   	=>  [
 			'required'		=> 'Data Penanggung Jawab nota Wajib Di isi'
@@ -287,6 +287,7 @@ class Validation
 		'username'     		=> 'required',
 		'password'     		=> 'required',
 		'level'   			=> 'required',
+		'trx_file'         => 'uploaded[trx_file]|ext_in[trx_file,xls,xlsx]|max_size[trx_file,1000]',
 
 	];
 
@@ -294,6 +295,11 @@ class Validation
 
 		'nama_user'     	=> [
 			'required'		=> 'Nama Users Wajib Di isi'
+		],
+		'trx_file' => [
+			'ext_in'    => 'File Excel hanya boleh diisi dengan xls atau xlsx.',
+			'max_size'  => 'File Excel product maksimal 1mb',
+			'uploaded'  => 'File Excel product wajib diisi'
 		],
 
 		'username'     			=> [
@@ -303,7 +309,7 @@ class Validation
 			'required'		=> 'Password Wajib Di isi'
 		],
 		'level'   			=>  [
-			'required'		=> ' Level Status Wajib Di isi'
+			'required'		=> ' Level status_document Wajib Di isi'
 		]
 	];
 }
