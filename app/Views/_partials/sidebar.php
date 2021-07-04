@@ -6,9 +6,6 @@
 
     <div class="sidebar">
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <!-- <div class="image">
-            <img src="dist/img/default-150x150.png" class="img-fluid" width="100">
-            </div> -->
             <div class="image">
                 <h6 style="color:azure"><?php if (session()->get('level') == 1) {
                                             echo 'Manager';
@@ -62,47 +59,6 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="<?php echo base_url('vendor'); ?>" class="nav-link">
-                        <i class="nav-icon fas fa-shipping-fast"></i>
-                        <p>
-                            Data Vendor
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?php echo base_url('drawingtype'); ?>" class="nav-link">
-                        <i class="nav-icon fas fa-draw-polygon"></i>
-                        <p>
-                            Data Drawing Type
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?php echo base_url('drawingkode'); ?>" class="nav-link">
-                        <i class="nav-icon fas fa-draw-polygon"></i>
-                        <p>
-                            Data Drawing Kode
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?php echo base_url('jabatan'); ?>" class="nav-link">
-                        <i class="nav-icon fas fa-sitemap"></i>
-                        <p>
-                            Data Jabatan
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?php echo base_url('rak'); ?>" class="nav-link">
-                        <i class="nav-icon fas fa-file-contract"></i>
-                        <p>
-                            Data Rak
-                        </p>
-                    </a>
-                </li>
-
 
                 <?php if (session()->get('level') == 1) { ?>
                     <li class="nav-item ">
@@ -116,14 +72,6 @@
                             <i class="nav-icon fas fa-users"></i>
                             <p>
                                 Data Karyawan
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="<?php echo base_url('bahasa'); ?>" class="nav-link">
-                            <i class="nav-icon fas fa-language"></i>
-                            <p>
-                                Data Bahasa
                             </p>
                         </a>
                     </li>
