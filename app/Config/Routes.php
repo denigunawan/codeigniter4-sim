@@ -34,32 +34,6 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('login', 'LoginController::index');
 
-// ROUTING DATA 
-$routes->get('bahasa', 'BahasaController::index');
-$routes->get('bahasa/create', 'BahasaController::create');
-$routes->post('bahasa/store', 'BahasaController::store');
-$routes->get('bahasa/edit/(:alphanum)', 'BahasaController::edit/$1');
-$routes->post('bahasa/update/(:alphanum)', 'BahasaController::update/$1');
-$routes->get('bahasa/delete/(:alphanum)', 'BahasaController::delete/$1');
-
-
-// ROUTING DATA 
-$routes->get('rak', 'RakController::index');
-$routes->get('rak/create', 'RakController::create');
-$routes->post('rak/store', 'RakController::store');
-$routes->get('rak/edit/(:alphanum)', 'RakController::edit/$1');
-$routes->post('rak/update/(:num)', 'RakController::update/$1');
-$routes->get('rak/delete/(:alphanum)', 'RakController::delete/$1');
-
-
-// ROUTING DATA 
-$routes->get('vendor', 'VendorController::index');
-$routes->get('vendor/create', 'VendorController::create');
-$routes->post('vendor/store', 'VendorController::store');
-$routes->get('vendor/edit/(:alphanum)', 'VendorController::edit/$1');
-$routes->post('vendor/update/(:num)', 'VendorController::update/$1');
-$routes->get('vendor/delete/(:alphanum)', 'VendorController::delete/$1');
-
 
 // ROUTING DATA 
 $routes->get('documentmasuk', 'DocumentMasukController::index');
@@ -77,37 +51,6 @@ $routes->post('documentkeluar/store', 'DocumentKeluarController::store');
 $routes->get('documentkeluar/edit/(:alphanum)', 'DocumentKeluarController::edit/$1');
 $routes->post('documentkeluar/update/(:num)', 'DocumentKeluarController::update/$1');
 $routes->get('documentkeluar/delete/(:alphanum)', 'DocumentKeluarController::delete/$1');
-
-
-// ROUTING DATA 
-
-$routes->get('drawingkode', 'DrawingKodeController::index');
-$routes->get('drawingkode/create', 'DrawingKodeController::create');
-$routes->post('drawingkode/store', 'DrawingKodeController::store');
-$routes->get('drawingkode/edit/(:alphanum)', 'DrawingKodeController::edit/$1');
-$routes->post('drawingkode/update/(:num)', 'DrawingKodeController::update/$1');
-$routes->get('drawingkode/delete/(:alphanum)', 'DrawingKodeController::delete/$1');
-
-
-// ROUTING DATA 
-
-$routes->get('drawingtype', 'DrawingTypeController::index');
-$routes->get('drawingtype/create', 'DrawingTypeController::create');
-$routes->post('drawingtype/store', 'DrawingTypeController::store');
-$routes->get('drawingtype/edit/(:alphanum)', 'DrawingTypeController::edit/$1');
-$routes->post('drawingtype/update/(:num)', 'DrawingTypeController::update/$1');
-$routes->get('drawingtype/delete/(:alphanum)', 'DrawingTypeController::delete/$1');
-
-
-// ROUTING DATA 
-
-$routes->get('jabatan', 'JabatanController::index');
-$routes->get('jabatan/create', 'JabatanController::create');
-$routes->post('jabatan/store', 'JabatanController::store');
-$routes->get('jabatan/edit/(:alphanum)', 'JabatanController::edit/$1');
-$routes->post('jabatan/update/(:num)', 'JabatanController::update/$1');
-$routes->get('jabatan/delete/(:alphanum)', 'JabatanController::delete/$1');
-
 
 
 // ROUTING DATA
@@ -130,7 +73,6 @@ $routes->post('notamasuk/update/(:num)', 'NotaMasukController::update/$1');
 $routes->get('notamasuk/delete/(:alphanum)', 'NotaMasukController::delete/$1');
 
 
-
 // ROUTING DATA 
 
 $routes->get('notakeluar', 'NotaKeluarController::index');
@@ -139,8 +81,6 @@ $routes->post('notakeluar/store', 'NotaKeluarController::store');
 $routes->get('notakeluar/edit/(:alphanum)', 'NotaKeluarController::edit/$1');
 $routes->post('notakeluar/update', 'NotaKeluarController::update/$1');
 $routes->get('notakeluar/delete/(:alphanum)', 'NotaKeluarController::delete/$1');
-
-
 
 
 // ROUTING DATA 

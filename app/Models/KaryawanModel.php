@@ -12,12 +12,10 @@ class KaryawanModel extends Model
     {
         if ($id === false) {
             return $this->table('karyawan')
-                ->join('jabatan', 'jabatan.jabatan_id = karyawan.jabatan_id')
                 ->get()
                 ->getResultArray();
         } else {
             return $this->table('karyawan')
-                ->join('jabatan', 'jabatan.jabatan_id = karyawan.jabatan_id')
                 ->where('karyawan.karyawan_id', $id)
                 ->get()
                 ->getRowArray();

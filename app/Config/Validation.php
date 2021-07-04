@@ -42,104 +42,21 @@ class Validation
 	//--------------------------------------------------------------------
 
 
-
-	// validasi untuk  setiap field yang ada di Database 
-	public $bahasa = [
-		'karyawan_id'				=> 'required',
-		'bahasa_document'     	=> 'required',
-		'tanggal_masuk'     	=> 'required',
-	];
-
-	public $bahasa_errors = [
-
-		'karyawan_id'     	=> [
-			'required'		=> 'Data Karyawan Wajib Diisi'
-		],
-
-		'bahasa_document'   => [
-			'required'		=> 'Bahasa Doukument Wajib Di isi'
-		],
-		'tanggal_masuk'   	=> [
-			'required'		=> 'Tanggal Terdata Dokumen Wajib Di isi'
-		],
-	];
-
-
-
-	// validasi untuk  setiap field yang ada di Database 
-	public $rak = [
-		'karyawan_id'			=> 'required',
-		'nama_rak'     		=> 'required',
-		'kode_rak'     		=> 'required',
-		'tanggal_masuk'   	=> 'required',
-
-	];
-
-	public $rak_errors = [
-
-		'karyawan_id'     	=> [
-			'required'		=> 'Staff Penanggung Jawab Wajib Diisi'
-		],
-
-		'nama_rak'   => [
-			'required'		=> 'Nama Rak Wajib Di isi'
-		],
-		'kode_rak'   => [
-			'required'		=> 'Kode Rak Wajib Di isi'
-		],
-		'tanggal_masuk'   	=> [
-			'required'		=> 'Tanggal Terdata  Wajib Di isi'
-		],
-
-	];
-
-
-
-
-	// validasi untuk  setiap field yang ada di Database 
-	public $vendor = [
-		'karyawan_id'			=> 'required',
-		'nama_vendor'     	=> 'required',
-		'jenis_vendor'     	=> 'required',
-		'tanggal_masuk'   	=> 'required',
-
-	];
-
-	public $vendor_errors = [
-
-		'karyawan_id'     	=> [
-			'required'		=> 'Staff Penanggung Jawab Wajib Diisi'
-		],
-
-		'nama_vendor'   => [
-			'required'		=> 'Nama Vendor Wajib Di isi'
-		],
-		'jenis_vendor'   => [
-			'required'		=> 'Jenis Vendor Wajib Di isi'
-		],
-		'tanggal_masuk'   	=> [
-			'required'		=> 'Tanggal Terdata Dokumen Wajib Di isi'
-		],
-
-	];
-
-
-
-
 	// validasi untuk  setiap field yang ada di Database 
 	public $documentkeluar = [
 		'kode_dokumen'     			=> 'required',
-		'drawingtype_id'     		=> 'required',
-		'drawingkode_id'   			=> 'required',
+		'document_type'     		=> 'required',
+		'document_number'   		=> 'required',
+		'judul_dokumen'   			=> 'required',
 		'nomer_box'   				=> 'required',
 		'isi_box'   				=> 'required',
-		'vendor_id'   				=> 'required',
-		'bahasa_id'   				=> 'required',
 		'tanggal_keluar'   			=> 'required',
+		'vendor'   					=> 'required',
+		'bahasa'   					=> 'required',
+		'approved'   				=> 'required',
+		'jabatan'   				=> 'required',
 		'status'   					=> 'required',
-		'karyawan_id'   				=> 'required',
-
-
+		'karyawan_id'   			=> 'required',
 
 
 	];
@@ -150,32 +67,44 @@ class Validation
 			'required'		=> 'Kode Dokumen Wajib Di isi'
 		],
 
-		'drawingtype_id'    => [
-			'required'		=> 'Data Drawing Type Wajib Di isi'
+		'document_type'    	=> [
+			'required'		=> 'Data dokumen Type Wajib Di isi'
 		],
 
-		'drawingkode_id'   	=> [
-			'required'		=> 'Data Drawing Kode Wajib Di isi'
+		'document_number'   => [
+			'required'		=> 'Data dokumen Kode Wajib Di isi'
+		],
+		'judul_dokumen'   	=>  [
+			'required'		=> 'Data judul dokumen Wajib Di isi'
 		],
 		'nomer_box'   		=>  [
 			'required'		=> 'Data Nomer Box Wajib Di isi'
 		],
-		'vendor_id'   		=>  [
-			'required'		=> 'Data Vendor Wajib Di isi'
-		],
-		'bahasa_id'   		=>  [
-			'required'		=> 'Data Bahasa Wajib Di isi'
+		'isi_box'   		=>  [
+			'required'		=> 'Data isi Box Wajib Di isi'
 		],
 		'tanggal_keluar'   	=>  [
 			'required'		=> 'Data Tanggal Keluar Document Wajib Di isi'
 		],
-		'status'   	=>  [
+		'vendor'   			=>  [
+			'required'		=> 'Data Vendor Wajib Di isi'
+		],
+		'bahasa'   			=>  [
+			'required'		=> 'Data Bahasa Wajib Di isi'
+		],
+		'approved'   		=>  [
+			'required'		=> 'Data Approved Wajib Di isi'
+		],
+		'jabatan'   		=>  [
+			'required'		=> 'Data Jabatan Wajib Di isi'
+		],
+
+		'status'   			=>  [
 			'required'		=> 'Data Status  Document Wajib Di isi'
 		],
 		'karyawan_id'   	=>  [
 			'required'		=> 'Data Penanggung Jawab Document Wajib Di isi'
-		],
-
+		]
 
 	];
 
@@ -186,15 +115,14 @@ class Validation
 	// validasi untuk  setiap field yang ada di Database 
 	public $documentmasuk = [
 		'kode_dokumen'     			=> 'required',
-		'drawingtype_id'     		=> 'required',
-		'drawingkode_id'   			=> 'required',
+		'document_type'     		=> 'required',
+		'document_number'   		=> 'required',
 		'judul_dokumen'   			=> 'required',
-		'rak_id'   					=> 'required',
-		'vendor_id'   				=> 'required',
-		'bahasa_id'   				=> 'required',
-		'tanggal_masuk'   			=> 'required',
+		'vendor'   					=> 'required',
+		'bahasa'   					=> 'required',
 		'status'   					=> 'required',
-		'karyawan_id'   				=> 'required',
+		'tanggal_masuk'   			=> 'required',
+		'karyawan_id'   			=> 'required',
 
 	];
 
@@ -204,23 +132,20 @@ class Validation
 			'required'		=> 'Kode Dokumen Wajib Di isi'
 		],
 
-		'drawingtype_id'    => [
-			'required'		=> 'Data Drawing Type Wajib Di isi'
+		'document_type'    => [
+			'required'		=> 'Data document Type Wajib Di isi'
 		],
 
-		'drawingkode_id'   	=> [
-			'required'		=> 'Data Drawing Kode Wajib Di isi'
+		'document_number'   	=> [
+			'required'		=> 'Data document Kode Wajib Di isi'
 		],
 		'judul_dokumen'   	=>  [
 			'required'		=> 'Data Judul Dokumen Wajib Di isi'
 		],
-		'rak_id'   			=>  [
-			'required'		=> 'Data Rak Tempat Dokumen Wajib Di isi'
-		],
-		'vendor_id'   		=>  [
+		'vendor'   		=>  [
 			'required'		=> 'Data Vendor Wajib Di isi'
 		],
-		'bahasa_id'   		=>  [
+		'bahasa'   		=>  [
 			'required'		=> 'Data Bahasa Wajib Di isi'
 		],
 		'tanggal_masuk'   	=>  [
@@ -238,97 +163,16 @@ class Validation
 
 
 
-
-	// validasi untuk  setiap field yang ada di Database 
-	public $drawingkode = [
-		'karyawan_id'		=> 'required',
-		'drawing_kode'     	=> 'required',
-		'tanggal_masuk'     => 'required',
-
-	];
-
-	public $drawingkode_errors = [
-
-		'karyawan_id'     	=> [
-			'required'		=> 'Karyawan Wajib Di isi'
-		],
-
-		'kode_drawing'     			=> [
-			'required'		=> 'Data Drawing kode Wajib Di isi'
-		],
-		'tanggal_masuk'   		=> [
-			'required'		=> 'Data Tanggal Masuk Wajib Di isi'
-		],
-
-
-	];
-
-
-
-
-
-	// validasi untuk  setiap field yang ada di Database 
-	public $drawingtype = [
-		'karyawan_id'			=> 'required',
-		'drawing_type'      => 'required',
-		'tanggal_masuk'     => 'required',
-
-	];
-
-	public $drawingtype_errors = [
-
-		'drawing_type'     	=> [
-			'required'		=> 'Drawing Type  Wajib Di isi'
-		],
-
-		'tanggal_masuk'   	=>  [
-			'required'		=> 'Data Tanggal Masuk  Wajib Di isi'
-		],
-		'karyawan_id'   	=>  [
-			'required'		=> 'Data Penanggung Jawab Wajib Di isi'
-		]
-	];
-
-
-
-
-
-	// validasi untuk  setiap field yang ada di Database 
-	public $jabatan = [
-		'nama_jabatan'     	=> 'required',
-		'jenis_jabatan'     => 'required',
-		'tanggal_masuk'   	=> 'required',
-
-	];
-
-	public $jabatan_errors = [
-
-		'nama_jabatan'     	=> [
-			'required'		=> 'Jabatan  Wajib Di isi'
-		],
-		'jenis_jabatan'   	=>  [
-			'required'		=> 'Jenis Jabatan Wajib Di isi'
-		],
-
-		'tanggal_masuk'   	=>  [
-			'required'		=> 'Data Tanggal Masuk Document Wajib Di isi'
-		],
-
-	];
-
-
-
-
-
 	// validasi untuk  setiap field yang ada di Database 
 	public $notamasuk = [
-		'karyawan_id'			=> 'required',
-		'vendor_id'     	=> 'required',
+		'karyawan_id'		=> 'required',
 		'kode_nota'     	=> 'required',
+		'vendor'     		=> 'required',
 		'nama_barang'   	=> 'required',
 		'jumlah_barang'   	=> 'required',
 		'status'   			=> 'required',
 		'tanggal_masuk'   	=> 'required',
+
 
 	];
 
@@ -345,11 +189,11 @@ class Validation
 		'jumlah_barang'   	=> [
 			'required'		=> 'Jumlah Barang Wajib Di isi'
 		],
-		'vendor_id'   		=>  [
+		'vendor'   		=>  [
 			'required'		=> 'Data Vendor Wajib Di isi'
 		],
-		'tanggal_masuk'   	=>  [
-			'required'		=> 'Data Tanggal Masuk nota Wajib Di isi'
+		'tanggal_keluar'   	=>  [
+			'required'		=> 'Data Tanggal keluar nota Wajib Di isi'
 		],
 		'status'   	=>  [
 			'required'		=> 'Data Status nota Wajib Di isi'
@@ -361,11 +205,12 @@ class Validation
 
 
 
+
 	// validasi untuk  setiap field yang ada di Database 
 	public $notakeluar = [
-		'karyawan_id'			=> 'required',
-		'vendor_id'     	=> 'required',
+		'karyawan_id'		=> 'required',
 		'kode_nota'     	=> 'required',
+		'vendor'     		=> 'required',
 		'nama_barang'   	=> 'required',
 		'jumlah_barang'   	=> 'required',
 		'status'   			=> 'required',
@@ -387,7 +232,7 @@ class Validation
 		'jumlah_barang'   	=> [
 			'required'		=> 'Jumlah Barang Wajib Di isi'
 		],
-		'vendor_id'   		=>  [
+		'vendor'   		=>  [
 			'required'		=> 'Data Vendor Wajib Di isi'
 		],
 		'tanggal_keluar'   	=>  [
@@ -404,13 +249,9 @@ class Validation
 
 
 	public $karyawan = [
-		'jabatan_id'			=> 'required',
 		'nama_karyawan'     	=> 'required',
-		'jk'     				=> 'required',
-		'alamat'   				=> 'required',
 		'divisi'   				=> 'required',
-		'jabatan_id'   			=> 'required',
-		'telephone'   			=> 'required',
+		'jabatan'   			=> 'required',
 		'status'   				=> 'required',
 		'tanggalmasuk'   		=> 'required',
 
@@ -420,27 +261,17 @@ class Validation
 
 	public $karyawan_errors = [
 
-		'nama_karyawan'    => [
-			'required'		=> 'Nama Barang Wajib Di isi'
-		],
-		'jk'     	=> [
-			'required'		=> 'Jenis Kelamin  Wajib Di isi'
-		],
-
-		'alamat'    => [
+		'nama_karyawan'    	=> [
 			'required'		=> 'Nama Barang Wajib Di isi'
 		],
 
-		'divisi'   	=> [
+		'divisi'   			=> [
 			'required'		=> 'Jumlah Barang Wajib Di isi'
 		],
-		'jabatan_id'   		=>  [
+		'jabatan'   		=>  [
 			'required'		=> 'Data Vendor Wajib Di isi'
 		],
-		'telephone'   	=>  [
-			'required'		=> 'Data Tanggal keluar nota Wajib Di isi'
-		],
-		'status'   	=>  [
+		'status'   			=>  [
 			'required'		=> 'Data Status nota Wajib Di isi'
 		],
 		'tanggalmasuk'   	=>  [
