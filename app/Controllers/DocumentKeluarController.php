@@ -53,13 +53,12 @@ class DocumentKeluarController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
-		$user = $this->karyawan_model->findAll();
-		$vendor = $this->vendor_model->where('nama_vendor')->findAll();
-		$drawingtype = $this->drawingtype_model->where('drawing_type')->findAll();
-		$drawingkode = $this->drawingkode_model->where('drawing_kode')->findAll();
-		$bahasa = $this->bahasa_model->where('bahasa_document')->findAll();
-
-		$data['karyawan'] = ['' => 'karyawan'] + array_column($user, 'nama_karyawan', 'karyawan_id');
+		$karyawan = $this->karyawan_model->findAll();
+		$vendor = $this->vendor_model->findAll();
+		$drawingtype = $this->drawingtype_model->findAll();
+		$drawingkode = $this->drawingkode_model->findAll();
+		$bahasa = $this->bahasa_model->findAll();
+		$data['karyawan'] = ['' => 'karyawan'] + array_column($karyawan, 'nama_karyawan', 'karyawan_id');
 		$data['vendor'] = ['' => 'vendor'] + array_column($vendor, 'nama_vendor', 'vendor_id');
 		$data['drawingtype'] = ['' => 'drawingtype'] + array_column($drawingtype, 'drawing_type', 'drawingtype_id');
 		$data['drawingkode'] = ['' => 'drawingkode'] + array_column($drawingkode, 'drawing_kode', 'drawingkode_id');
@@ -105,17 +104,6 @@ class DocumentKeluarController extends BaseController
 
 
 
-	public function show($id)
-	{
-		// proteksi halaman
-		if (session()->get('username') == '') {
-			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
-			return redirect()->to(base_url('login'));
-		}
-		$data['documentkeluar'] = $this->documentkeluar_model->getData($id);
-		echo view('documentkeluar/show', $data);
-	}
-
 	public function edit($id)
 	{
 		// proteksi halaman
@@ -123,6 +111,16 @@ class DocumentKeluarController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
+		$karyawan = $this->karyawan_model->findAll();
+		$vendor = $this->vendor_model->findAll();
+		$drawingtype = $this->drawingtype_model->findAll();
+		$drawingkode = $this->drawingkode_model->findAll();
+		$bahasa = $this->bahasa_model->findAll();
+		$data['karyawan'] = ['' => 'karyawan'] + array_column($karyawan, 'nama_karyawan', 'karyawan_id');
+		$data['vendor'] = ['' => 'vendor'] + array_column($vendor, 'nama_vendor', 'vendor_id');
+		$data['drawingtype'] = ['' => 'drawingtype'] + array_column($drawingtype, 'drawing_type', 'drawingtype_id');
+		$data['drawingkode'] = ['' => 'drawingkode'] + array_column($drawingkode, 'drawing_kode', 'drawingkode_id');
+		$data['bahasa'] = ['' => 'bahasa'] + array_column($bahasa, 'bahasa_document', 'bahasa_id');
 		$data['documentkeluar'] = $this->documentkeluar_model->getData($id);
 		echo view('documentkeluar/edit', $data);
 	}
@@ -134,7 +132,7 @@ class DocumentKeluarController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
-		$id = $this->request->getPost('documentkeluar_id');
+		$id = $this->request->getPost('document_keluar_id');
 
 		$validation =  \Config\Services::validation();
 

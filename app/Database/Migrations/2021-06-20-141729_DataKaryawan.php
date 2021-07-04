@@ -56,8 +56,6 @@ class DataKaryawan extends Migration
 		]);
 		//primary key
 		$this->forge->addKey('karyawan_id', TRUE);
-		$this->forge->addForeignKey('jabatan_id', 'jabatan', 'jabatan_id', 'cascade', 'cascade');
-		//nama tabel
 		$this->forge->createTable('karyawan', TRUE);
 	}
 

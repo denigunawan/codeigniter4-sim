@@ -78,13 +78,13 @@
                                             <td><?php echo $row['bahasa_id']; ?></td>
                                             <td><?php echo $row['tanggal_keluar']; ?></td>
                                             <td><?php echo $row['status']; ?></td>
-                                            <td><?php echo $row['user_id']; ?></td>
+                                            <td><?php echo $row['karyawan_id']; ?></td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="<?php echo base_url('documentkeluar/edit/' . $row['idpengurus']); ?>" class="btn btn-sm btn-success">
+                                                    <a href="<?php echo base_url('documentkeluar/edit/' . $row['document_keluar_id']); ?>" class="btn btn-sm btn-success">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
-                                                    <a href="<?php echo base_url('documentkeluar/delete/' . $row['idpengurus']); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus kategori ini?');">
+                                                    <a href="<?php echo base_url('documentkeluar/delete/' . $row['document_keluar_id']); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus kategori ini?');">
                                                         <i class="fa fa-trash-alt"></i>
                                                     </a>
                                                 </div>

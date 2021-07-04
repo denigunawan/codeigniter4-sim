@@ -70,8 +70,6 @@ class NotaMasukController extends BaseController
 			'status'        		=> $this->request->getPost('status'),
 			'tanggal_masuk'         => $this->request->getPost('tanggal_masuk'),
 
-
-
 		);
 
 		if ($validation->run($data, 'notamasuk') == FALSE) {

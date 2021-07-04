@@ -25,7 +25,7 @@ class DocumentKeluarModel extends Model
 				->join('vendor', 'vendor.vendor_id = documentkeluar.vendor_id')
 				->join('drawingtype', 'drawingtype.drawingtype_id = documentkeluar.drawingtype_id')
 				->join('drawingkode', 'drawingkode.drawingkode_id = documentkeluar.drawingkode_id')
-				->join('bahasa', 'bahasa.bahasa_id = documentkeluar.bahasa_id')->where('documentkeluar.documentkeluar_id', $id)
+				->join('bahasa', 'bahasa.bahasa_id = documentkeluar.bahasa_id')->where('documentkeluar.document_keluar_id', $id)
 				->get()
 				->getRowArray();
 		}
@@ -37,10 +37,10 @@ class DocumentKeluarModel extends Model
 
 	public function updateData($data, $id)
 	{
-		return $this->db->table($this->table)->update($data, ['documentkeluar_id' => $id]);
+		return $this->db->table($this->table)->update($data, ['document_keluar_id' => $id]);
 	}
 	public function deleteData($id)
 	{
-		return $this->db->table($this->table)->delete(['documentkeluar_id' => $id]);
+		return $this->db->table($this->table)->delete(['document_keluar_id' => $id]);
 	}
 }

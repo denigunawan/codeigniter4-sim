@@ -56,7 +56,7 @@
                                         <th>Status Barang</th>
                                         <th>Vendor</th>
                                         <th>Tanggal Masuk</th>
-                                        <th>Staff</th>
+                                        <th>ID STAFF</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -64,13 +64,14 @@
                                     <?php foreach ($notamasuk as $key => $row) { ?>
                                         <tr>
                                             <td><?php echo $key + 1; ?></td>
-                                            <td><?php echo $row['nama_karyawan']; ?></td>
                                             <td><?php echo $row['kode_nota']; ?></td>
                                             <td><?php echo $row['nama_barang']; ?></td>
                                             <td><?php echo $row['jumlah_barang']; ?></td>
                                             <td><?php echo $row['status']; ?></td>
                                             <td><?php echo $row['nama_vendor']; ?></td>
                                             <td><?php echo $row['tanggal_masuk']; ?></td>
+                                            <td><?php echo $row['karyawan_id']; ?></td>
+
                                             <td>
                                                 <div class="btn-group">
                                                     <a href="<?php echo base_url('notamasuk/edit/' . $row['notamasuk_id']); ?>" class="btn btn-sm btn-success">
