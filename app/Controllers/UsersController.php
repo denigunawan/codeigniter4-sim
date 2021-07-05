@@ -25,7 +25,7 @@ class UsersController extends BaseController
 		// membuat halaman otomatis berubah ketika berpindah halaman 
 		$currentPage = $this->request->getVar('page_users') ? $this->request->getVar('page_users') : 1;
 		// paginate
-		$paginate = 5;
+		$paginate = 100000;
 		$data['users']   = $this->users_model->paginate($paginate, 'users');
 		$data['pager']        = $this->users_model->pager;
 		$data['currentPage']  = $currentPage;
@@ -64,7 +64,7 @@ class UsersController extends BaseController
 
 			$simpan = $this->users_model->insertData($data);
 			if ($simpan) {
-				session()->setFlashdata('success', 'Created Daftar successfully');
+				session()->setFlashdata('success', 'Membuat Users Berhasil');
 				return redirect()->to(base_url('users'));
 			}
 		}
@@ -110,7 +110,7 @@ class UsersController extends BaseController
 
 			$ubah = $this->users_model->updateData($data, $id);
 			if ($ubah) {
-				session()->setFlashdata('info', 'Updated Data users Berhasil');
+				session()->setFlashdata('info', 'Updated  users Berhasil');
 				return redirect()->to(base_url('users'));
 			}
 		}
@@ -125,7 +125,7 @@ class UsersController extends BaseController
 		}
 		$hapus = $this->users_model->deleteData($id);
 		if ($hapus) {
-			session()->setFlashdata('warning', 'Delete Daftar users Berhasil');
+			session()->setFlashdata('warning', 'Hapus  users Berhasil');
 			return redirect()->to(base_url('users'));
 		}
 	}

@@ -73,28 +73,14 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <?php
-                    echo form_label('Diviso Karyawan');
-                    $handphone = [
-                      'type'  => 'text',
-                      'name'  => 'divisi',
-                      'id'    => 'divisi',
-                      'value' => $inputs['divisi'],
-                      'class' => 'form-control',
-                      'placeholder' => 'Masukan Divisi'
-                    ];
-                    echo form_input($handphone);
-                    ?>
-                  </div>
-                  <div class="form-group">
-                    <?php
-                    echo form_label('DivisI Karyawan');
+                    echo form_label('Divisi Karyawan');
                     $divisi = [
                       'type'  => 'text',
                       'name'  => 'divisi',
                       'id'    => 'divisi',
                       'value' => $inputs['divisi'],
                       'class' => 'form-control',
-                      'placeholder' => 'Masukan Devisi Karyawan'
+                      'placeholder' => 'Masukan Divisi Karyawan'
                     ];
                     echo form_input($divisi);
                     ?>

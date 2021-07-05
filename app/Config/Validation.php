@@ -287,7 +287,6 @@ class Validation
 		'username'     		=> 'required',
 		'password'     		=> 'required',
 		'level'   			=> 'required',
-		'trx_file'         => 'uploaded[trx_file]|ext_in[trx_file,xls,xlsx]|max_size[trx_file,1000]',
 
 	];
 
@@ -296,12 +295,6 @@ class Validation
 		'nama_user'     	=> [
 			'required'		=> 'Nama Users Wajib Di isi'
 		],
-		'trx_file' => [
-			'ext_in'    => 'File Excel hanya boleh diisi dengan xls atau xlsx.',
-			'max_size'  => 'File Excel product maksimal 1mb',
-			'uploaded'  => 'File Excel product wajib diisi'
-		],
-
 		'username'     			=> [
 			'required'		=> 'Username Wajib Di isi'
 		],

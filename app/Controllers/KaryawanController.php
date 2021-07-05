@@ -26,7 +26,7 @@ class karyawanController extends BaseController
         // membuat halaman otomatis berubah ketika berpindah halaman 
         $currentPage = $this->request->getVar('page_karyawan') ? $this->request->getVar('page_karyawan') : 1;
         // paginate
-        $paginate = 5;
+        $paginate = 1000000;
         $data['karyawan']   = $this->karyawan_model->paginate($paginate, 'karyawan');
         $data['pager']        = $this->karyawan_model->pager;
         $data['currentPage']  = $currentPage;
