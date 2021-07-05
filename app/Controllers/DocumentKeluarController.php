@@ -3,10 +3,6 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\DaftarBahasaModel;
-use App\Models\DaftarDrawingKodeModel;
-use App\Models\DaftarDrawingTypeModel;
-use App\Models\DaftarVendorModel;
 use App\Models\DocumentKeluarModel;
 use App\Models\KaryawanModel;
 
@@ -17,10 +13,6 @@ class DocumentKeluarController extends BaseController
 		helper(['form']);
 		$this->karyawan_model 		= new KaryawanModel();
 		$this->documentkeluar_model = new DocumentKeluarModel();
-		$this->vendor_model 		= new DaftarVendorModel();
-		$this->drawingtype_model 	= new DaftarDrawingTypeModel();
-		$this->drawingkode_model 	= new DaftarDrawingKodeModel();
-		$this->bahasa_model 		= new DaftarBahasaModel();
 	}
 
 	public function index()
@@ -34,12 +26,8 @@ class DocumentKeluarController extends BaseController
 		$currentPage = $this->request->getVar('page_documentkeluar') ? $this->request->getVar('page_documentkeluar') : 1;
 
 		// paginate
-		$paginate = 5;
+		$paginate = 100;
 		$data['documentkeluar']   = $this->documentkeluar_model->join('karyawan', 'karyawan.karyawan_id = documentkeluar.karyawan_id')->paginate($paginate, 'documentkeluar');
-		$data['documentkeluar']   = $this->documentkeluar_model->join('vendor', 'vendor.vendor_id = documentkeluar.vendor_id')->paginate($paginate, 'documentkeluar');
-		$data['documentkeluar']   = $this->documentkeluar_model->join('drawingtype', 'drawingtype.drawingtype_id = documentkeluar.drawingtype_id')->paginate($paginate, 'documentkeluar');
-		$data['documentkeluar']   = $this->documentkeluar_model->join('drawingkode', 'drawingkode.drawingkode_id = documentkeluar.drawingkode_id')->paginate($paginate, 'documentkeluar');
-		$data['documentkeluar']   = $this->documentkeluar_model->join('bahasa', 'bahasa.bahasa_id = documentkeluar.bahasa_id')->paginate($paginate, 'documentkeluar');
 		$data['pager']        = $this->documentkeluar_model->pager;
 		$data['currentPage']  = $currentPage;
 		echo view('documentkeluar/index', $data);
@@ -54,16 +42,7 @@ class DocumentKeluarController extends BaseController
 			return redirect()->to(base_url('login'));
 		}
 		$karyawan = $this->karyawan_model->findAll();
-		$vendor = $this->vendor_model->findAll();
-		$drawingtype = $this->drawingtype_model->findAll();
-		$drawingkode = $this->drawingkode_model->findAll();
-		$bahasa = $this->bahasa_model->findAll();
 		$data['karyawan'] = ['' => 'karyawan'] + array_column($karyawan, 'nama_karyawan', 'karyawan_id');
-		$data['vendor'] = ['' => 'vendor'] + array_column($vendor, 'nama_vendor', 'vendor_id');
-		$data['drawingtype'] = ['' => 'drawingtype'] + array_column($drawingtype, 'drawing_type', 'drawingtype_id');
-		$data['drawingkode'] = ['' => 'drawingkode'] + array_column($drawingkode, 'drawing_kode', 'drawingkode_id');
-		$data['bahasa'] = ['' => 'bahasa'] + array_column($bahasa, 'bahasa_document', 'bahasa_id');
-
 		return view('documentkeluar/create', $data);
 	}
 
@@ -76,16 +55,20 @@ class DocumentKeluarController extends BaseController
 		}
 		$validation =  \Config\Services::validation();
 		$data = array(
-			'karyawan_id'        	=> $this->request->getPost('karyawan_id'),
-			'vendor_id'        		=> $this->request->getPost('vendor_id'),
-			'drawingtype_id'        => $this->request->getPost('drawingtype_id'),
-			'drawingkode_id'        => $this->request->getPost('drawingkode_id'),
-			'bahasa_id'        		=> $this->request->getPost('bahasa_id'),
-			'kode_dokumen'    		=> $this->request->getPost('kode_dokumen'),
-			'nomer_box'    			=> $this->request->getPost('nomer_box'),
-			'isi_box'         		=> $this->request->getPost('isi_box'),
-			'status'        		=> $this->request->getPost('status'),
+			'kode_dokumen'        	=> $this->request->getPost('kode_dokumen'),
+			'document_type'        	=> $this->request->getPost('vendor_id'),
+			'document_number'       => $this->request->getPost('document_number'),
+			'judul_dokumen'        	=> $this->request->getPost('judul_dokumen'),
+			'nomer_box'        		=> $this->request->getPost('nomer_box'),
+			'isi_box'    			=> $this->request->getPost('isi_box'),
+			'vendor'    			=> $this->request->getPost('vendor'),
+			'bahasa'         		=> $this->request->getPost('bahasa'),
+			'approved'        		=> $this->request->getPost('approved'),
+			'jabatan'        		=> $this->request->getPost('jabatan'),
+			'status_document'       => $this->request->getPost('status_document'),
 			'tanggal_keluar'        => $this->request->getPost('tanggal_keluar'),
+			'karyawan_id'        	=> $this->request->getPost('karyawan_id'),
+
 		);
 
 		if ($validation->run($data, 'documentkeluar') == FALSE) {
@@ -112,15 +95,7 @@ class DocumentKeluarController extends BaseController
 			return redirect()->to(base_url('login'));
 		}
 		$karyawan = $this->karyawan_model->findAll();
-		$vendor = $this->vendor_model->findAll();
-		$drawingtype = $this->drawingtype_model->findAll();
-		$drawingkode = $this->drawingkode_model->findAll();
-		$bahasa = $this->bahasa_model->findAll();
 		$data['karyawan'] = ['' => 'karyawan'] + array_column($karyawan, 'nama_karyawan', 'karyawan_id');
-		$data['vendor'] = ['' => 'vendor'] + array_column($vendor, 'nama_vendor', 'vendor_id');
-		$data['drawingtype'] = ['' => 'drawingtype'] + array_column($drawingtype, 'drawing_type', 'drawingtype_id');
-		$data['drawingkode'] = ['' => 'drawingkode'] + array_column($drawingkode, 'drawing_kode', 'drawingkode_id');
-		$data['bahasa'] = ['' => 'bahasa'] + array_column($bahasa, 'bahasa_document', 'bahasa_id');
 		$data['documentkeluar'] = $this->documentkeluar_model->getData($id);
 		echo view('documentkeluar/edit', $data);
 	}
@@ -137,16 +112,19 @@ class DocumentKeluarController extends BaseController
 		$validation =  \Config\Services::validation();
 
 		$data = array(
-			'karyawan_id'        	=> $this->request->getPost('karyawan_id'),
-			'vendor_id'        		=> $this->request->getPost('vendor_id'),
-			'drawingtype_id'        => $this->request->getPost('drawingtype_id'),
-			'drawingkode_id'        => $this->request->getPost('drawingkode_id'),
-			'bahasa_id'        		=> $this->request->getPost('bahasa_id'),
-			'kode_dokumen'    		=> $this->request->getPost('kode_dokumen'),
-			'nomer_box'    			=> $this->request->getPost('nomer_box'),
-			'isi_box'         		=> $this->request->getPost('isi_box'),
-			'status'        		=> $this->request->getPost('status'),
+			'kode_dokumen'        	=> $this->request->getPost('kode_dokumen'),
+			'document_type'        	=> $this->request->getPost('vendor_id'),
+			'document_number'       => $this->request->getPost('document_number'),
+			'judul_dokumen'        	=> $this->request->getPost('judul_dokumen'),
+			'nomer_box'        		=> $this->request->getPost('nomer_box'),
+			'isi_box'    			=> $this->request->getPost('isi_box'),
+			'vendor'    			=> $this->request->getPost('vendor'),
+			'bahasa'         		=> $this->request->getPost('bahasa'),
+			'approved'        		=> $this->request->getPost('approved'),
+			'jabatan'        		=> $this->request->getPost('jabatan'),
+			'status_document'       => $this->request->getPost('status_document'),
 			'tanggal_keluar'        => $this->request->getPost('tanggal_keluar'),
+			'karyawan_id'        	=> $this->request->getPost('karyawan_id'),
 
 		);
 		if ($validation->run($data, 'documentkeluar') == FALSE) {

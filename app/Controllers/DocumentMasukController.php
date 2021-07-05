@@ -19,11 +19,6 @@ class DocumentMasukController extends BaseController
 		helper(['form']);
 		$this->karyawan_model 		= new KaryawanModel();
 		$this->documentmasuk_model  = new DocumentMasukModel();
-		$this->vendor_model 		= new DaftarVendorModel();
-		$this->drawingtype_model 	= new DaftarDrawingTypeModel();
-		$this->drawingkode_model 	= new DaftarDrawingKodeModel();
-		$this->rak_model 			= new DaftarRakModel();
-		$this->bahasa_model 		= new DaftarBahasaModel();
 	}
 
 	public function index()
@@ -37,13 +32,8 @@ class DocumentMasukController extends BaseController
 		$currentPage = $this->request->getVar('page_documentmasuk') ? $this->request->getVar('page_documentmasuk') : 1;
 
 		// paginate
-		$paginate = 5;
+		$paginate = 1000000;
 		$data['documentmasuk']   = $this->documentmasuk_model->join('karyawan', 'karyawan.karyawan_id = documentmasuk.karyawan_id')->paginate($paginate, 'documentmasuk');
-		$data['documentmasuk']   = $this->documentmasuk_model->join('vendor', 'vendor.vendor_id = documentmasuk.vendor_id')->paginate($paginate, 'documentmasuk');
-		$data['documentmasuk']   = $this->documentmasuk_model->join('drawingtype', 'drawingtype.drawingtype_id = documentmasuk.drawingtype_id')->paginate($paginate, 'documentmasuk');
-		$data['documentmasuk']   = $this->documentmasuk_model->join('drawingkode', 'drawingkode.drawingkode_id = documentmasuk.drawingkode_id')->paginate($paginate, 'documentmasuk');
-		$data['documentmasuk']   = $this->documentmasuk_model->join('rak', 'rak.rak_id = documentmasuk.rak_id')->paginate($paginate, 'documentmasuk');
-		$data['documentmasuk']   = $this->documentmasuk_model->join('bahasa', 'bahasa.bahasa_id = documentmasuk.bahasa_id')->paginate($paginate, 'documentmasuk');
 		$data['pager']        = $this->documentmasuk_model->pager;
 		$data['currentPage']  = $currentPage;
 		echo view('documentmasuk/index', $data);
@@ -58,19 +48,7 @@ class DocumentMasukController extends BaseController
 			return redirect()->to(base_url('login'));
 		}
 		$user = $this->karyawan_model->findAll();
-		$vendor = $this->vendor_model->where('nama_vendor')->findAll();
-		$drawingtype = $this->drawingtype_model->where('drawing_type')->findAll();
-		$drawingkode = $this->drawingkode_model->where('drawing_kode')->findAll();
-		$rak = $this->rak_model->where('kode_rak')->findAll();
-		$bahasa = $this->bahasa_model->where('bahasa_document')->findAll();
-
 		$data['karyawan'] = ['' => 'karyawan'] + array_column($user, 'nama_karyawan', 'karyawan_id');
-		$data['vendor'] = ['' => 'vendor'] + array_column($vendor, 'nama_vendor', 'vendor_id');
-		$data['drawingtype'] = ['' => 'drawingtype'] + array_column($drawingtype, 'drawing_type', 'drawingtype_id');
-		$data['drawingkode'] = ['' => 'drawingkode'] + array_column($drawingkode, 'drawing_kode', 'drawingkode_id');
-		$data['rak'] = ['' => 'rak'] + array_column($rak, 'kode_rak', 'rak_id');
-		$data['bahasa'] = ['' => 'bahasa'] + array_column($bahasa, 'bahasa_document', 'bahasa_id');
-
 		return view('documentmasuk/create', $data);
 	}
 
@@ -83,16 +61,15 @@ class DocumentMasukController extends BaseController
 		}
 		$validation =  \Config\Services::validation();
 		$data = array(
-			'karyawan_id'        	=> $this->request->getPost('karyawan_id'),
-			'vendor_id'        		=> $this->request->getPost('vendor_id'),
-			'drawingtype_id'        => $this->request->getPost('drawingtype_id'),
-			'drawingkode_id'        => $this->request->getPost('drawingkode_id'),
-			'rak_id'        		=> $this->request->getPost('rak_id'),
-			'bahasa_id'        		=> $this->request->getPost('bahasa_id'),
-			'kode_dokumen'    		=> $this->request->getPost('kode_dokumen'),
-			'judul_dokumen'         => $this->request->getPost('judul_dokumen'),
-			'status'        		=> $this->request->getPost('status'),
+			'kode_dokumen'        	=> $this->request->getPost('kode_dokumen'),
+			'document_type'        	=> $this->request->getPost('document_type'),
+			'document_number'       => $this->request->getPost('document_number'),
+			'judul_dokumen'        	=> $this->request->getPost('judul_dokumen'),
+			'vendor'        		=> $this->request->getPost('vendor'),
+			'bahasa'        		=> $this->request->getPost('bahasa'),
+			'status_document'    	=> $this->request->getPost('status_document'),
 			'tanggal_masuk'         => $this->request->getPost('tanggal_masuk'),
+			'karyawan_id'        	=> $this->request->getPost('karyawan_id'),
 		);
 
 		if ($validation->run($data, 'documentmasuk') == FALSE) {
@@ -145,16 +122,15 @@ class DocumentMasukController extends BaseController
 		$validation =  \Config\Services::validation();
 
 		$data = array(
-			'karyawan_id'        	=> $this->request->getPost('karyawan_id'),
-			'vendor_id'        		=> $this->request->getPost('vendor_id'),
-			'drawingtype_id'        => $this->request->getPost('drawingtype_id'),
-			'drawingkode_id'        => $this->request->getPost('drawingkode_id'),
-			'rak_id'        		=> $this->request->getPost('rak_id'),
-			'bahasa_id'        		=> $this->request->getPost('bahasa_id'),
-			'kode_dokumen'    		=> $this->request->getPost('kode_dokumen'),
-			'judul_dokumen'         => $this->request->getPost('judul_dokumen'),
-			'status'        		=> $this->request->getPost('status'),
+			'kode_dokumen'        	=> $this->request->getPost('kode_dokumen'),
+			'document_type'        	=> $this->request->getPost('document_type'),
+			'document_number'       => $this->request->getPost('document_number'),
+			'judul_dokumen'        	=> $this->request->getPost('judul_dokumen'),
+			'vendor'        		=> $this->request->getPost('vendor'),
+			'bahasa'        		=> $this->request->getPost('bahasa'),
+			'status_document'    	=> $this->request->getPost('status_document'),
 			'tanggal_masuk'         => $this->request->getPost('tanggal_masuk'),
+			'karyawan_id'        	=> $this->request->getPost('karyawan_id'),
 
 		);
 		if ($validation->run($data, 'documentmasuk') == FALSE) {

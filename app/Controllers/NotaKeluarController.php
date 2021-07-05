@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\KaryawanModel;
-use App\Models\DaftarVendorModel;
 use App\Models\NotaKeluarModel;
 
 class NotaKeluarController extends BaseController
@@ -14,7 +13,6 @@ class NotaKeluarController extends BaseController
 		helper(['form']);
 		$this->karyawan_model = new KaryawanModel();
 		$this->notakeluar_model = new NotaKeluarModel();
-		$this->vendor_model = new DaftarVendorModel();
 	}
 
 	public function index()
@@ -28,9 +26,8 @@ class NotaKeluarController extends BaseController
 		$currentPage = $this->request->getVar('page_notakeluar') ? $this->request->getVar('page_notakeluar') : 1;
 
 		// paginate
-		$paginate = 5;
+		$paginate = 1000000;
 		$data['notakeluar']   = $this->notakeluar_model->join('karyawan', 'karyawan.karyawan_id = notakeluar.karyawan_id')->paginate($paginate, 'notakeluar');
-		$data['notakeluar']   = $this->notakeluar_model->join('vendor', 'vendor.vendor_id = notakeluar.vendor_id')->paginate($paginate, 'notakeluar');
 		$data['pager']        = $this->notakeluar_model->pager;
 		$data['currentPage']  = $currentPage;
 		echo view('notakeluar/index', $data);
@@ -45,10 +42,7 @@ class NotaKeluarController extends BaseController
 			return redirect()->to(base_url('login'));
 		}
 		$user = $this->karyawan_model->findAll();
-		$vendor = $this->vendor_model->where('nama_vendor')->findAll();
 		$data['karyawan'] = ['' => 'karyawan'] + array_column($user, 'nama_karyawan', 'karyawan_id');
-		$data['vendor'] = ['' => 'vendor'] + array_column($vendor, 'nama_vendor', 'vendor_id');
-
 		return view('notakeluar/create', $data);
 	}
 
@@ -61,13 +55,13 @@ class NotaKeluarController extends BaseController
 		}
 		$validation =  \Config\Services::validation();
 		$data = array(
-			'karyawan_id'        	=> $this->request->getPost('karyawan_id'),
-			'vendor_id'        		=> $this->request->getPost('vendor_id'),
-			'kode_nota'    			=> $this->request->getPost('kode_nota'),
+			'kode_nota'        		=> $this->request->getPost('kode_nota'),
+			'vendor'    			=> $this->request->getPost('vendor'),
 			'nama_barang'         	=> $this->request->getPost('nama_barang'),
 			'jumlah_barang'         => $this->request->getPost('jumlah_barang'),
-			'status'        		=> $this->request->getPost('status'),
+			'status_document'       => $this->request->getPost('status_document'),
 			'tanggal_keluar'        => $this->request->getPost('tanggal_keluar'),
+			'karyawan_id'        	=> $this->request->getPost('karyawan_id'),
 
 		);
 
@@ -79,7 +73,7 @@ class NotaKeluarController extends BaseController
 			// insert
 			$simpan = $this->notakeluar_model->insertData($data);
 			if ($simpan) {
-				session()->setFlashdata('success', 'Created Daftar successfully');
+				session()->setFlashdata('success', 'Created  successfully');
 				return redirect()->to(base_url('notakeluar'));
 			}
 		}
@@ -121,13 +115,13 @@ class NotaKeluarController extends BaseController
 		$validation =  \Config\Services::validation();
 
 		$data = array(
-			'karyawan_id'        	=> $this->request->getPost('karyawan_id'),
-			'vendor_id'        		=> $this->request->getPost('vendor_id'),
-			'kode_nota'    			=> $this->request->getPost('kode_nota'),
+			'kode_nota'        		=> $this->request->getPost('kode_nota'),
+			'vendor'    			=> $this->request->getPost('vendor'),
 			'nama_barang'         	=> $this->request->getPost('nama_barang'),
 			'jumlah_barang'         => $this->request->getPost('jumlah_barang'),
-			'status'        		=> $this->request->getPost('status'),
+			'status_document'       => $this->request->getPost('status_document'),
 			'tanggal_keluar'        => $this->request->getPost('tanggal_keluar'),
+			'karyawan_id'        	=> $this->request->getPost('karyawan_id'),
 
 		);
 		if ($validation->run($data, 'notakeluar') == FALSE) {
@@ -151,7 +145,7 @@ class NotaKeluarController extends BaseController
 		}
 		$hapus = $this->notakeluar_model->deleteData($id);
 		if ($hapus) {
-			session()->setFlashdata('warning', 'Delete Daftar notakeluar Berhasil');
+			session()->setFlashdata('warning', 'Delete  notakeluar Berhasil');
 			return redirect()->to(base_url('notakeluar'));
 		}
 	}

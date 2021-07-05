@@ -4,21 +4,22 @@
 <div class="content-wrapper">
   <div class="content-header">
     <div class="container-fluid  text-center">
-      <marquee style="color: red;">
-        <p class="mb-2"><b>Untuk menjaga Keamanan data, Lakukan Pencadangan Data Secara Mandiri</b></p>
-      </marquee>
-
-      <h1 class="h3 mb-2 text-gray-800"> Data Pengurus Masjid Al-Hikmah Kp. payangan</h1>
-      <p class="mb-4">Data Pengurus yang dimasukan adalah data yang sudah valid dan sesuai dengan data internal masjid</p>
+      <p style="color:red;"> <b>PT HIGH SPEED RAILWAYS CONTRACTOR CONSORTIUM<b /><br></p>
+      <h4><b><i>DIVISION ENGGINER</i></b></h4>
+      <img src="<?php echo base_url('hsrcc.png'); ?>" alt="gambar hsrcc"> <br><br>
+      <h3 class="h3 mb-2 text-gray-800"> Data Document Masuk <br>
+      </h3>
+      <p class="mb-4">Data Document Masuk Hanya Bisa Dimasukan Oleh Semua Roles</p>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>">Dashboard</a></li>
-          <li class="breadcrumb-item"><a href="<?php echo base_url('/daftarpengurus') ?>">Data Pengurus</a></li>
-          <li class="breadcrumb-item" aria-current="page">Tambah Pengurus</li>
+          <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>"> <i class="nav-icon fas  fa-campground"></i> Dashboard</a></li>
+          <li class="breadcrumb-item"><a href="<?php echo base_url('/documentmasuk') ?>"> <i class="nav-icon fas  fa-file"></i> Data Document Masuk</a></li>
+          <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas  fa-file"></i> Add Document Masuk</li>
         </ol>
       </nav>
     </div>
   </div>
+
   <div class="content">
     <div class="container-fluid">
       <div class="row">

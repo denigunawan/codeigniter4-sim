@@ -76,6 +76,38 @@
                         </a>
                     </li>
                 <?php  } ?>
+                <li class="nav-item">
+                    <a href="<?php echo base_url('notamasuk'); ?>" class="nav-link">
+                        <i class="nav-icon fas fa-clipboard-list"></i>
+                        <p>
+                            Laporan Document Masuk
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?php echo base_url('notamasuk'); ?>" class="nav-link">
+                        <i class="nav-icon fas fa-clipboard-list"></i>
+                        <p>
+                            Laporan Document Keluar
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?php echo base_url('notamasuk'); ?>" class="nav-link">
+                        <i class="nav-icon fas fa-clipboard-list"></i>
+                        <p>
+                            Laporan Nota Masuk
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?php echo base_url('notamasuk'); ?>" class="nav-link">
+                        <i class="nav-icon fas fa-clipboard-list"></i>
+                        <p>
+                            Laporan Nota Keluar
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>

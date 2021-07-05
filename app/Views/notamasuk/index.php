@@ -4,14 +4,16 @@
 <div class="content-wrapper">
     <div class="content-header">
         <div class="container-fluid  text-center">
-            <h3 class="h3 mb-2 text-gray-800"> Data Rak Document <em></em>
-                <p style="color:red;"> PT HSRCC </p> Division Engginer
+            <p style="color:red;"> <b>PT HIGH SPEED RAILWAYS CONTRACTOR CONSORTIUM<b /><br></p>
+            <h4><b><i>DIVISION ENGGINER</i></b></h4>
+            <img src="<?php echo base_url('hsrcc.png'); ?>" alt="gambar hsrcc"> <br><br>
+            <h3 class="h3 mb-2 text-gray-800"> Data Nota Masuk Barang <br>
             </h3>
-            <p class="mb-4">Data Rak adalah data kode dan data lokasi penempatan Rak document berada</p>
+            <p class="mb-4">Data Nota Masuk Bisa Dimasukan Oleh Semua Roles</p>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>"> <i class="nav-icon fas  fa-campground"></i> Dashboard</a></li>
-                    <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas fa-file-contract"></i> Data Rak</li>
+                    <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas fa-user-edit"></i> Data Nota Masuk</li>
                 </ol>
             </nav>
         </div>
@@ -22,7 +24,7 @@
             <div class="col-12">
                 <div class="card shadow-lg">
                     <div class="card-header shadow-sm">
-                        <a href="<?php echo base_url('notamasuk/create'); ?>" class="btn btn-outline-success float-right"><i class="nav-icon fas fa-folder-plus"></i> | Tambah Pendataan Pengurus</a>
+                        <a href="<?php echo base_url('notamasuk/create'); ?>" class="btn btn-outline-danger float-right"><i class="nav-icon fas fa-folder-plus"></i> | Tambah Data Nota Masuk</a>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -46,7 +48,7 @@
                         <?php } ?>
                         <div class="table-responsive">
 
-                            <table id="example2" class="table table-bordered table-striped">
+                            <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>No</th>

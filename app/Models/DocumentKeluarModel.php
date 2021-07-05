@@ -13,19 +13,11 @@ class DocumentKeluarModel extends Model
 		if ($id === false) {
 			return $this->table('documentkeluar')
 				->join('karyawan', 'karyawan.karyawan_id = documentkeluar.karyawan_id')
-				->join('vendor', 'vendor.vendor_id = documentkeluar.vendor_id')
-				->join('drawingtype', 'drawingtype.drawingtype_id = documentkeluar.drawingtype_id')
-				->join('drawingkode', 'drawingkode.drawingkode_id = documentkeluar.drawingkode_id')
-				->join('bahasa', 'bahasa.bahasa_id = documentkeluar.bahasa_id')
 				->get()
 				->getResultArray();
 		} else {
 			return $this->table('documentkeluar')
 				->join('karyawan', 'karyawan.karyawan_id = documentkeluar.karyawan_id')
-				->join('vendor', 'vendor.vendor_id = documentkeluar.vendor_id')
-				->join('drawingtype', 'drawingtype.drawingtype_id = documentkeluar.drawingtype_id')
-				->join('drawingkode', 'drawingkode.drawingkode_id = documentkeluar.drawingkode_id')
-				->join('bahasa', 'bahasa.bahasa_id = documentkeluar.bahasa_id')->where('documentkeluar.document_keluar_id', $id)
 				->get()
 				->getRowArray();
 		}

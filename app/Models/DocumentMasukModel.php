@@ -14,21 +14,11 @@ class DocumentMasukModel extends Model
 		if ($id === false) {
 			return $this->table('documentmasuk')
 				->join('karyawan', 'karyawan.karyawan_id = documentmasuk.karyawan_id')
-				->join('vendor', 'vendor.vendor_id = documentmasuk.vendor_id')
-				->join('drawingtype', 'drawingtype.drawingtype_id = documentmasuk.drawingtype_id')
-				->join('drawingkode', 'drawingkode.drawingkode_id = documentmasuk.drawingkode_id')
-				->join('rak', 'rak.rak_id = documentmasuk.rak_id')
-				->join('bahasa', 'bahasa.bahasa_id = documentmasuk.bahasa_id')
 				->get()
 				->getResultArray();
 		} else {
 			return $this->table('documentmasuk')
 				->join('karyawan', 'karyawan.karyawan_id = documentmasuk.karyawan_id')
-				->join('vendor', 'vendor.vendor_id = documentmasuk.vendor_id')
-				->join('drawingtype', 'drawingtype.drawingtype_id = documentmasuk.drawingtype_id')
-				->join('drawingkode', 'drawingkode.drawingkode_id = documentmasuk.drawingkode_id')
-				->join('rak', 'rak.rak_id = documentmasuk.rak_id')
-				->join('bahasa', 'bahasa.bahasa_id = documentmasuk.bahasa_id')
 				->where('documentmasuk.documentmasuk_id', $id)
 				->get()
 				->getRowArray();
