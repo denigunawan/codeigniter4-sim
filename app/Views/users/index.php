@@ -24,7 +24,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <a href="<?php echo base_url('users/create'); ?>" class="btn btn-outline-danger float-right">Tambah Data users</a>
+                        <a href="<?php echo base_url('users/create'); ?>" class="btn btn-outline-danger float-right"><i class="nav-icon fas fa-plus-square"></i> Data users</a>
                         <div class="btn-group float-right">
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                         <?php } ?>
                         <div class="table-responsive">
 
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="example2" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>No</th>

@@ -32,6 +32,23 @@ class UsersController extends BaseController
 		echo view('users/index', $data);
 	}
 
+	public function laporan()
+	{
+		// proteksi halaman
+		if (session()->get('username') == '') {
+			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
+			return redirect()->to(base_url('login'));
+		}
+		// membuat halaman otomatis berubah ketika berpindah halaman 
+		$currentPage = $this->request->getVar('page_users') ? $this->request->getVar('page_users') : 1;
+		// paginate
+		$paginate = 100000;
+		$data['users']   = $this->users_model->paginate($paginate, 'users');
+		$data['pager']        = $this->users_model->pager;
+		$data['currentPage']  = $currentPage;
+		echo view('users/laporan', $data);
+	}
+
 
 	public function create()
 	{
@@ -64,7 +81,7 @@ class UsersController extends BaseController
 
 			$simpan = $this->users_model->insertData($data);
 			if ($simpan) {
-				session()->setFlashdata('success', 'Membuat Users Berhasil');
+				session()->setFlashdata('success', 'Tambah Data Users Berhasil');
 				return redirect()->to(base_url('users'));
 			}
 		}
@@ -110,7 +127,7 @@ class UsersController extends BaseController
 
 			$ubah = $this->users_model->updateData($data, $id);
 			if ($ubah) {
-				session()->setFlashdata('info', 'Updated  users Berhasil');
+				session()->setFlashdata('info', 'Update Data Users Berhasil');
 				return redirect()->to(base_url('users'));
 			}
 		}
@@ -125,7 +142,7 @@ class UsersController extends BaseController
 		}
 		$hapus = $this->users_model->deleteData($id);
 		if ($hapus) {
-			session()->setFlashdata('warning', 'Hapus  users Berhasil');
+			session()->setFlashdata('warning', 'Delete Data Users Berhasil');
 			return redirect()->to(base_url('users'));
 		}
 	}

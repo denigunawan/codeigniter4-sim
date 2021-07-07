@@ -34,7 +34,23 @@ class NotaMasukController extends BaseController
 		$data['currentPage']  = $currentPage;
 		echo view('notamasuk/index', $data);
 	}
+	public function laporan()
+	{
+		// proteksi halaman
+		if (session()->get('username') == '') {
+			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
+			return redirect()->to(base_url('login'));
+		}
+		// membuat halaman otomatis berubah ketika berpindah halaman 
+		$currentPage = $this->request->getVar('page_notamasuk') ? $this->request->getVar('page_notamasuk') : 1;
 
+		// paginate
+		$paginate = 100;
+		$data['notamasuk']   = $this->notamasuk_model->join('karyawan', 'karyawan.karyawan_id = notamasuk.karyawan_id')->paginate($paginate, 'notamasuk');
+		$data['pager']        = $this->notamasuk_model->pager;
+		$data['currentPage']  = $currentPage;
+		echo view('notamasuk/laporan', $data);
+	}
 
 	public function create()
 	{
@@ -62,7 +78,8 @@ class NotaMasukController extends BaseController
 			'kode_nota'    			=> $this->request->getPost('kode_nota'),
 			'nama_barang'         	=> $this->request->getPost('nama_barang'),
 			'jumlah_barang'         => $this->request->getPost('jumlah_barang'),
-			'status'        		=> $this->request->getPost('status'),
+			'vendor'				=> $this->request->getPost('vendor'),
+			'status_document'       => $this->request->getPost('status_document'),
 			'tanggal_masuk'         => $this->request->getPost('tanggal_masuk'),
 
 		);
@@ -75,7 +92,7 @@ class NotaMasukController extends BaseController
 			// insert
 			$simpan = $this->notamasuk_model->insertData($data);
 			if ($simpan) {
-				session()->setFlashdata('success', 'Created Daftar successfully');
+				session()->setFlashdata('success', 'Tambah Data Nota Masuk Berhasil');
 				return redirect()->to(base_url('notamasuk'));
 			}
 		}
@@ -88,7 +105,6 @@ class NotaMasukController extends BaseController
 			return redirect()->to(base_url('login'));
 		}
 		$karyawan = $this->karyawan_model->findAll();
-		$vendor   = $this->vendor_model->findAll();
 		$data['notamasuk'] = $this->notamasuk_model->getData($id);
 		$data['karyawan'] = ['' => 'Pilih karyawan'] + array_column($karyawan, 'nama_karyawan', 'karyawan_id');
 		echo view('notamasuk/edit', $data);
@@ -110,7 +126,8 @@ class NotaMasukController extends BaseController
 			'kode_nota'    			=> $this->request->getPost('kode_nota'),
 			'nama_barang'         	=> $this->request->getPost('nama_barang'),
 			'jumlah_barang'         => $this->request->getPost('jumlah_barang'),
-			'status'        		=> $this->request->getPost('status'),
+			'vendor'				=> $this->request->getPost('vendor'),
+			'status_document'       => $this->request->getPost('status_document'),
 			'tanggal_masuk'         => $this->request->getPost('tanggal_masuk'),
 		);
 		if ($validation->run($data, 'notamasuk') == FALSE) {
@@ -120,7 +137,7 @@ class NotaMasukController extends BaseController
 		} else {
 			$ubah = $this->notamasuk_model->updateData($data, $id);
 			if ($ubah) {
-				session()->setFlashdata('info', 'Updated Data notamasuk Berhasil');
+				session()->setFlashdata('info', 'Update Data Nota Masuk Berhasil');
 				return redirect()->to(base_url('notamasuk'));
 			}
 		}
@@ -134,7 +151,7 @@ class NotaMasukController extends BaseController
 		}
 		$hapus = $this->notamasuk_model->deleteData($id);
 		if ($hapus) {
-			session()->setFlashdata('warning', 'Delete Daftar notamasuk Berhasil');
+			session()->setFlashdata('warning', 'Delete Data Nota Masuk Berhasil');
 			return redirect()->to(base_url('notamasuk'));
 		}
 	}

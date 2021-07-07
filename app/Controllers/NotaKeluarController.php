@@ -33,6 +33,24 @@ class NotaKeluarController extends BaseController
 		echo view('notakeluar/index', $data);
 	}
 
+	public function laporan()
+	{
+		// proteksi halaman
+		if (session()->get('username') == '') {
+			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
+			return redirect()->to(base_url('login'));
+		}
+		// membuat halaman otomatis berubah ketika berpindah halaman 
+		$currentPage = $this->request->getVar('page_notakeluar') ? $this->request->getVar('page_notakeluar') : 1;
+
+		// paginate
+		$paginate = 1000000;
+		$data['notakeluar']   = $this->notakeluar_model->join('karyawan', 'karyawan.karyawan_id = notakeluar.karyawan_id')->paginate($paginate, 'notakeluar');
+		$data['pager']        = $this->notakeluar_model->pager;
+		$data['currentPage']  = $currentPage;
+		echo view('notakeluar/laporan', $data);
+	}
+
 
 	public function create()
 	{
@@ -41,8 +59,8 @@ class NotaKeluarController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
-		$user = $this->karyawan_model->findAll();
-		$data['karyawan'] = ['' => 'karyawan'] + array_column($user, 'nama_karyawan', 'karyawan_id');
+		$karyawan = $this->karyawan_model->findAll();
+		$data['karyawan'] = ['' => 'karyawan'] + array_column($karyawan, 'nama_karyawan', 'karyawan_id');
 		return view('notakeluar/create', $data);
 	}
 
@@ -73,24 +91,12 @@ class NotaKeluarController extends BaseController
 			// insert
 			$simpan = $this->notakeluar_model->insertData($data);
 			if ($simpan) {
-				session()->setFlashdata('success', 'Created  successfully');
+				session()->setFlashdata('success', 'Tambah Data Nota Keluar Berhasil');
 				return redirect()->to(base_url('notakeluar'));
 			}
 		}
 	}
 
-
-
-	public function show($id)
-	{
-		// proteksi halaman
-		if (session()->get('username') == '') {
-			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
-			return redirect()->to(base_url('login'));
-		}
-		$data['notakeluar'] = $this->notakeluar_model->getData($id);
-		echo view('notakeluar/show', $data);
-	}
 
 	public function edit($id)
 	{
@@ -99,6 +105,8 @@ class NotaKeluarController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
+		$karyawan = $this->karyawan_model->findAll();
+		$data['karyawan'] = ['' => 'Pilih karyawan'] + array_column($karyawan, 'nama_karyawan', 'karyawan_id');
 		$data['notakeluar'] = $this->notakeluar_model->getData($id);
 		echo view('notakeluar/edit', $data);
 	}
@@ -131,7 +139,7 @@ class NotaKeluarController extends BaseController
 		} else {
 			$ubah = $this->notakeluar_model->updateData($data, $id);
 			if ($ubah) {
-				session()->setFlashdata('info', 'Updated Data notakeluar Berhasil');
+				session()->setFlashdata('info', 'Update Data Nota Keluar Berhasil');
 				return redirect()->to(base_url('notakeluar'));
 			}
 		}
@@ -145,7 +153,7 @@ class NotaKeluarController extends BaseController
 		}
 		$hapus = $this->notakeluar_model->deleteData($id);
 		if ($hapus) {
-			session()->setFlashdata('warning', 'Delete  notakeluar Berhasil');
+			session()->setFlashdata('warning', 'Delete Data Nota Keluar Berhasil');
 			return redirect()->to(base_url('notakeluar'));
 		}
 	}

@@ -52,7 +52,7 @@ class DaftarDocumentMasukSchema extends Migration
 			'tanggal_masuk'			=> [
 				'type'				=> 'DATE',
 			],
-			'karyawan_id'			    => [
+			'karyawan_id'			=> [
 				'type'				=> 'INT',
 				'constraint'		=> 36,
 				'unsigned'			=> TRUE,

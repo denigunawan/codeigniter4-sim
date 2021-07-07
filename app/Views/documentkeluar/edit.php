@@ -4,19 +4,17 @@
 <div class="content-wrapper">
   <div class="content-header">
     <div class="container-fluid  text-center">
-      <marquee style="color: red;">
-        <p class="mb-2"><b>Untuk menjaga Keamanan data, Lakukan Pencadangan Data Secara Mandiri</b></p>
-      </marquee>
-
-      <h1 class="h3 mb-2 text-gray-800"> Data Pengurus Masjid Al-Hikmah Kp. payangan</h1>
-      <p class="mb-4">Data Pengurus yang dimasukan adalah data yang sudah valid dan sesuai dengan data internal masjid</p>
-
-      Alamat : <p><b>Jl. Wibawa Mukti II Jl. Diman, RT.004/RW.006, Jatisari, Kec. Jatiasih, Kota Bks, Jawa Barat 17426</b></p>
+      <p style="color:red;"> <b>PT HIGH SPEED RAILWAYS CONTRACTOR CONSORTIUM<b /><br></p>
+      <h4><b><i>DIVISION ENGGINER</i></b></h4>
+      <img src="<?php echo base_url('hsrcc.png'); ?>" alt="gambar hsrcc"> <br><br>
+      <h3 class="h3 mb-2 text-gray-800"> Data Document Keluar <br>
+      </h3>
+      <div class="mb-4"> Pastikan sebelum menginputkan data kedalam form, data tersebut sudah di approved oleh Manager</div>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>">Dashboard</a></li>
-          <li class="breadcrumb-item"><a href="<?php echo base_url('/daftarpengurus') ?>">Data Pengurus</a></li>
-          <li class="breadcrumb-item" aria-current="page">Edit Data</li>
+          <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>"> <i class="nav-icon fas  fa-campground"></i> Dashboard</a></li>
+          <li class="breadcrumb-item"><a href="<?php echo base_url('/documentkeluar') ?>"> <i class="nav-icon fas  fa-receipt"></i> Data Document Keluar</a></li>
+          <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas  fa-edit"></i> Data Document Keluar</li>
         </ol>
       </nav>
     </div>
@@ -26,83 +24,99 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <form action="<?php echo base_url('daftarpengurus/update'); ?>" method="post">
-            <div class="card">
-              <div class="card-body">
-                <?php
-                $errors = session()->getFlashdata('errors');
-                if (!empty($errors)) { ?>
-                  <div class="alert alert-danger" role="alert">
-                    Whoops! Ada kesalahan saat input data, yaitu:
-                    <ul>
-                      <?php foreach ($errors as $error) : ?>
-                        <li><?= esc($error) ?></li>
-                      <?php endforeach ?>
-                    </ul>
+          <?php
+          $inputs = session()->getFlashdata('inputs');
+          $errors = session()->getFlashdata('errors');
+          if (!empty($errors)) { ?>
+            <div class="alert alert-danger" role="alert">
+              Whoops! Ada kesalahan saat input data, yaitu:
+              <ul>
+                <?php foreach ($errors as $error) : ?>
+                  <li><?= esc($error) ?></li>
+                <?php endforeach ?>
+              </ul>
+            </div>
+          <?php } ?>
+          <div class="card">
+            <?php echo form_open_multipart('documentkeluar/update/' . $documentkeluar['document_keluar_id']); ?>
+            <div class="card-body">
+              <?php echo form_hidden('document_keluar_id', $documentkeluar['document_keluar_id']); ?>
+              <div class="row">
+                <div class="col-md-6">
+
+                  <div class="form-group">
+                    <?php echo form_label('Kode Dokumen', 'kode_dokumen'); ?>
+                    <?php echo form_input('kode_dokumen', $documentkeluar['kode_dokumen'], ['class' => 'form-control', 'placeholder' => 'documentkeluar Document']); ?>
                   </div>
-                <?php } ?>
-
-                <input type="hidden" name="idpengurus" value="<?php echo $daftarpengurus['idpengurus']; ?>">
-                <div class="form-group">
-                  <label for="">Nama</label>
-                  <input type="text" class="form-control" name="namapengurus" placeholder="Masukan Nama daftarpengurus" value="<?php echo $daftarpengurus['namapengurus']; ?>">
+                  <div class="form-group">
+                    <?php
+                    echo form_label('Dokumen Type', 'document_type');
+                    echo form_dropdown('document_type', ['' => 'Pilih Document Type', 'BRIDGE' => 'BRIDGE', 'ALIGNMENT' => 'ALIGNMENT', 'CULVERT' => 'CULVERT', 'TUNNEL NO.3' => 'TUNNEL NO.3', 'SUBGRADE' => 'SUBGRADE'], $inputs['document_type'], ['class' => 'form-control']);
+                    ?>
+                  </div>
+                  <div class="form-group">
+                    <?php echo form_label('Dokumen Number', 'document_number'); ?>
+                    <?php echo form_input('document_number', $documentkeluar['document_number'], ['class' => 'form-control', 'placeholder' => 'Masukan Document Number']); ?>
+                  </div>
+                  <div class="form-group">
+                    <?php echo form_label('Judul Dokumen', 'judul_dokumen'); ?>
+                    <?php echo form_input('judul_dokumen', $documentkeluar['judul_dokumen'], ['class' => 'form-control', 'placeholder' => 'Masukan Judul Dokumen']); ?>
+                  </div>
+                  <div class="form-group">
+                    <?php echo form_label('Nomer Box', 'nomer_box'); ?>
+                    <?php echo form_input('nomer_box', $documentkeluar['nomer_box'], ['class' => 'form-control', 'placeholder' => 'Masukan Judul Dokumen']); ?>
+                  </div>
+                  <div class="form-group">
+                    <?php echo form_label('Isi Box', 'isi_box'); ?>
+                    <?php echo form_input('isi_box', $documentkeluar['isi_box'], ['class' => 'form-control', 'placeholder' => 'Masukan Judul Dokumen']); ?>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="">Jenis Kelamin</label>
-                  <select name="jk" id="" class="form-control">
-                    <option value="">Pilih Kategori</option>
-                    <option <?php echo $daftarpengurus['jk'] == "Akhwan" ? "selected" : ""; ?> value="Akhwan">Akhwan</option>
-                    <option <?php echo $daftarpengurus['jk'] == "Akhwat" ? "selected" : ""; ?> value="Akhwat">Akhwat</option>
-                  </select>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <?php echo form_label('Tanggal Terdata', 'tanggal_keluar'); ?>
+                    <?php echo form_input('tanggal_keluar', $documentkeluar['tanggal_keluar'], ['class' => 'form-control', 'placeholder' => 'Tanggal Terdata', 'type' => 'DATE']); ?>
+                  </div>
+                  <div class="form-group">
+                    <?php
+                    echo form_label('Status Dokumen', 'status_document');
+                    echo form_dropdown('status_document', ['' => 'Pilih', 'Masuk' => 'Masuk', 'Keluar' => 'Keluar'], $inputs['status_document'], ['class' => 'form-control']);
+                    ?>
+                  </div>
+                  <div class="form-group">
+                    <?php
+                    echo form_label('Vendor Sender', 'vendor');
+                    echo form_dropdown('vendor', ['' => 'Pilih', 'KJB' => 'KJB', 'HSRCC' => 'HSRCC'], $inputs['vendor'], ['class' => 'form-control']);
+                    ?>
+                  </div>
+                  <div class="form-group">
+                    <?php
+                    echo form_label('Bahasa Documents ', 'bahasa');
+                    echo form_dropdown('bahasa', ['' => 'Pilih Bahasa', 'ENGLISH & CHINESE' => 'ENGLISH & CHINESE', 'ENGLISH' => 'ENGLISH', 'CHINESE' => 'CHINESE'], $inputs['bahasa'], ['class' => 'form-control']);
+                    ?>
+                  </div>
+                  <div class="form-group">
+                    <?php echo form_label('Approved ', 'approved'); ?>
+                    <?php echo form_input('approved', $documentkeluar['approved'], ['class' => 'form-control', 'placeholder' => 'Masukan Judul Dokumen']); ?>
+                  </div>
+                  <div class="form-group">
+                    <?php echo form_label('Jabatan', 'jabatan'); ?>
+                    <?php echo form_dropdown('jabatan', ['' => 'Pilih Jabatan', 'MANAGER' => 'MANAGER', 'STAFF' => 'STAFF', 'TRANSLATOR' => 'TRANSLATOR'], $inputs['jabatan'], ['class' => 'form-control']); ?>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="">Pekerjaan</label>
-                  <input type="text" class="form-control" name="pekerjaan" placeholder="Masukan Pekerjaan" value="<?php echo $daftarpengurus['pekerjaan']; ?>">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <?php echo form_label('Staff Verified', 'karyawan'); ?>
+                    <?php echo form_dropdown('karyawan_id', $karyawan, $documentkeluar['karyawan_id'], ['class' => 'form-control']); ?>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="">Alamat daftarpengurus</label>
-                  <input type="text" class="form-control" name="alamat" placeholder="Masukan Alamat" value="<?php echo $daftarpengurus['alamat']; ?>">
-                </div>
-                <div class="form-group">
-                  <label for="">Telephone</label>
-                  <input type="number" class="form-control" name="telephone" placeholder="Masukan No Telephone" value="<?php echo $daftarpengurus['telephone']; ?>">
-                </div>
-                <div class="form-group">
-                  <label for="">Jabatan</label>
-                  <select name="jabatan" id="" class="form-control">
-                    <option value="">Pilih Kategori</option>
-                    <option <?php echo $daftarpengurus['jabatan'] == "PENASEHAT"          ? "selected" : ""; ?> value="PENASEHAT"> PENASEHAT </option>
-                    <option <?php echo $daftarpengurus['jabatan'] == "KETUA"              ? "selected" : ""; ?> value="KETUA"> KETUA </option>
-                    <option <?php echo $daftarpengurus['jabatan'] == "WAKIL KETUA"        ? "selected" : ""; ?> value="WAKIL KETUA"> WAKIL KETUA </option>
-                    <option <?php echo $daftarpengurus['jabatan'] == "SEKERTARIS"         ? "selected" : ""; ?> value="SEKERTARIS"> SEKERTARIS </option>
-                    <option <?php echo $daftarpengurus['jabatan'] == "SEKSI PERLENGKAPAN" ? "selected" : ""; ?> value="SEKSI PERLENGKAPAN"> SEKSI PERLENGKAPAN </option>
-                    <option <?php echo $daftarpengurus['jabatan'] == "SEKSI HUMAS"        ? "selected" : ""; ?> value="SEKSI HUMAS"> SEKSI HUMAS </option>
-                    <option <?php echo $daftarpengurus['jabatan'] == "SEKSI BENDAHARA"    ? "selected" : ""; ?> value="SEKSI BENDAHARA"> SEKSI BENDAHARA </option>
-                    <option <?php echo $daftarpengurus['jabatan'] == "SEKSI JUMAT"        ? "selected" : ""; ?> value="SEKSI JUMAT"> SEKSI JUMAT </option>
-                    <option <?php echo $daftarpengurus['jabatan'] == "SEKSI PBHI"         ? "selected" : ""; ?> value="SEKSI PBHI"> SEKSI PBHI </option>
-                    <option <?php echo $daftarpengurus['jabatan'] == "SEKSI TEKNISI"      ? "selected" : ""; ?> value="SEKSI TEKNISI"> SEKSI TEKNISI </option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="">Status daftarpengurus</label>
-                  <select name="status" id="" class="form-control">
-                    <option value="">Pilih Kategori</option>
-                    <option <?php echo $daftarpengurus['status'] == "AKTIF" ? "selected" : ""; ?> value="AKTIF">AKTIF</option>
-                    <option <?php echo $daftarpengurus['status'] == "OFF" ? "selected" : ""; ?> value="OFF">OFF</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="">Tanggal Join</label>
-                  <input type="date" class="form-control" name="tanggalmasuk" value="<?php echo $daftarpengurus['tanggalmasuk']; ?>">
-                </div>
-
-              </div>
-              <div class="card-footer">
-                <a href="<?php echo base_url('daftarpengurus'); ?>" class="btn btn-outline-info">Back</a>
-                <button type="submit" class="btn btn-primary float-right">Update</button>
               </div>
             </div>
-          </form>
+          </div>
+          <div class="card-footer">
+            <a href="<?php echo base_url('documentkeluar'); ?>" class="btn btn-outline-info"> <i class="nav-icon fas fa-backward"></i> Back</a>
+            <button type="submit" class="btn btn-primary float-right"> <i class="nav-icon fas fa-save"></i> Update Data</button>
+          </div>
+          <?php echo form_close(); ?>
         </div>
       </div>
     </div>

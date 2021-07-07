@@ -8,12 +8,15 @@ use App\Models\KaryawanModel;
 class karyawanController extends BaseController
 {
     protected $helpers = [];
+    public $db;
 
     public function __construct()
     {
         helper(['form']);
         $this->karyawan_model = new KaryawanModel();
+        $this->db = \Config\Database::connect();
     }
+
 
 
     public function index()
@@ -23,13 +26,31 @@ class karyawanController extends BaseController
             session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
             return redirect()->to(base_url('login'));
         }
-        // membuat halaman otomatis berubah ketika berpindah halaman 
+
         $currentPage = $this->request->getVar('page_karyawan') ? $this->request->getVar('page_karyawan') : 1;
-        // paginate
         $paginate = 1000000;
-        $data['karyawan']   = $this->karyawan_model->paginate($paginate, 'karyawan');
-        $data['pager']        = $this->karyawan_model->pager;
-        $data['currentPage']  = $currentPage;
+        $data = [
+            'karyawan'      =>  $this->karyawan_model->paginate($paginate, 'karyawan'),
+            'pager'         =>  $this->karyawan_model->pager,
+            'currentPage'   => $currentPage,
+        ];
+        echo view('karyawan/index', $data);
+    }
+
+    public function laporan()
+    {
+        // proteksi halaman
+        if (session()->get('username') == '') {
+            session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
+            return redirect()->to(base_url('login'));
+        }
+        $currentPage = $this->request->getVar('page_karyawan') ? $this->request->getVar('page_karyawan') : 1;
+        $paginate = 1000000;
+        $data = [
+            'karyawan'      =>  $this->karyawan_model->paginate($paginate, 'karyawan'),
+            'pager'         =>  $this->karyawan_model->pager,
+            'currentPage'   => $currentPage,
+        ];
         echo view('karyawan/index', $data);
     }
 
@@ -51,10 +72,10 @@ class karyawanController extends BaseController
 
         $data = array(
             'nama_karyawan'             => $this->request->getPost('nama_karyawan'),
-            'divisi'                      => $this->request->getPost('divisi'),
-            'jabatan'                      => $this->request->getPost('jabatan'),
-            'status'                      => $this->request->getPost('status'),
-            'tanggalmasuk'               => $this->request->getPost('tanggalmasuk')
+            'divisi'                    => $this->request->getPost('divisi'),
+            'jabatan'                   => $this->request->getPost('jabatan'),
+            'status'                    => $this->request->getPost('status'),
+            'tanggalmasuk'              => $this->request->getPost('tanggalmasuk')
         );
 
         if ($validation->run($data, 'karyawan') == FALSE) {
@@ -65,7 +86,7 @@ class karyawanController extends BaseController
 
             $simpan = $this->karyawan_model->insertData($data);
             if ($simpan) {
-                session()->setFlashdata('success', 'Created Daftar successfully');
+                session()->setFlashdata('success', 'Tambah Data Karyawan Berhasil');
                 return redirect()->to(base_url('karyawan'));
             }
         }
@@ -95,10 +116,10 @@ class karyawanController extends BaseController
 
         $data = array(
             'nama_karyawan'             => $this->request->getPost('nama_karyawan'),
-            'divisi'                      => $this->request->getPost('divisi'),
-            'jabatan'                      => $this->request->getPost('jabatan'),
-            'status'                      => $this->request->getPost('status'),
-            'tanggalmasuk'               => $this->request->getPost('tanggalmasuk'),
+            'divisi'                    => $this->request->getPost('divisi'),
+            'jabatan'                   => $this->request->getPost('jabatan'),
+            'status'                    => $this->request->getPost('status'),
+            'tanggalmasuk'              => $this->request->getPost('tanggalmasuk'),
 
         );
 
@@ -110,7 +131,7 @@ class karyawanController extends BaseController
 
             $ubah = $this->karyawan_model->updateData($data, $id);
             if ($ubah) {
-                session()->setFlashdata('info', 'Updated Data karyawan Berhasil');
+                session()->setFlashdata('info', 'Update Data Karyawan Berhasil');
                 return redirect()->to(base_url('karyawan'));
             }
         }
@@ -125,7 +146,7 @@ class karyawanController extends BaseController
         }
         $hapus = $this->karyawan_model->deleteData($id);
         if ($hapus) {
-            session()->setFlashdata('warning', 'Delete  karyawan Berhasil');
+            session()->setFlashdata('warning', 'Delete Data Karyawan Berhasil');
             return redirect()->to(base_url('karyawan'));
         }
     }

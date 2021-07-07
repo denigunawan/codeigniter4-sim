@@ -18,6 +18,7 @@ class DocumentKeluarModel extends Model
 		} else {
 			return $this->table('documentkeluar')
 				->join('karyawan', 'karyawan.karyawan_id = documentkeluar.karyawan_id')
+				->where('documentkeluar.document_keluar_id', $id)
 				->get()
 				->getRowArray();
 		}

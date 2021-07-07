@@ -69,8 +69,8 @@
               </div>
             </div>
             <div class="card-footer">
-              <a href="<?php echo base_url('karyawan'); ?>" class="btn btn-outline-info">Back</a>
-              <button type="submit" class="btn btn-primary float-right">Update Data</button>
+              <a href="<?php echo base_url('karyawan'); ?>" class="btn btn-outline-info"><i class="nav-icon fas fa-backward"></i>Back</a>
+              <button type="submit" class="btn btn-primary float-right"><i class="nav-icon fas fa-save"></i>Update Data</button>
             </div>
             <?php echo form_close(); ?>
           </div>

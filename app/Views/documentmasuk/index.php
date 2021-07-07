@@ -13,7 +13,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>"> <i class="nav-icon fas  fa-campground"></i> Dashboard</a></li>
-                    <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas  fa-users"></i> Data Document Masuk</li>
+                    <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas  fa-receipt"></i> Data Document Masuk</li>
                 </ol>
             </nav>
         </div>
@@ -25,7 +25,7 @@
             <div class="col-12">
                 <div class="card shadow-lg">
                     <div class="card-header shadow-sm">
-                        <a href="<?php echo base_url('documentmasuk/create'); ?>" class="btn btn-outline-danger float-right"><i class="nav-icon fas fa-folder-plus"></i> | Tambah Document Masuk</a>
+                        <a href="<?php echo base_url('documentmasuk/create'); ?>" class="btn btn-outline-danger float-right"><i class="nav-icon fas fa-plus-square"></i> Data Document Masuk</a>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -49,7 +49,7 @@
                         <?php } ?>
                         <div class="table-responsive">
 
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="example2" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>No</th>

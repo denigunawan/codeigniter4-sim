@@ -24,7 +24,7 @@
       <div class="col-lg-12">
         <div class="card shadow-lg">
           <div class="card-header">
-            <h5 class="m-0 text-center">Totaly Data Devision Engginer On HSRCC </h5>
+            <h5 class="m-0 text-center">Totaly Data Division Engginer On HSRCC </h5>
           </div>
           <div class="card-body">
             <div class="row">
@@ -80,10 +80,10 @@
                 </div>
                 <!-- /.info-box -->
               </div>
+              <?php if(session()->get('level') == 1) { ?> 
               <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box">
                   <span class="info-box-icon bg-danger shadow-lg elevation-1"><i class="fas fa-archive"></i></span>
-
                   <div class="info-box-content">
                     <span class="info-box-text">Data Karyawan</span>
                     <span class="info-box-number"><?php echo $total_karyawan ?></span>
@@ -105,6 +105,7 @@
                 <!-- /.info-box -->
               </div>
             </div>
+          <?php } ?>
           </div>
         </div>
       </div>

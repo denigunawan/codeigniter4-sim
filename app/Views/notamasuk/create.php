@@ -4,15 +4,17 @@
 <div class="content-wrapper">
   <div class="content-header">
     <div class="container-fluid  text-center">
-      <h3 class="h3 mb-2 text-gray-800"> Data notamasuk Document <em></em>
-        <p style="color:red;"> PT HSRCC </p> Division Engginer
+      <p style="color:red;"> <b>PT HIGH SPEED RAILWAYS CONTRACTOR CONSORTIUM<b /><br></p>
+      <h4><b><i>DIVISION ENGGINER</i></b></h4>
+      <img src="<?php echo base_url('hsrcc.png'); ?>" alt="gambar hsrcc"> <br><br>
+      <h3 class="h3 mb-2 text-gray-800"> Data Nota Masuk Barang <br>
       </h3>
-      <p class="mb-4">Data notamasuk adalah data kode dan data lokasi penempatan notamasuk document berada</p>
+      <p class="mb-4">Data nota masuk adalah data kode dan data lokasi penempatan notamasuk document berada</p>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>"> <i class="nav-icon fas  fa-campground"></i> Dashboard</a></li>
-          <li class="breadcrumb-item"><a href="<?php echo base_url('/notamasuk') ?>"> <i class="nav-icon fas  fa-file-contract"></i> Data notamasuk</a></li>
-          <li class=" breadcrumb-item" aria-current="page"><i class="nav-icon fas fa-file-contract"></i> Add New Data notamasuk</li>
+          <li class="breadcrumb-item"><a href="<?php echo base_url('/notamasuk') ?>"> <i class="nav-icon fas  fa-clipboard-list"></i> Data notamasuk</a></li>
+          <li class=" breadcrumb-item" aria-current="page"><i class="nav-icon fas fa-clipboard-list"></i> Tambah Data nota masuk</li>
         </ol>
       </nav>
     </div>
@@ -48,7 +50,7 @@
                       'id'    => 'kode_nota',
                       'value' => $inputs['kode_nota'],
                       'class' => 'form-control',
-                      'placeholder' => 'Input kode nota'
+                      'placeholder' => 'Masukan kode nota'
                     ];
                     echo form_input($kodenota);
                     ?>
@@ -63,7 +65,7 @@
                       'id'    => 'nama_barang',
                       'value' => $inputs['nama_barang'],
                       'class' => 'form-control',
-                      'placeholder' => 'Input nama barang'
+                      'placeholder' => 'Masukan nama barang'
                     ];
                     echo form_input($namabarang);
                     ?>
@@ -77,11 +79,13 @@
                       'id'    => 'jumlah_barang',
                       'value' => $inputs['jumlah_barang'],
                       'class' => 'form-control',
-                      'placeholder' => 'Input Jumlah barang'
+                      'placeholder' => 'Masukan Jumlah barang'
                     ];
                     echo form_input($nama);
                     ?>
                   </div>
+                </div>
+                <div class="col-md-6">
                   <div class="form-group">
                     <?php
                     echo form_label('Tanggal Masuk');
@@ -98,17 +102,21 @@
                   </div>
                   <div class="form-group">
                     <?php
-                    echo form_label('Status Nota', 'status');
-                    echo form_dropdown('status', ['' => 'Pilih', 'Masuk' => 'Masuk', 'Proses' => 'Proses', 'Keluar' => 'Keluar'], $inputs['status'], ['class' => 'form-control']);
+                    echo form_label('Status Nota', 'status_document');
+                    echo form_dropdown('status_document', ['' => 'Pilih', 'Masuk' => 'Masuk', 'Keluar' => 'Keluar'], $inputs['status_document'], ['class' => 'form-control']);
                     ?>
                   </div>
                   <div class="form-group">
                     <?php
-                    echo form_label('Vendor Pengirim', 'vendor');
-                    echo form_dropdown('vendor_id', $vendor, $inputs['vendor_id'], ['class' => 'form-control']);
+                    echo form_label('vendor Sender', 'vendor');
+                    echo form_dropdown('vendor', ['' => 'Pilih Vendor', 'KJB' => 'KJB', 'HSRCC' => 'HSRCC'], $inputs['vendor'], ['class' => 'form-control']);
                     ?>
                   </div>
-                  <div class="form-group">
+
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group ">
                     <?php
                     echo form_label('Penanggung Jawab Data', 'staff');
                     echo form_dropdown('karyawan_id', $karyawan, $inputs['karyawan_id'], ['class' => 'form-control']);
@@ -119,8 +127,8 @@
             </div>
           </div>
           <div class="card-footer">
-            <a href="<?php echo base_url('notamasuk'); ?>" class="btn btn-outline-info">Back</a>
-            <button type="submit" class="btn btn-primary float-right">Simpan</button>
+            <a href="<?php echo base_url('notamasuk'); ?>" class="btn btn-outline-info float-left"> <i class="nav-icon fas fa-backward"></i> Back</a>
+            <button type="submit" class="btn btn-primary float-right"><i class="nav-icon fas fa-save"></i> Simpan</button>
           </div>
         </div>
         <?php echo form_close(); ?>

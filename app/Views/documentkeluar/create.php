@@ -4,19 +4,23 @@
 <div class="content-wrapper">
   <div class="content-header">
     <div class="container-fluid  text-center">
-      <h3 class="h3 mb-2 text-gray-800"> Data documentkeluar Document <em></em>
-        <p style="color:red;"> PT HSRCC </p> Division Engginer
+      <p style="color:red;"> <b>PT HIGH SPEED RAILWAYS CONTRACTOR CONSORTIUM<b /><br></p>
+      <h4><b><i>DIVISION ENGGINER</i></b></h4>
+      <img src="<?php echo base_url('hsrcc.png'); ?>" alt="gambar hsrcc"> <br><br>
+      <h3 class="h3 mb-2 text-gray-800"> Data Document Keluar <br>
       </h3>
-      <p class="mb-4">Data documentkeluar adalah data kode dan data lokasi penempatan documentkeluar document berada</p>
+      <div class="mb-4"> Pastikan sebelum menginputkan data kedalam form, data tersebut sudah di approved oleh Manager</div>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>"> <i class="nav-icon fas  fa-campground"></i> Dashboard</a></li>
-          <li class="breadcrumb-item"><a href="<?php echo base_url('/documentkeluar') ?>"> <i class="nav-icon fas  fa-draw-polygon"></i> Data Drawing Kode</a></li>
-          <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas fa-draw-polygon"></i> Add New Drawing Kode</li>
+          <li class="breadcrumb-item"><a href="<?php echo base_url('/documentkeluar') ?>"> <i class="nav-icon fas  fa-receipt"></i> Data Document Keluar</a></li>
+          <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas  fa-file"></i> Data Document Keluar</li>
         </ol>
       </nav>
     </div>
   </div>
+
+
   <div class="content">
     <div class="container-fluid">
       <div class="row">
@@ -48,61 +52,79 @@
                       'id'    => 'kode_dokumen',
                       'value' => $inputs['kode_dokumen'],
                       'class' => 'form-control',
-                      'placeholder' => 'Input Kode Dokumen'
+                      'placeholder' => 'Masukan Kode Dokumen'
                     ];
                     echo form_input($nama);
                     ?>
                   </div>
                   <div class="form-group">
                     <?php
-                    echo form_label('Drawing Type', 'drawingtype_id');
-                    echo form_dropdown('drawingtype_id', $drawingtype, $inputs['drawingtype_id'], ['class' => 'form-control']);
+                    echo form_label('Dokumen Type');
+                    $dokumenType = [
+                      'type'  => 'text',
+                      'name'  => 'document_type',
+                      'id'    => 'document_type',
+                      'value' => $inputs['document_type'],
+                      'class' => 'form-control',
+                      'placeholder' => 'Masukan Type Documents'
+                    ];
+                    echo form_input($dokumenType);
                     ?>
                   </div>
                   <div class="form-group">
                     <?php
-                    echo form_label('Drawing Kode', 'staff');
-                    echo form_dropdown('drawingkode_id', $drawingkode, $inputs['drawingkode_id'], ['class' => 'form-control']);
+                    echo form_label('Document Number');
+                    $documentNumber = [
+                      'type'  => 'text',
+                      'name'  => 'document_number',
+                      'id'    => 'document_number',
+                      'value' => $inputs['document_number'],
+                      'class' => 'form-control',
+                      'placeholder' => 'Masukan Document Number'
+                    ];
+                    echo form_input($documentNumber);
                     ?>
                   </div>
                   <div class="form-group">
                     <?php
-                    echo form_label('Nomer Box');
+                    echo form_label('Judul Dokumen');
+                    $judulDokumen = [
+                      'type'  => 'text',
+                      'name'  => 'judul_dokumen',
+                      'id'    => 'judul_dokumen',
+                      'value' => $inputs['judul_dokumen'],
+                      'class' => 'form-control',
+                      'placeholder' => 'Masukan Judul Dokumen'
+                    ];
+                    echo form_input($judulDokumen);
+                    ?>
+                  </div>
+                  <div class="form-group">
+                    <?php
+                    echo form_label('Nomer Box Document');
                     $nama = [
                       'type'  => 'text',
                       'name'  => 'nomer_box',
                       'id'    => 'nomer_box',
                       'value' => $inputs['nomer_box'],
                       'class' => 'form-control',
-                      'placeholder' => 'Input Nomer Box'
+                      'placeholder' => 'Masukan Nomer Box Document'
                     ];
                     echo form_input($nama);
                     ?>
                   </div>
                   <div class="form-group">
                     <?php
-                    echo form_label('Isi Box');
+                    echo form_label(' Jumlah Isi Document');
                     $nama = [
                       'type'  => 'text',
                       'name'  => 'isi_box',
                       'id'    => 'isi_box',
                       'value' => $inputs['isi_box'],
                       'class' => 'form-control',
-                      'placeholder' => 'Input Isi Box'
+                      'placeholder' => 'Masukan Jumlah Isi Dari Box Document'
                     ];
                     echo form_input($nama);
-                    ?>
-                  </div>
-                  <div class="form-group">
-                    <?php
-                    echo form_label('Bahasa Document', 'bahasa');
-                    echo form_dropdown('bahasa_id', $bahasa, $inputs['bahasa_id'], ['class' => 'form-control']);
-                    ?>
-                  </div>
-                  <div class="form-group">
-                    <?php
-                    echo form_label('Vendor Receiver', 'vendor');
-                    echo form_dropdown('vendor_id', $vendor, $inputs['vendor_id'], ['class' => 'form-control']);
                     ?>
                   </div>
                   <div class="form-group">
@@ -113,14 +135,46 @@
                   </div>
                   <div class="form-group">
                     <?php
-                    echo form_label('Tanggal Keluar');
+                    echo form_label('Status Nota', 'status');
+                    echo form_dropdown('status', ['' => 'Pilih', 'Masuk' => 'Masuk', 'Proses' => 'Proses', 'Keluar' => 'Keluar'], $inputs['status'], ['class' => 'form-control']);
+                    ?>
+                  </div>
+                  <div class="form-group">
+                    <?php
+                    echo form_label(' Jumlah Isi Document');
+                    $nama = [
+                      'type'  => 'text',
+                      'name'  => 'isi_box',
+                      'id'    => 'isi_box',
+                      'value' => $inputs['isi_box'],
+                      'class' => 'form-control',
+                      'placeholder' => 'Masukan Jumlah Isi Dari Box Document'
+                    ];
+                    echo form_input($nama);
+                    ?>
+                  </div>
+                  <div class="form-group">
+                    <?php
+                    echo form_label('Status Nota', 'status');
+                    echo form_dropdown('status', ['' => 'Pilih', 'Masuk' => 'Masuk', 'Proses' => 'Proses', 'Keluar' => 'Keluar'], $inputs['status'], ['class' => 'form-control']);
+                    ?>
+                  </div>
+                  <div class="form-group">
+                    <?php
+                    echo form_label('Status Nota', 'status');
+                    echo form_dropdown('status', ['' => 'Pilih', 'Masuk' => 'Masuk', 'Proses' => 'Proses', 'Keluar' => 'Keluar'], $inputs['status'], ['class' => 'form-control']);
+                    ?>
+                  </div>
+                  <div class="form-group">
+                    <?php
+                    echo form_label('Tanggal Keluar Document');
                     $tanggal_keluar = [
                       'type'  => 'date',
                       'name'  => 'tanggal_keluar',
                       'id'    => 'tanggal_keluar',
                       'value' => $inputs['tanggal_keluar'],
                       'class' => 'form-control',
-                      'placeholder' => 'Masukan tanggal keluar'
+                      'placeholder' => 'Masukan tanggal keluar Document'
                     ];
                     echo form_input($tanggal_keluar);
                     ?>
@@ -136,8 +190,8 @@
             </div>
           </div>
           <div class="card-footer">
-            <a href="<?php echo base_url('documentkeluar'); ?>" class="btn btn-outline-info">Back</a>
-            <button type="submit" class="btn btn-primary float-right">Simpan</button>
+            <a href="<?php echo base_url('documentkeluar'); ?>" class="btn btn-outline-info"><i class="nav-icon fas fa-backward"></i>Back</a>
+            <button type="submit" class="btn btn-primary float-right"> <i class="nav-icon fas fa-save"></i> Simpan</button>
           </div>
         </div>
         <?php echo form_close(); ?>

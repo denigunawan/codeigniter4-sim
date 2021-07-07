@@ -37,7 +37,8 @@
   $(function() {
     $("#example1").DataTable({
       "responsive": true,
-      "lengthChange": true,
+      "lengthChange": false,
+      "searching": false,
       "autoWidth": true,
       "buttons": ["excel", "pdf", "print"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
@@ -47,7 +48,7 @@
       "searching": true,
       "ordering": true,
       "info": true,
-      "autoWidth": true,
+      "autoWidth": false,
       "responsive": true,
     });
   });

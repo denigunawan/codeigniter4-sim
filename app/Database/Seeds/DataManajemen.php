@@ -798,7 +798,7 @@ class DataManajemen extends Seeder
 				'bahasa'				=> 'ENGLISH & CHINESE',
 				'approved'				=> 'Didit Mulyana',
 				'jabatan'				=> 'MANAGER',
-				'status_document'				=> 'Keluar',
+				'status_document'		=> 'Keluar',
 				'karyawan_id'			=> 2
 
 			],

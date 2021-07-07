@@ -37,6 +37,7 @@ $routes->get('login', 'LoginController::index');
 
 // ROUTING DATA 
 $routes->get('documentmasuk', 'DocumentMasukController::index');
+$routes->get('documentmasuk/laporan', 'DocumentMasukController::laporan');
 $routes->get('documentmasuk/create', 'DocumentMasukController::create');
 $routes->post('documentmasuk/store', 'DocumentMasukController::store');
 $routes->get('documentmasuk/edit/(:alphanum)', 'DocumentMasukController::edit/$1');
@@ -46,6 +47,7 @@ $routes->get('documentmasuk/delete/(:alphanum)', 'DocumentMasukController::delet
 
 // ROUTING DATA 
 $routes->get('documentkeluar', 'DocumentKeluarController::index');
+$routes->get('documentkeluar/laporan', 'DocumentKeluarController::laporan');
 $routes->get('documentkeluar/create', 'DocumentKeluarController::create');
 $routes->post('documentkeluar/store', 'DocumentKeluarController::store');
 $routes->get('documentkeluar/edit/(:alphanum)', 'DocumentKeluarController::edit/$1');
@@ -55,6 +57,8 @@ $routes->get('documentkeluar/delete/(:alphanum)', 'DocumentKeluarController::del
 
 // ROUTING DATA
 $routes->get('karyawan', 'KaryawanController::index');
+$routes->get('karyawan/laporan', 'KaryawanController::laporan');
+$routes->get('karyawan/htmlToPdf', 'KaryawanController::htmlToPdf');
 $routes->get('karyawan/create', 'KaryawanController::create');
 $routes->post('karyawan/store', 'KaryawanController::store');
 $routes->get('karyawan/edit/(:alphanum)', 'KaryawanController::edit/$1');
@@ -66,6 +70,7 @@ $routes->get('karyawan/delete/(:alphanum)', 'KaryawanController::delete/$1');
 // ROUTING DATA 
 
 $routes->get('notamasuk', 'NotaMasukController::index');
+$routes->get('notamasuk/laporan', 'NotaMasukController::laporan');
 $routes->get('notamasuk/create', 'NotaMasukController::create');
 $routes->post('notamasuk/store', 'NotaMasukController::store');
 $routes->get('notamasuk/edit/(:alphanum)', 'NotaMasukController::edit/$1');
@@ -76,16 +81,18 @@ $routes->get('notamasuk/delete/(:alphanum)', 'NotaMasukController::delete/$1');
 // ROUTING DATA 
 
 $routes->get('notakeluar', 'NotaKeluarController::index');
+$routes->get('notakeluar/laporan', 'NotaKeluarController::laporan');
 $routes->get('notakeluar/create', 'NotaKeluarController::create');
 $routes->post('notakeluar/store', 'NotaKeluarController::store');
 $routes->get('notakeluar/edit/(:alphanum)', 'NotaKeluarController::edit/$1');
-$routes->post('notakeluar/update', 'NotaKeluarController::update/$1');
+$routes->post('notakeluar/update/(:num)', 'NotaKeluarController::update/$1');
 $routes->get('notakeluar/delete/(:alphanum)', 'NotaKeluarController::delete/$1');
 
 
 // ROUTING DATA 
 
 $routes->get('users', 'UsersController::index');
+$routes->get('users/laporan', 'UsersController::laporan');
 $routes->get('users/create', 'UsersController::create');
 $routes->post('users/store', 'UsersController::store');
 $routes->get('users/edit/(:alphanum)', 'UsersController::edit/$1');

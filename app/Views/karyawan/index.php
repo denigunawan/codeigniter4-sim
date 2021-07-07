@@ -24,7 +24,7 @@
             <div class="col-12">
                 <div class="card shadow-lg">
                     <div class="card-header shadow-sm">
-                        <a href="<?php echo base_url('karyawan/create'); ?>" class="btn btn-outline-danger float-right"><i class="nav-icon fas fa-folder-plus"></i> | Tambah Pendataan karyawan</a>
+                        <a href="<?php echo base_url('karyawan/create'); ?>" class="btn btn-outline-danger  shadow-lg float-right"><i class="nav-icon fas fa-plus-square"></i> Data karyawan</a>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -48,7 +48,7 @@
                         <?php } ?>
                         <div class="table-responsive">
 
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="example2" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>No</th>

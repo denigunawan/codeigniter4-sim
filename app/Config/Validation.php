@@ -55,7 +55,7 @@ class Validation
 		'bahasa'   					=> 'required',
 		'approved'   				=> 'required',
 		'jabatan'   				=> 'required',
-		'status_document'   					=> 'required',
+		'status_document'   		=> 'required',
 		'karyawan_id'   			=> 'required',
 
 
@@ -120,7 +120,7 @@ class Validation
 		'judul_dokumen'   			=> 'required',
 		'vendor'   					=> 'required',
 		'bahasa'   					=> 'required',
-		'status_document'   					=> 'required',
+		'status_document'   		=> 'required',
 		'tanggal_masuk'   			=> 'required',
 		'karyawan_id'   			=> 'required',
 
@@ -170,7 +170,7 @@ class Validation
 		'vendor'     		=> 'required',
 		'nama_barang'   	=> 'required',
 		'jumlah_barang'   	=> 'required',
-		'status_document'   			=> 'required',
+		'status_document'   => 'required',
 		'tanggal_masuk'   	=> 'required',
 
 
@@ -213,7 +213,7 @@ class Validation
 		'vendor'     		=> 'required',
 		'nama_barang'   	=> 'required',
 		'jumlah_barang'   	=> 'required',
-		'status_document'   			=> 'required',
+		'status_document'   => 'required',
 		'tanggal_keluar'   	=> 'required',
 
 

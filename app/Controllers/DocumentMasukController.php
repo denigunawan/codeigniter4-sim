@@ -3,12 +3,6 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\DaftarBahasaModel;
-use App\Models\DaftarDrawingKodeModel;
-use App\Models\DaftarDrawingTypeModel;
-use App\Models\DaftarRakModel;
-use App\Models\DaftarUsersModel;
-use App\Models\DaftarVendorModel;
 use App\Models\DocumentMasukModel;
 use App\Models\KaryawanModel;
 
@@ -28,17 +22,35 @@ class DocumentMasukController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
-		// membuat halaman otomatis berubah ketika berpindah halaman 
-		$currentPage = $this->request->getVar('page_documentmasuk') ? $this->request->getVar('page_documentmasuk') : 1;
 
-		// paginate
+		$currentPage = $this->request->getVar('page_documentmasuk') ? $this->request->getVar('page_documentmasuk') : 1;
 		$paginate = 1000000;
-		$data['documentmasuk']   = $this->documentmasuk_model->join('karyawan', 'karyawan.karyawan_id = documentmasuk.karyawan_id')->paginate($paginate, 'documentmasuk');
-		$data['pager']        = $this->documentmasuk_model->pager;
-		$data['currentPage']  = $currentPage;
+		$data = [
+			'documentmasuk'  => $this->documentmasuk_model->join('karyawan', 'karyawan.karyawan_id = documentmasuk.karyawan_id')->paginate($paginate, 'documentmasuk'),
+			'pager'			 => $this->documentmasuk_model->pager,
+			'currentPage'	 => $currentPage
+		];
 		echo view('documentmasuk/index', $data);
 	}
 
+
+	public function laporan()
+	{
+		// proteksi halaman
+		if (session()->get('username') == '') {
+			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
+			return redirect()->to(base_url('login'));
+		}
+
+		$currentPage = $this->request->getVar('page_documentmasuk') ? $this->request->getVar('page_documentmasuk') : 1;
+		$paginate = 1000000;
+		$data = [
+			'documentmasuk'  => $this->documentmasuk_model->join('karyawan', 'karyawan.karyawan_id = documentmasuk.karyawan_id')->paginate($paginate, 'documentmasuk'),
+			'pager'			 => $this->documentmasuk_model->pager,
+			'currentPage'	 => $currentPage
+		];
+		echo view('documentmasuk/laporan', $data);
+	}
 
 	public function create()
 	{
@@ -47,8 +59,8 @@ class DocumentMasukController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
-		$user = $this->karyawan_model->findAll();
-		$data['karyawan'] = ['' => 'karyawan'] + array_column($user, 'nama_karyawan', 'karyawan_id');
+		$karyawan = $this->karyawan_model->findAll();
+		$data['karyawan'] = ['' => 'karyawan'] + array_column($karyawan, 'nama_karyawan', 'karyawan_id');
 		return view('documentmasuk/create', $data);
 	}
 
@@ -80,24 +92,12 @@ class DocumentMasukController extends BaseController
 			// insert
 			$simpan = $this->documentmasuk_model->insertData($data);
 			if ($simpan) {
-				session()->setFlashdata('success', 'Created Daftar successfully');
+				session()->setFlashdata('success', 'Tambah Data Document Masuk Berhasil');
 				return redirect()->to(base_url('documentmasuk'));
 			}
 		}
 	}
 
-
-
-	public function show($id)
-	{
-		// proteksi halaman
-		if (session()->get('username') == '') {
-			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
-			return redirect()->to(base_url('login'));
-		}
-		$data['documentmasuk'] = $this->documentmasuk_model->getData($id);
-		echo view('documentmasuk/show', $data);
-	}
 
 	public function edit($id)
 	{
@@ -106,6 +106,8 @@ class DocumentMasukController extends BaseController
 			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
 			return redirect()->to(base_url('login'));
 		}
+		$karyawan = $this->karyawan_model->findAll();
+		$data['karyawan'] = ['' => 'Pilih karyawan'] + array_column($karyawan, 'nama_karyawan', 'karyawan_id');
 		$data['documentmasuk'] = $this->documentmasuk_model->getData($id);
 		echo view('documentmasuk/edit', $data);
 	}
@@ -140,7 +142,7 @@ class DocumentMasukController extends BaseController
 		} else {
 			$ubah = $this->documentmasuk_model->updateData($data, $id);
 			if ($ubah) {
-				session()->setFlashdata('info', 'Updated Data documentmasuk Berhasil');
+				session()->setFlashdata('info', 'Update Data Document Masuk Berhasil');
 				return redirect()->to(base_url('documentmasuk'));
 			}
 		}
@@ -154,7 +156,7 @@ class DocumentMasukController extends BaseController
 		}
 		$hapus = $this->documentmasuk_model->deleteData($id);
 		if ($hapus) {
-			session()->setFlashdata('warning', 'Delete Daftar documentmasuk Berhasil');
+			session()->setFlashdata('warning', 'Delete Data Document Masuk Berhasil');
 			return redirect()->to(base_url('documentmasuk'));
 		}
 	}

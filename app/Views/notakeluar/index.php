@@ -7,23 +7,24 @@
             <p style="color:red;"> <b>PT HIGH SPEED RAILWAYS CONTRACTOR CONSORTIUM<b /><br></p>
             <h4><b><i>DIVISION ENGGINER</i></b></h4>
             <img src="<?php echo base_url('hsrcc.png'); ?>" alt="gambar hsrcc"> <br><br>
-            <h3 class="h3 mb-2 text-gray-800"> Data Nota Keluar Barang <br>
+            <h3 class="h3 mb-2 text-gray-800"> Data Nota Keluar <br>
             </h3>
             <p class="mb-4">Data Nota Keluar Bisa Dimasukan Oleh Semua Roles</p>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="<?php echo base_url('/') ?>"> <i class="nav-icon fas  fa-campground"></i> Dashboard</a></li>
-                    <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas fa-user-edit"></i> Data Nota Keluar</li>
+                    <li class="breadcrumb-item" aria-current="page"><i class="nav-icon fas fa-clipboard-list"></i> Data Nota Keluar</li>
                 </ol>
             </nav>
         </div>
     </div>
+
     <section class="content">
         <div class="row">
             <div class="col-12">
                 <div class="card shadow-lg">
                     <div class="card-header shadow-sm">
-                        <a href="<?php echo base_url('notakeluar/create'); ?>" class="btn btn-outline-danger float-right"><i class="nav-icon fas fa-folder-plus"></i> | Tambah Nota Keluar</a>
+                        <a href="<?php echo base_url('notakeluar/create'); ?>" class="btn btn-outline-danger float-right"><i class="nav-icon fas fa-plus-square"></i> Data Nota Keluar</a>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -47,7 +48,7 @@
                         <?php } ?>
                         <div class="table-responsive">
 
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="example2" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>No</th>

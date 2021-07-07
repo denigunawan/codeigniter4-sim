@@ -33,6 +33,24 @@ class DocumentKeluarController extends BaseController
 		echo view('documentkeluar/index', $data);
 	}
 
+	public function laporan()
+	{
+		// proteksi halaman
+		if (session()->get('username') == '') {
+			session()->setFlashdata('haruslogin', 'Silahkan Login Terlebih Dahulu');
+			return redirect()->to(base_url('login'));
+		}
+		// membuat halaman otomatis berubah ketika berpindah halaman 
+		$currentPage = $this->request->getVar('page_documentkeluar') ? $this->request->getVar('page_documentkeluar') : 1;
+
+		// paginate
+		$paginate = 100;
+		$data['documentkeluar']   = $this->documentkeluar_model->join('karyawan', 'karyawan.karyawan_id = documentkeluar.karyawan_id')->paginate($paginate, 'documentkeluar');
+		$data['pager']        = $this->documentkeluar_model->pager;
+		$data['currentPage']  = $currentPage;
+		echo view('documentkeluar/laporan', $data);
+	}
+
 
 	public function create()
 	{
@@ -79,7 +97,7 @@ class DocumentKeluarController extends BaseController
 			// insert
 			$simpan = $this->documentkeluar_model->insertData($data);
 			if ($simpan) {
-				session()->setFlashdata('success', 'Created Daftar successfully');
+				session()->setFlashdata('success', 'Tambah Data Document Keluar Berhasil');
 				return redirect()->to(base_url('documentkeluar'));
 			}
 		}
@@ -113,7 +131,7 @@ class DocumentKeluarController extends BaseController
 
 		$data = array(
 			'kode_dokumen'        	=> $this->request->getPost('kode_dokumen'),
-			'document_type'        	=> $this->request->getPost('vendor_id'),
+			'document_type'        	=> $this->request->getPost('document_type'),
 			'document_number'       => $this->request->getPost('document_number'),
 			'judul_dokumen'        	=> $this->request->getPost('judul_dokumen'),
 			'nomer_box'        		=> $this->request->getPost('nomer_box'),
@@ -134,7 +152,7 @@ class DocumentKeluarController extends BaseController
 		} else {
 			$ubah = $this->documentkeluar_model->updateData($data, $id);
 			if ($ubah) {
-				session()->setFlashdata('info', 'Updated Data documentkeluar Berhasil');
+				session()->setFlashdata('info', 'Update Data Document Keluar Berhasil');
 				return redirect()->to(base_url('documentkeluar'));
 			}
 		}
@@ -148,7 +166,7 @@ class DocumentKeluarController extends BaseController
 		}
 		$hapus = $this->documentkeluar_model->deleteData($id);
 		if ($hapus) {
-			session()->setFlashdata('warning', 'Delete Daftar documentkeluar Berhasil');
+			session()->setFlashdata('warning', 'Delete Data Document Keluar Berhasil');
 			return redirect()->to(base_url('documentkeluar'));
 		}
 	}

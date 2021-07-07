@@ -11,8 +11,10 @@
                                             echo 'Manager';
                                         } elseif (session()->get('level') == 2) {
                                             echo 'Translator';
+                                        } elseif (session()->get('level') == 3) {
+                                            echo "Staff Engginer";
                                         } else {
-                                            echo 'Staff Engginer';
+                                            echo 'Developer';
                                         } ?></h6>
             </div>
             <div class="info">
@@ -27,6 +29,8 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
+
+                <?php if(session()->get('level') == 3 || session()->get('level') == 1) { ?> 
                 <li class="nav-item">
                     <a href="<?php echo base_url('documentmasuk'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-receipt"></i>
@@ -59,55 +63,75 @@
                         </p>
                     </a>
                 </li>
-
-                <?php if (session()->get('level') == 1) { ?>
+                <?php } ?>
+                    
+                    <?php if(session()->get('level') == 1)  { ?>
                     <li class="nav-item ">
                         <a href="<?php echo base_url('users'); ?>" class="nav-link">
                             <i class="fas fa-user-lock nav-icon"></i>
                             <p>Users Management</p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="<?php echo base_url('karyawan'); ?>" class="nav-link">
-                            <i class="nav-icon fas fa-users"></i>
-                            <p>
-                                Data Karyawan
-                            </p>
-                        </a>
-                    </li>
+
+                 <li class="nav-item">
+                    <a href="<?php echo base_url('karyawan'); ?>" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Data Karyawan
+                        </p>
+                    </a>
+                </li>
+                <?php } ?>
+                <?php if(session()->get('level') == 2) { ?> 
+                <li class="nav-item">
+                    <a href="<?php echo base_url('documentmasuk/laporan'); ?>" class="nav-link">
+                        <i class="nav-icon fas fa-print"></i>
+                        <p>
+                            Reports Docs Masuk
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?php echo base_url('documentkeluar/laporan'); ?>" class="nav-link">
+                        <i class="nav-icon fas fa-print"></i>
+                        <p>
+                            Reports Docs Keluar
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?php echo base_url('notamasuk/laporan'); ?>" class="nav-link">
+                        <i class="nav-icon fas fa-print"></i>
+                        <p>
+                            Reports Nota Masuk
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?php echo base_url('notakeluar/laporan'); ?>" class="nav-link">
+                        <i class="nav-icon fas fa-print"></i>
+                        <p>
+                            Reports Nota Keluar
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?php echo base_url('users/laporan'); ?>" class="nav-link">
+                        <i class="nav-icon fas fa-print"></i>
+                        <p>
+                            Reports Users
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?php echo base_url('karyawan/laporan'); ?>" class="nav-link">
+                        <i class="nav-icon fas fa-print"></i>
+                        <p>
+                            Reports Data Karyawan
+                        </p>
+                    </a>
+                </li>
                 <?php  } ?>
-                <li class="nav-item">
-                    <a href="<?php echo base_url('notamasuk'); ?>" class="nav-link">
-                        <i class="nav-icon fas fa-clipboard-list"></i>
-                        <p>
-                            Laporan Document Masuk
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?php echo base_url('notamasuk'); ?>" class="nav-link">
-                        <i class="nav-icon fas fa-clipboard-list"></i>
-                        <p>
-                            Laporan Document Keluar
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?php echo base_url('notamasuk'); ?>" class="nav-link">
-                        <i class="nav-icon fas fa-clipboard-list"></i>
-                        <p>
-                            Laporan Nota Masuk
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?php echo base_url('notamasuk'); ?>" class="nav-link">
-                        <i class="nav-icon fas fa-clipboard-list"></i>
-                        <p>
-                            Laporan Nota Keluar
-                        </p>
-                    </a>
-                </li>
             </ul>
         </nav>
     </div>
